@@ -203,7 +203,7 @@
 
 			<input type="text" class="gf-form-input"
 						 spellcheck='false' bs-typeahead="ctrl.suggestTagValues"
-						 data-min-length=0 data-items=100 ng-model="ctrl.target.currentTagValue" placeholder="value">
+						 data-min-length=0 data-items=100 ng-model="ctrl.target.currentTagValue" placeholder="值">
 			</input>
 
 			<label class="gf-form-label" ng-show="ctrl.errors.tags">
@@ -236,7 +236,7 @@
 			<input type="text" class="gf-form-input"
 					 	 ng-disabled="!ctrl.target.shouldComputeRate"
 						 ng-model="ctrl.target.counterMax" spellcheck='false'
-						 placeholder="max value" ng-model-onblur
+						 placeholder="最大值" ng-model-onblur
 						 ng-blur="ctrl.targetBlur()">
 			</input>
 
@@ -244,7 +244,7 @@
 			<input type="text" class="tight-form-input input-small"
 					   ng-disabled="!ctrl.target.shouldComputeRate"
 						 ng-model="ctrl.target.counterResetValue" spellcheck='false'
-						 placeholder="reset value" ng-model-onblur
+						 placeholder="重置" ng-model-onblur
 						 ng-blur="ctrl.targetBlur()">
 			</input>
 		</div>

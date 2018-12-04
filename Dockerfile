@@ -50,8 +50,7 @@ ENV PATH=/usr/share/grafana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bi
 
 WORKDIR $GF_PATHS_HOME
 
-RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -qq -y libfontconfig ca-certificates && \
+RUN apt-get update && apt-get install -qq -y libfontconfig ca-certificates && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/*
 
@@ -70,6 +69,7 @@ RUN mkdir -p "$GF_PATHS_HOME/.aws" && \
     chown -R grafana:grafana "$GF_PATHS_DATA" "$GF_PATHS_HOME/.aws" "$GF_PATHS_LOGS" "$GF_PATHS_PLUGINS" && \
     chmod 777 "$GF_PATHS_DATA" "$GF_PATHS_HOME/.aws" "$GF_PATHS_LOGS" "$GF_PATHS_PLUGINS"
 
+
 COPY --from=0 /go/src/github.com/grafana/grafana/bin/linux-amd64/grafana-server /go/src/github.com/grafana/grafana/bin/linux-amd64/grafana-cli ./bin/
 COPY --from=1 /usr/src/app/public ./public
 COPY --from=1 /usr/src/app/tools ./tools
@@ -78,6 +78,7 @@ COPY tools/phantomjs/render.js ./tools/phantomjs/render.js
 EXPOSE 3000
 
 COPY ./packaging/docker/run.sh /run.sh
-
+#RUN chmod -R 777 /soft/dockerdemo/src/github.com/grafana/grafana/node_modules/
+RUN chmod -R 777 /run.sh
 USER grafana
 ENTRYPOINT [ "/run.sh" ]

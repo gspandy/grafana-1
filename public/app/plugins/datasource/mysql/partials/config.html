@@ -9,17 +9,17 @@
 
 	<div class="gf-form max-width-30">
 		<span class="gf-form-label width-7">数据库</span>
-		<input type="text" class="gf-form-input" ng-model='ctrl.current.database' placeholder="database name" required></input>
+		<input type="text" class="gf-form-input" ng-model='ctrl.current.database' placeholder="数据库名" required></input>
 	</div>
 
 	<div class="gf-form-inline">
 		<div class="gf-form max-width-15">
 			<span class="gf-form-label width-7">用户名</span>
-			<input type="text" class="gf-form-input" ng-model='ctrl.current.user' placeholder="user"></input>
+			<input type="text" class="gf-form-input" ng-model='ctrl.current.user' placeholder="用户名"></input>
 		</div>
 		<div class="gf-form max-width-15">
 			<span class="gf-form-label width-7">密码</span>
-			<input type="password" class="gf-form-input" ng-model='ctrl.current.password' placeholder="password"></input>
+			<input type="password" class="gf-form-input" ng-model='ctrl.current.password' placeholder="密码"></input>
 		</div>
 	</div>
 </div>
@@ -29,7 +29,7 @@
 <div class="gf-form-group">
 	<div class="gf-form max-width-15">
 		<span class="gf-form-label width-7">最大连接数</span>
-		<input type="number" min="0" class="gf-form-input" ng-model="ctrl.current.jsonData.maxOpenConns" placeholder="unlimited"></input>
+		<input type="number" min="0" class="gf-form-input" ng-model="ctrl.current.jsonData.maxOpenConns" placeholder="未限制"></input>
 		<info-popover mode="right-absolute">
       数据库的最大打开连接数。如果<i>最大空闲连接</i>大于0且
       <i>最大打开连接</i>小于<i>最大空闲连接</i>，然后<i>最大空闲连接</i>将是

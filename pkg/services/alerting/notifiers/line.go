@@ -21,7 +21,7 @@ func init() {
       <h3 class="page-heading">LINE notify settings</h3>
       <div class="gf-form">
         <span class="gf-form-label width-14">Token</span>
-        <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.token" placeholder="LINE notify token key"></input>
+        <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.token" placeholder="LINE通知令牌密钥"></input>
       </div>
     </div>
 `,

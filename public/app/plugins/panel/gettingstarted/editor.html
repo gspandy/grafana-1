@@ -18,7 +18,7 @@
 			<span class="gf-form-label width-10">搜索项</span>
 			<span class="gf-form-label">查询</span>
 
-			<input type="text" class="gf-form-input" placeholder="title query"
+			<input type="text" class="gf-form-input" placeholder="标题查询"
 				ng-model="ctrl.panel.query" ng-change="ctrl.refresh()" ng-model-onblur>
 
 		</div>
@@ -26,7 +26,7 @@
 		<div class="gf-form">
 			<span class="gf-form-label">标签</span>
 
-			<bootstrap-tagsinput ng-model="ctrl.panel.tags" tagclass="label label-tag" placeholder="add tags" on-tags-updated="ctrl.refresh()">
+			<bootstrap-tagsinput ng-model="ctrl.panel.tags" tagclass="label label-tag" placeholder="添加标签" on-tags-updated="ctrl.refresh()">
 			</bootstrap-tagsinput>
 		</div>
 	</div>

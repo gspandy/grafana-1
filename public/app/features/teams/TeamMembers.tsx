@@ -93,7 +93,7 @@ export class TeamMembers extends PureComponent<Props, State> {
               <input
                 type="text"
                 className="gf-form-input"
-                placeholder="Search members"
+                placeholder="搜索成员"
                 value={searchMemberQuery}
                 onChange={this.onSearchQueryChange}
               />

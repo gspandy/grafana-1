@@ -24,7 +24,7 @@ func init() {
       <h3 class="page-heading">PagerDuty settings</h3>
       <div class="gf-form">
         <span class="gf-form-label width-14">Integration Key</span>
-        <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.integrationKey" placeholder="Pagerduty Integration Key"></input>
+        <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.integrationKey" placeholder="Pagerduty集成密钥"></input>
       </div>
       <div class="gf-form">
         <gf-form-switch

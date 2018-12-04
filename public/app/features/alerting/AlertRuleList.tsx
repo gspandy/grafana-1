@@ -98,7 +98,7 @@ export class AlertRuleList extends PureComponent<Props, any> {
                 <input
                   type="text"
                   className="gf-form-input"
-                  placeholder="Search alerts"
+                  placeholder="搜索告警"
                   value={search}
                   onChange={this.onSearchQueryChange}
                 />
@@ -106,7 +106,7 @@ export class AlertRuleList extends PureComponent<Props, any> {
               </label>
             </div>
             <div className="gf-form">
-              <label className="gf-form-label">States</label>
+              <label className="gf-form-label">状态</label>
 
               <div className="gf-form-select-wrapper width-13">
                 <select className="gf-form-input" onChange={this.onStateFilterChanged} value={this.getStateFilter()}>
@@ -116,7 +116,7 @@ export class AlertRuleList extends PureComponent<Props, any> {
             </div>
             <div className="page-action-bar__spacer" />
             <a className="btn btn-secondary" onClick={this.onOpenHowTo}>
-              <i className="fa fa-info-circle" /> How to add an alert
+              <i className="fa fa-info-circle" /> 如何添加一个告警
             </a>
           </div>
           <section>

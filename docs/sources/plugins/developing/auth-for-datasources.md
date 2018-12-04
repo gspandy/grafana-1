@@ -58,7 +58,7 @@ When a user saves a password or secret with your datasource plugin's Config page
 This is an example of using the `secureJsonData` blob to save a property called `password`:
 
 ```html
-<input type="password" class="gf-form-input" ng-model='ctrl.current.secureJsonData.password' placeholder="password"></input>
+<input type="password" class="gf-form-input" ng-model='ctrl.current.secureJsonData.password' placeholder="密码"></input>
 ```
 
 ## API Key/HTTP Header Authentication

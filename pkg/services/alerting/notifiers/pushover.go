@@ -23,15 +23,15 @@ func init() {
       <h3 class="page-heading">Pushover settings</h3>
       <div class="gf-form">
         <span class="gf-form-label width-10">API Token</span>
-        <input type="text" class="gf-form-input" required placeholder="Application token" ng-model="ctrl.model.settings.apiToken"></input>
+        <input type="text" class="gf-form-input" required 如何添加一个告警Application token" ng-model="ctrl.model.settings.apiToken"></input>
       </div>
       <div class="gf-form">
         <span class="gf-form-label width-10">User key(s)</span>
-        <input type="text" class="gf-form-input" required placeholder="comma-separated list" ng-model="ctrl.model.settings.userKey"></input>
+        <input type="text" class="gf-form-input" required 如何添加一个告警comma-separated list" ng-model="ctrl.model.settings.userKey"></input>
       </div>
       <div class="gf-form">
         <span class="gf-form-label width-10">Device(s) (optional)</span>
-        <input type="text" class="gf-form-input" placeholder="comma-separated list; leave empty to send to all devices" ng-model="ctrl.model.settings.device"></input>
+        <input type="text" class="gf-form-input" placeholder="以逗号分隔的列表;留空以发送到所有设备" ng-model="ctrl.model.settings.device"></input>
       </div>
       <div class="gf-form">
         <span class="gf-form-label width-10">Priority</span>
@@ -45,11 +45,11 @@ func init() {
       </div>
       <div class="gf-form" ng-show="ctrl.model.settings.priority == '2'">
         <span class="gf-form-label width-10">Retry</span>
-        <input type="text" class="gf-form-input max-width-14" ng-required="ctrl.model.settings.priority == '2'" placeholder="minimum 30 seconds" ng-model="ctrl.model.settings.retry" ng-init="ctrl.model.settings.retry=ctrl.model.settings.retry||'60'></input>
+        <input type="text" class="gf-form-input max-width-14" ng-required="ctrl.model.settings.priority == '2'" placeholder="最少30秒" ng-model="ctrl.model.settings.retry" ng-init="ctrl.model.settings.retry=ctrl.model.settings.retry||'60'></input>
       </div>
       <div class="gf-form" ng-show="ctrl.model.settings.priority == '2'">
         <span class="gf-form-label width-10">Expire</span>
-        <input type="text" class="gf-form-input max-width-14" ng-required="ctrl.model.settings.priority == '2'" placeholder="maximum 86400 seconds" ng-model="ctrl.model.settings.expire" ng-init="ctrl.model.settings.expire=ctrl.model.settings.expire||'3600'"></input>
+        <input type="text" class="gf-form-input max-width-14" ng-required="ctrl.model.settings.priority == '2'" placeholder="最多86400秒" ng-model="ctrl.model.settings.expire" ng-init="ctrl.model.settings.expire=ctrl.model.settings.expire||'3600'"></input>
       </div>
       <div class="gf-form">
         <span class="gf-form-label width-10">Sound</span>

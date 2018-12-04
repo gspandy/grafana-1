@@ -53,7 +53,7 @@ export class VizTypePicker extends PureComponent<Props, State> {
         <div className="viz-picker__search">
           <div className="gf-form gf-form--grow">
             <label className="gf-form--has-input-icon gf-form--grow">
-              <input type="text" className="gf-form-input" placeholder="Search type" />
+              <input type="text" className="gf-form-input" placeholder="搜索类型" />
               <i className="gf-form-input-icon fa fa-search" />
             </label>
           </div>

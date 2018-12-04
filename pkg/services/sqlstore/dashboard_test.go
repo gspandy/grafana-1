@@ -15,16 +15,16 @@ import (
 )
 
 func TestDashboardDataAccess(t *testing.T) {
-	Convey("Testing DB", t, func() {
+	Convey("测试DB", t, func() {
 		InitTestDB(t)
 
-		Convey("Given saved dashboard", func() {
+		Convey("给定保存的仪表板", func() {
 			savedFolder := insertTestDashboard("1 test dash folder", 1, 0, true, "prod", "webapp")
 			savedDash := insertTestDashboard("test dash 23", 1, savedFolder.Id, false, "prod", "webapp")
 			insertTestDashboard("test dash 45", 1, savedFolder.Id, false, "prod")
 			insertTestDashboard("test dash 67", 1, 0, false, "prod", "webapp")
 
-			Convey("Should return dashboard model", func() {
+			Convey("应该返回仪表板模型", func() {
 				So(savedDash.Title, ShouldEqual, "test dash 23")
 				So(savedDash.Slug, ShouldEqual, "test-dash-23")
 				So(savedDash.Id, ShouldNotEqual, 0)
@@ -40,7 +40,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(len(savedFolder.Uid), ShouldBeGreaterThan, 0)
 			})
 
-			Convey("Should be able to get dashboard by id", func() {
+			Convey("应该可以通过id获取仪表板", func() {
 				query := m.GetDashboardQuery{
 					Id:    savedDash.Id,
 					OrgId: 1,
@@ -56,7 +56,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(query.Result.IsFolder, ShouldBeFalse)
 			})
 
-			Convey("Should be able to get dashboard by slug", func() {
+			Convey("应该能够通过slug获得仪表板", func() {
 				query := m.GetDashboardQuery{
 					Slug:  "test-dash-23",
 					OrgId: 1,
@@ -72,7 +72,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(query.Result.IsFolder, ShouldBeFalse)
 			})
 
-			Convey("Should be able to get dashboard by uid", func() {
+			Convey("应该能够通过uid获得仪表板", func() {
 				query := m.GetDashboardQuery{
 					Uid:   savedDash.Uid,
 					OrgId: 1,
@@ -99,7 +99,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(err, ShouldBeNil)
 			})
 
-			Convey("Should retry generation of uid once if it fails.", func() {
+			Convey("如果uid失败，应该重试一次uid。", func() {
 				timesCalled := 0
 				generateNewUid = func() string {
 					timesCalled += 1
@@ -122,7 +122,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				generateNewUid = util.GenerateShortUid
 			})
 
-			Convey("Should be able to create dashboard", func() {
+			Convey("应该可以创建仪表板", func() {
 				cmd := m.SaveDashboardCommand{
 					OrgId: 1,
 					Dashboard: simplejson.NewFromAny(map[string]interface{}{
@@ -140,7 +140,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(cmd.Result.Updated.IsZero(), ShouldBeFalse)
 			})
 
-			Convey("Should be able to update dashboard by id and remove folderId", func() {
+			Convey("应该能够通过id更新仪表板并删除folderId", func() {
 				cmd := m.SaveDashboardCommand{
 					OrgId: 1,
 					Dashboard: simplejson.NewFromAny(map[string]interface{}{
@@ -186,7 +186,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(query.Result.Updated.IsZero(), ShouldBeFalse)
 			})
 
-			Convey("Should be able to delete a dashboard folder and its children", func() {
+			Convey("应该能够删除仪表板文件夹及其子项", func() {
 				deleteCmd := &m.DeleteDashboardCommand{Id: savedFolder.Id}
 				err := DeleteDashboard(deleteCmd)
 				So(err, ShouldBeNil)
@@ -203,7 +203,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(len(query.Result), ShouldEqual, 0)
 			})
 
-			Convey("Should return error if no dashboard is found for update when dashboard id is greater than zero", func() {
+			Convey("如果仪表板标识大于零时未找到更新仪表板，则应返回错误", func() {
 				cmd := m.SaveDashboardCommand{
 					OrgId:     1,
 					Overwrite: true,
@@ -218,7 +218,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(err, ShouldEqual, m.ErrDashboardNotFound)
 			})
 
-			Convey("Should not return error if no dashboard is found for update when dashboard id is zero", func() {
+			Convey("如果仪表板标识为零时没有找到要更新的仪表板，则不应返回错误", func() {
 				cmd := m.SaveDashboardCommand{
 					OrgId:     1,
 					Overwrite: true,
@@ -233,7 +233,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(err, ShouldBeNil)
 			})
 
-			Convey("Should be able to get dashboard tags", func() {
+			Convey("应该能够获得仪表板标签", func() {
 				query := m.GetDashboardTagsQuery{OrgId: 1}
 
 				err := GetDashboardTags(&query)
@@ -242,7 +242,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(len(query.Result), ShouldEqual, 2)
 			})
 
-			Convey("Should be able to search for dashboard folder", func() {
+			Convey("应该可以搜索仪表板文件夹", func() {
 				query := search.FindPersistedDashboardsQuery{
 					Title:        "1 test dash folder",
 					OrgId:        1,
@@ -259,7 +259,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(hit.FolderTitle, ShouldEqual, "")
 			})
 
-			Convey("Should be able to search for a dashboard folder's children", func() {
+			Convey("应该能够搜索仪表板文件夹的子项", func() {
 				query := search.FindPersistedDashboardsQuery{
 					OrgId:        1,
 					FolderIds:    []int64{savedFolder.Id},
@@ -279,8 +279,8 @@ func TestDashboardDataAccess(t *testing.T) {
 				So(hit.FolderUrl, ShouldEqual, fmt.Sprintf("/dashboards/f/%s/%s", savedFolder.Uid, savedFolder.Slug))
 			})
 
-			Convey("Should be able to search for dashboard by dashboard ids", func() {
-				Convey("should be able to find two dashboards by id", func() {
+			Convey("应该能够通过仪表板ID搜索仪表板", func() {
+				Convey("应该能够通过id找到两个仪表板", func() {
 					query := search.FindPersistedDashboardsQuery{
 						DashboardIds: []int64{2, 3},
 						SignedInUser: &m.SignedInUser{OrgId: 1, OrgRole: m.ROLE_EDITOR},
@@ -299,7 +299,7 @@ func TestDashboardDataAccess(t *testing.T) {
 				})
 			})
 
-			Convey("Given two dashboards, one is starred dashboard by user 10, other starred by user 1", func() {
+			Convey("给定两个仪表板，一个是用户10的星号仪表板，另一个是用户1的星号", func() {
 				starredDash := insertTestDashboard("starred dash", 1, 0, false)
 				StarDashboard(&m.StarDashboardCommand{
 					DashboardId: starredDash.Id,
@@ -311,7 +311,7 @@ func TestDashboardDataAccess(t *testing.T) {
 					UserId:      1,
 				})
 
-				Convey("Should be able to search for starred dashboards", func() {
+				Convey("应该可以搜索已加星标的仪表板", func() {
 					query := search.FindPersistedDashboardsQuery{
 						SignedInUser: &m.SignedInUser{UserId: 10, OrgId: 1, OrgRole: m.ROLE_EDITOR},
 						IsStarred:    true,
@@ -325,14 +325,14 @@ func TestDashboardDataAccess(t *testing.T) {
 			})
 		})
 
-		Convey("Given a plugin with imported dashboards", func() {
+		Convey("给定一个带有导入仪表板的插件", func() {
 			pluginId := "test-app"
 
 			appFolder := insertTestDashboardForPlugin("app-test", 1, 0, true, pluginId)
 			insertTestDashboardForPlugin("app-dash1", 1, appFolder.Id, false, pluginId)
 			insertTestDashboardForPlugin("app-dash2", 1, appFolder.Id, false, pluginId)
 
-			Convey("Should return imported dashboard", func() {
+			Convey("应该返回导入的仪表板", func() {
 				query := m.GetDashboardsByPluginIdQuery{
 					PluginId: pluginId,
 					OrgId:    1,

@@ -25,7 +25,7 @@ class EmptyListCTA extends Component<Props, any> {
           {buttonTitle}
         </a>
         <div className="empty-list-cta__pro-tip">
-          <i className="fa fa-rocket" /> ProTip: {proTip}
+          <i className="fa fa-rocket" /> 专家提示: {proTip}
           <a className="text-link empty-list-cta__pro-tip-link" href={proTipLink} target={proTipTarget}>
             {proTipLinkTitle}
           </a>

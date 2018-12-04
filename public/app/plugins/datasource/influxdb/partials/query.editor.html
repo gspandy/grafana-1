@@ -2,7 +2,7 @@
 
 	<div ng-if="ctrl.target.rawQuery">
     <div class="gf-form">
-      <textarea rows="3" class="gf-form-input" ng-model="ctrl.target.query" spellcheck="false" placeholder="InfluxDB Query" ng-model-onblur ng-change="ctrl.refresh()"></textarea>
+      <textarea rows="3" class="gf-form-input" ng-model="ctrl.target.query" spellcheck="false" placeholder="InfluxDB 查询" ng-model-onblur ng-change="ctrl.refresh()"></textarea>
     </div>
     <div class="gf-form-inline">
       <div class="gf-form">
@@ -102,7 +102,7 @@
     <div class="gf-form-inline" ng-if="ctrl.target.limit">
       <div class="gf-form">
         <label class="gf-form-label query-keyword width-7">LIMIT</label>
-        <input type="text" class="gf-form-input width-9" ng-model="ctrl.target.limit" spellcheck='false' placeholder="No Limit" ng-blur="ctrl.refresh()">
+        <input type="text" class="gf-form-input width-9" ng-model="ctrl.target.limit" spellcheck='false' placeholder="未限制" ng-blur="ctrl.refresh()">
       </div>
       <div class="gf-form gf-form--grow">
 				<div class="gf-form-label gf-form-label--grow"></div>
@@ -112,7 +112,7 @@
     <div class="gf-form-inline" ng-if="ctrl.target.slimit">
       <div class="gf-form">
         <label class="gf-form-label query-keyword width-7">SLIMIT</label>
-        <input type="text" class="gf-form-input width-9" ng-model="ctrl.target.slimit" spellcheck='false' placeholder="No Limit" ng-blur="ctrl.refresh()">
+        <input type="text" class="gf-form-input width-9" ng-model="ctrl.target.slimit" spellcheck='false' placeholder="未限制" ng-blur="ctrl.refresh()">
       </div>
       <div class="gf-form gf-form--grow">
 				<div class="gf-form-label gf-form-label--grow"></div>

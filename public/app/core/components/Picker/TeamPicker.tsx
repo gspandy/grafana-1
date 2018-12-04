@@ -75,7 +75,7 @@ export class TeamPicker extends Component<Props, State> {
             IndicatorsContainer,
             NoOptionsMessage,
           }}
-          placeholder="Select a team"
+          placeholder="选择一个团队"
           loadingMessage={() => 'Loading...'}
           noOptionsMessage={() => 'No teams found'}
           getOptionValue={i => i.id}

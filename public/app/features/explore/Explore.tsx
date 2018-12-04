@@ -860,7 +860,7 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
                 onChange={this.onChangeDatasource}
                 options={exploreDatasources}
                 styles={ResetStyles}
-                placeholder="Select datasource"
+                placeholder="选择数据源"
                 loadingMessage={() => 'Loading datasources...'}
                 noOptionsMessage={() => 'No datasources found'}
                 value={selectedDatasource}

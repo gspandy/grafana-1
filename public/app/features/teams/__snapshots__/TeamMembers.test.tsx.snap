@@ -14,7 +14,7 @@ exports[`Render should render component 1`] = `
         <input
           className="gf-form-input"
           onChange={[Function]}
-          placeholder="Search members"
+          placeholder="搜索成员"
           type="text"
           value=""
         />
@@ -108,7 +108,7 @@ exports[`Render should render team members 1`] = `
         <input
           className="gf-form-input"
           onChange={[Function]}
-          placeholder="Search members"
+          placeholder="搜索成员"
           type="text"
           value=""
         />
@@ -328,7 +328,7 @@ exports[`Render should render team members when sync enabled 1`] = `
         <input
           className="gf-form-input"
           onChange={[Function]}
-          placeholder="Search members"
+          placeholder="搜索成员"
           type="text"
           value=""
         />

@@ -6,7 +6,7 @@
 				过滤
 				<info-popover mode="right-normal">
 					<ul>
-						<li>仪表板：这将获取整个仪表板的注释和警报状态更改，并仅在事件的原始面板上显示它们。</li>
+						<li>仪表板：这将获取整个仪表板的注释和告警状态更改，并仅在事件的原始面板上显示它们。</li>
 						<li>全部：这将获取与标签过滤器匹配的任何注释事件。</li>
 					</ul>
 				</info-popover>
@@ -36,7 +36,7 @@
 		</div>
 		<div class="gf-form" ng-if="ctrl.annotation.type === 'tags'">
 			<span class="gf-form-label">标签</span>
-			<bootstrap-tagsinput ng-model="ctrl.annotation.tags" tagclass="label label-tag" placeholder="add tags">
+			<bootstrap-tagsinput ng-model="ctrl.annotation.tags" tagclass="label label-tag" placeholder="添加标签">
 			</bootstrap-tagsinput>
 		</div>
 	</div>

@@ -26,18 +26,18 @@ func TestAlertingDataAccess(t *testing.T) {
 	mockTimeNow()
 	defer resetTimeNow()
 
-	Convey("Testing Alerting data access", t, func() {
+	Convey("测试告警数据访问", t, func() {
 		InitTestDB(t)
 
-		testDash := insertTestDashboard("dashboard with alerts", 1, 0, false, "alert")
+		testDash := insertTestDashboard("带告警的仪表板", 1, 0, false, "alert")
 		evalData, _ := simplejson.NewJson([]byte(`{"test": "test"}`))
 		items := []*m.Alert{
 			{
 				PanelId:     1,
 				DashboardId: testDash.Id,
 				OrgId:       testDash.OrgId,
-				Name:        "Alerting title",
-				Message:     "Alerting message",
+				Name:        "告警标题",
+				Message:     "告警信息",
 				Settings:    simplejson.New(),
 				Frequency:   1,
 				EvalData:    evalData,
@@ -53,12 +53,12 @@ func TestAlertingDataAccess(t *testing.T) {
 
 		err := SaveAlerts(&cmd)
 
-		Convey("Can create one alert", func() {
+		Convey("可以创建一个告警", func() {
 			So(err, ShouldBeNil)
 		})
 
-		Convey("Can set new states", func() {
-			Convey("new state ok", func() {
+		Convey("可以设置新的状态", func() {
+			Convey("新的状态 ok", func() {
 				cmd := &m.SetAlertStateCommand{
 					AlertId: 1,
 					State:   m.AlertStateOK,
@@ -71,10 +71,10 @@ func TestAlertingDataAccess(t *testing.T) {
 			alert, _ := getAlertById(1)
 			stateDateBeforePause := alert.NewStateDate
 
-			Convey("can pause all alerts", func() {
+			Convey("可以暂停所有提醒", func() {
 				pauseAllAlerts(true)
 
-				Convey("cannot updated paused alert", func() {
+				Convey("无法更新暂停的提醒", func() {
 					cmd := &m.SetAlertStateCommand{
 						AlertId: 1,
 						State:   m.AlertStateOK,
@@ -84,13 +84,13 @@ func TestAlertingDataAccess(t *testing.T) {
 					So(err, ShouldNotBeNil)
 				})
 
-				Convey("pausing alerts should update their NewStateDate", func() {
+				Convey("暂停告警应更新其NewStateDate", func() {
 					alert, _ = getAlertById(1)
 					stateDateAfterPause := alert.NewStateDate
 					So(stateDateBeforePause, ShouldHappenBefore, stateDateAfterPause)
 				})
 
-				Convey("unpausing alerts should update their NewStateDate again", func() {
+				Convey("未暂停的告警应该再次更新其NewStateDate", func() {
 					pauseAllAlerts(false)
 					alert, _ = getAlertById(1)
 					stateDateAfterUnpause := alert.NewStateDate
@@ -99,7 +99,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			})
 		})
 
-		Convey("Can read properties", func() {
+		Convey("可以读取属性", func() {
 			alertQuery := m.GetAlertsQuery{DashboardIDs: []int64{testDash.Id}, PanelId: 1, OrgId: 1, User: &m.SignedInUser{OrgRole: m.ROLE_ADMIN}}
 			err2 := HandleAlertsQuery(&alertQuery)
 
@@ -108,7 +108,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			So(alert.Id, ShouldBeGreaterThan, 0)
 			So(alert.DashboardId, ShouldEqual, testDash.Id)
 			So(alert.PanelId, ShouldEqual, 1)
-			So(alert.Name, ShouldEqual, "Alerting title")
+			So(alert.Name, ShouldEqual, "告警标题")
 			So(alert.State, ShouldEqual, m.AlertStateUnknown)
 			So(alert.NewStateDate, ShouldNotBeNil)
 			So(alert.EvalData, ShouldNotBeNil)
@@ -141,11 +141,11 @@ func TestAlertingDataAccess(t *testing.T) {
 
 			err := SaveAlerts(&modifiedCmd)
 
-			Convey("Can save alerts with same dashboard and panel id", func() {
+			Convey("可以使用相同的仪表板和面板ID保存告警", func() {
 				So(err, ShouldBeNil)
 			})
 
-			Convey("Alerts should be updated", func() {
+			Convey("告警应该更新", func() {
 				query := m.GetAlertsQuery{DashboardIDs: []int64{testDash.Id}, OrgId: 1, User: &m.SignedInUser{OrgRole: m.ROLE_ADMIN}}
 				err2 := HandleAlertsQuery(&query)
 
@@ -153,18 +153,18 @@ func TestAlertingDataAccess(t *testing.T) {
 				So(len(query.Result), ShouldEqual, 1)
 				So(query.Result[0].Name, ShouldEqual, "Name")
 
-				Convey("Alert state should not be updated", func() {
+				Convey("告警状态不应更新", func() {
 					So(query.Result[0].State, ShouldEqual, m.AlertStateUnknown)
 				})
 			})
 
-			Convey("Updates without changes should be ignored", func() {
+			Convey("应忽略不更改的更新", func() {
 				err3 := SaveAlerts(&modifiedCmd)
 				So(err3, ShouldBeNil)
 			})
 		})
 
-		Convey("Multiple alerts per dashboard", func() {
+		Convey("每个仪表板有多个告警", func() {
 			multipleItems := []*m.Alert{
 				{
 					DashboardId: testDash.Id,
@@ -192,7 +192,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			cmd.Alerts = multipleItems
 			err = SaveAlerts(&cmd)
 
-			Convey("Should save 3 dashboards", func() {
+			Convey("应该保存3个仪表板", func() {
 				So(err, ShouldBeNil)
 
 				queryForDashboard := m.GetAlertsQuery{DashboardIDs: []int64{testDash.Id}, OrgId: 1, User: &m.SignedInUser{OrgRole: m.ROLE_ADMIN}}
@@ -202,13 +202,13 @@ func TestAlertingDataAccess(t *testing.T) {
 				So(len(queryForDashboard.Result), ShouldEqual, 3)
 			})
 
-			Convey("should updated two dashboards and delete one", func() {
+			Convey("应该更新两个仪表板并删除一个", func() {
 				missingOneAlert := multipleItems[:2]
 
 				cmd.Alerts = missingOneAlert
 				err = SaveAlerts(&cmd)
 
-				Convey("should delete the missing alert", func() {
+				Convey("应该删除丢失的告警", func() {
 					query := m.GetAlertsQuery{DashboardIDs: []int64{testDash.Id}, OrgId: 1, User: &m.SignedInUser{OrgRole: m.ROLE_ADMIN}}
 					err2 := HandleAlertsQuery(&query)
 					So(err2, ShouldBeNil)
@@ -217,13 +217,13 @@ func TestAlertingDataAccess(t *testing.T) {
 			})
 		})
 
-		Convey("When dashboard is removed", func() {
+		Convey("删除仪表板时", func() {
 			items := []*m.Alert{
 				{
 					PanelId:     1,
 					DashboardId: testDash.Id,
-					Name:        "Alerting title",
-					Message:     "Alerting message",
+					Name:        "告警标题",
+					Message:     "告警信息",
 				},
 			}
 
@@ -259,18 +259,18 @@ func TestPausingAlerts(t *testing.T) {
 	mockTimeNow()
 	defer resetTimeNow()
 
-	Convey("Given an alert", t, func() {
+	Convey("给出告警", t, func() {
 		InitTestDB(t)
 
-		testDash := insertTestDashboard("dashboard with alerts", 1, 0, false, "alert")
-		alert, _ := insertTestAlert("Alerting title", "Alerting message", testDash.OrgId, testDash.Id, simplejson.New())
+		testDash := insertTestDashboard("带告警的仪表板", 1, 0, false, "alert")
+		alert, _ := insertTestAlert("告警标题", "告警信息", testDash.OrgId, testDash.Id, simplejson.New())
 
 		stateDateBeforePause := alert.NewStateDate
 		stateDateAfterPause := stateDateBeforePause
-		Convey("when paused", func() {
+		Convey("暂停时", func() {
 			pauseAlert(testDash.OrgId, 1, true)
 
-			Convey("the NewStateDate should be updated", func() {
+			Convey("应该更新NewStateDate", func() {
 				alert, _ := getAlertById(1)
 
 				stateDateAfterPause = alert.NewStateDate
@@ -278,10 +278,10 @@ func TestPausingAlerts(t *testing.T) {
 			})
 		})
 
-		Convey("when unpaused", func() {
+		Convey("恢复时", func() {
 			pauseAlert(testDash.OrgId, 1, false)
 
-			Convey("the NewStateDate should be updated again", func() {
+			Convey("应该再次更新NewStateDate", func() {
 				alert, _ := getAlertById(1)
 
 				stateDateAfterUnpause := alert.NewStateDate

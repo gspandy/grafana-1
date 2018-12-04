@@ -190,7 +190,7 @@ func (hs *HTTPServer) setIndexViewData(c *m.ReqContext) (*dtos.IndexViewData, er
 
 		data.NavTree = append(data.NavTree, &dtos.NavLink{
 			Text:     "报警",
-			SubTitle: "警报规则和通知",
+			SubTitle: "告警规则和通知",
 			Id:       "alerting",
 			Icon:     "gicon gicon-alert",
 			Url:      setting.AppSubUrl + "/alerting/list",

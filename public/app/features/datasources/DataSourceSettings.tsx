@@ -55,14 +55,12 @@ export class DataSourceSettings extends PureComponent<Props, State> {
     switch (dataSourceMeta.state) {
       case DataSourceStates.Alpha:
         return (
-          'This plugin is marked as being in alpha state, which means it is in early development phase and updates' +
-          ' will include breaking changes.'
+        '此插件被标记为处于alpha状态，这意味着它处于早期开发阶段并更新将包括改变。'
         );
 
       case DataSourceStates.Beta:
         return (
-          'This plugin is marked as being in a beta development state. This means it is in currently in active' +
-          ' development and could be missing important features.'
+          '此插件标记为处于beta开发状态。这意味着它目前正在积极开发中，可能缺少重要功能。'
         );
     }
 
@@ -94,19 +92,18 @@ export class DataSourceSettings extends PureComponent<Props, State> {
           {this.shouldRenderInfoBox() && <div className="grafana-info-box">{this.getInfoText()}</div>}
           {this.isReadyOnly() && (
             <div className="grafana-info-box span8">
-              This datasource was added by config and cannot be modified using the UI. Please contact your server admin
-              to update this datasource.
+              此数据源是由config添加的，无法使用UI进行修改。请联系您的服务器管理员更新此数据源。
             </div>
           )}
           <div className="gf-form-button-row">
             <button type="submit" className="btn btn-success" disabled={this.isReadyOnly()} onClick={this.onSubmit}>
-              Save &amp; Test
+              保存 &amp; 测试
             </button>
             <button type="submit" className="btn btn-danger" disabled={this.isReadyOnly()} onClick={this.onDelete}>
-              Delete
+              删除
             </button>
             <a className="btn btn-inverse" href="datasources">
-              Back
+              回退
             </a>
           </div>
         </form>

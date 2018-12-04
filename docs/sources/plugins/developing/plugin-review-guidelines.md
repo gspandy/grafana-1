@@ -125,7 +125,7 @@ Below is a minimal example of an editor row with one form group and two fields, 
       </div>
       <div class="gf-form">
         <label class="gf-form-label width-10">Label2</label>
-        <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.myProperty" ng-change="ctrl.onFieldChange()" placeholder="suggestion for user" ng-model-onblur />
+        <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.myProperty" ng-change="ctrl.onFieldChange()" placeholder="对用户的建议" ng-model-onblur />
       </div>
     </div>
   </div>
@@ -159,8 +159,8 @@ Read more here about how [Authentication for Datasources]({{< relref "auth-for-d
 
 If using the proxy feature then the Config page should use the `secureJsonData` blob like this:
 
-  - good: `<input type="password" class="gf-form-input" ng-model='ctrl.current.secureJsonData.password' placeholder="password"></input>`
-  - bad: `<input type="password" class="gf-form-input" ng-model='ctrl.current.password' placeholder="password"></input>`
+  - good: `<input type="password" class="gf-form-input" ng-model='ctrl.current.secureJsonData.password' placeholder="密码"></input>`
+  - bad: `<input type="password" class="gf-form-input" ng-model='ctrl.current.password' placeholder="密码"></input>`
 
 ### Query Editor
 

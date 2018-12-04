@@ -29,14 +29,14 @@ func init() {
       </div>
       <div class="gf-form">
         <span class="gf-form-label width-10">Handler</span>
-        <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.handler" placeholder="default"></input>
+        <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.handler" placeholder="默认"></input>
       </div>
       <div class="gf-form">
-        <span class="gf-form-label width-10">Username</span>
+        <span class="gf-form-label width-10">用户名</span>
         <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.username"></input>
       </div>
       <div class="gf-form">
-        <span class="gf-form-label width-10">Password</span>
+        <span class="gf-form-label width-10">密码</span>
         <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.password"></input>
       </div>
     `,

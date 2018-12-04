@@ -20,7 +20,7 @@ exports[`Render should render alert rules 1`] = `
           <input
             className="gf-form-input"
             onChange={[Function]}
-            placeholder="Search alerts"
+            placeholder="搜索告警"
             type="text"
             value=""
           />
@@ -35,7 +35,7 @@ exports[`Render should render alert rules 1`] = `
         <label
           className="gf-form-label"
         >
-          States
+          状态
         </label>
         <div
           className="gf-form-select-wrapper width-13"
@@ -100,7 +100,7 @@ exports[`Render should render alert rules 1`] = `
         <i
           className="fa fa-info-circle"
         />
-         How to add an alert
+         如何添加一个告警
       </a>
     </div>
     <section>
@@ -175,7 +175,7 @@ exports[`Render should render component 1`] = `
           <input
             className="gf-form-input"
             onChange={[Function]}
-            placeholder="Search alerts"
+            placeholder="搜索告警"
             type="text"
             value=""
           />
@@ -190,7 +190,7 @@ exports[`Render should render component 1`] = `
         <label
           className="gf-form-label"
         >
-          States
+          状态
         </label>
         <div
           className="gf-form-select-wrapper width-13"
@@ -255,7 +255,7 @@ exports[`Render should render component 1`] = `
         <i
           className="fa fa-info-circle"
         />
-         How to add an alert
+         如何添加一个告警
       </a>
     </div>
     <section>
