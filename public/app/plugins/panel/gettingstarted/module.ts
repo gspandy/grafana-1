@@ -16,7 +16,7 @@ class GettingStartedPanelCtrl extends PanelCtrl {
     this.steps = [];
 
     this.steps.push({
-      title: 'Install Grafana',
+      title: '安装 Grafana',
       icon: 'icon-gf icon-gf-check',
       href: 'http://docs.grafana.org/',
       target: '_blank',
@@ -25,8 +25,8 @@ class GettingStartedPanelCtrl extends PanelCtrl {
     });
 
     this.steps.push({
-      title: 'Create your first data source',
-      cta: 'Add data source',
+      title: '创建您的第一个数据源',
+      cta: '添加数据源',
       icon: 'icon-gf icon-gf-datasources',
       href: 'datasources/new?gettingstarted',
       check: () => {
@@ -39,8 +39,8 @@ class GettingStartedPanelCtrl extends PanelCtrl {
     });
 
     this.steps.push({
-      title: 'Create your first dashboard',
-      cta: 'New dashboard',
+      title: '创建您的第一个仪表盘',
+      cta: '创建仪表盘',
       icon: 'icon-gf icon-gf-dashboard',
       href: 'dashboard/new?gettingstarted',
       check: () => {
@@ -51,8 +51,8 @@ class GettingStartedPanelCtrl extends PanelCtrl {
     });
 
     this.steps.push({
-      title: 'Invite your team',
-      cta: 'Add Users',
+      title: '邀请你的团队',
+      cta: '添加用户',
       icon: 'icon-gf icon-gf-users',
       href: 'org/users?gettingstarted',
       check: () => {
@@ -63,8 +63,8 @@ class GettingStartedPanelCtrl extends PanelCtrl {
     });
 
     this.steps.push({
-      title: 'Install apps & plugins',
-      cta: 'Explore plugin repository',
+      title: '安装应用 & 插件',
+      cta: '探索插件库',
       icon: 'icon-gf icon-gf-apps',
       href: 'https://grafana.com/plugins?utm_source=grafana_getting_started',
       check: () => {

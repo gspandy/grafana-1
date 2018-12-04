@@ -9,7 +9,7 @@ export interface Props {
 const OrgProfile: SFC<Props> = ({ onSubmit, onOrgNameChange, orgName }) => {
   return (
     <div>
-      <h3 className="page-sub-heading">Organization profile</h3>
+      <h3 className="page-sub-heading">组织简介</h3>
       <form
         name="orgForm"
         className="gf-form-group"
@@ -20,7 +20,7 @@ const OrgProfile: SFC<Props> = ({ onSubmit, onOrgNameChange, orgName }) => {
       >
         <div className="gf-form-inline">
           <div className="gf-form max-width-28">
-            <span className="gf-form-label">Organization name</span>
+            <span className="gf-form-label">组织名称</span>
             <input
               className="gf-form-input"
               type="text"

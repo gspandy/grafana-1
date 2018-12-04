@@ -36,7 +36,7 @@ class NewDataSourcePage extends PureComponent<Props> {
       <div>
         <PageHeader model={navModel} />
         <div className="page-container page-body">
-          <h2 className="add-data-source-header">Choose data source type</h2>
+          <h2 className="add-data-source-header">选择数据源类型</h2>
           <div className="add-data-source-search">
             <label className="gf-form--has-input-icon">
               <input
@@ -44,7 +44,7 @@ class NewDataSourcePage extends PureComponent<Props> {
                 className="gf-form-input width-20"
                 value={dataSourceTypeSearchQuery}
                 onChange={this.onSearchQueryChange}
-                placeholder="Filter by name or type"
+                placeholder="通过名称或者类型过滤"
               />
               <i className="gf-form-input-icon fa fa-search" />
             </label>

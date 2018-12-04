@@ -1,7 +1,7 @@
 <page-header model="ctrl.navModel"></page-header>
 
 <div class="page-container page-body">
-  <h3 class="page-sub-heading">Settings</h3>
+  <h3 class="page-sub-heading">设置</h3>
 
   <form name="ctrl.editForm" ng-if="ctrl.current">
     <div class="gf-form-group">
@@ -10,9 +10,7 @@
           <span class="gf-form-label width-10">Name</span>
           <input class="gf-form-input max-width-23" type="text" ng-model="ctrl.current.name" placeholder="name" required>
           <info-popover offset="0px -135px" mode="right-absolute">
-            The name is used when you select the data source in panels.
-            The <em>Default</em> data source is preselected in new
-            panels.
+            在面板中选择数据源时，将使用其名称。<em>默认</em>数据源已在新的面板中预选。
           </info-popover>
         </div>
         <gf-form-switch class="gf-form" label="Default" checked="ctrl.current.isDefault" switch-class="max-width-6"></gf-form-switch>
@@ -20,13 +18,12 @@
     </div>
 
     <div class="grafana-info-box" ng-if="ctrl.datasourceMeta.state === 'alpha'">
-      This plugin is marked as being in alpha state, which means it is in early development phase and
-      updates will include breaking changes.
+      此插件被标记为处于alpha状态，这意味着它处于早期开发阶段更新将包括重大变更。
     </div>
 
 		<div class="grafana-info-box" ng-if="ctrl.datasourceMeta.state === 'beta'">
-      This plugin is marked as being in a beta development state. This means it is in currently in active development and could be
-      missing important features.
+      此插件标记为处于beta开发状态。这意味着它目前正在积极开发中，并且可能
+      缺少重要的功能。
     </div>
 
     <rebuild-on-change property="ctrl.datasourceMeta.id">
@@ -35,14 +32,14 @@
     </rebuild-on-change>
 
     <div ng-if="ctrl.hasDashboards">
-      <h3 class="section-heading">Bundled Plugin Dashboards</h3>
+      <h3 class="section-heading">绑定的插件仪表板</h3>
       <div class="section">
         <dashboard-import-list plugin="ctrl.datasourceMeta" datasource="ctrl.current"></dashboard-import-list>
       </div>
     </div>
 
     <div ng-if="ctrl.testing" class="gf-form-group section">
-      <h5 ng-show="!ctrl.testing.done">Testing.... <i class="fa fa-spiner fa-spin"></i></h5>
+      <h5 ng-show="!ctrl.testing.done">测试.... <i class="fa fa-spiner fa-spin"></i></h5>
       <div class="alert-{{ctrl.testing.status}} alert" ng-show="ctrl.testing.done">
         <div class="alert-icon">
           <i class="fa fa-exclamation-triangle" ng-show="ctrl.testing.status === 'error'"></i>
@@ -55,13 +52,13 @@
     </div>
 
 		<div class="grafana-info-box span8" ng-if="ctrl.current.readOnly">
-			This datasource was added by config and cannot be modified using the UI. Please contact your server admin to update this datasource.
-		</div>
+      此数据源是由配置添加的，无法使用页面进行修改。请联系您的服务器管理员以更新此数据源.
+    </div>
 
 		<div class="gf-form-button-row">
-			<button type="submit" class="btn btn-success" ng-disabled="ctrl.current.readOnly"  ng-click="ctrl.saveChanges()">Save &amp; Test</button>
-			<button type="submit" class="btn btn-danger" ng-disabled="ctrl.current.readOnly"  ng-show="!ctrl.isNew" ng-click="ctrl.delete()">Delete</button>
-			<a class="btn btn-inverse" href="datasources">Back</a>
+			<button type="submit" class="btn btn-success" ng-disabled="ctrl.current.readOnly"  ng-click="ctrl.saveChanges()">保存并测试</button>
+			<button type="submit" class="btn btn-danger" ng-disabled="ctrl.current.readOnly"  ng-show="!ctrl.isNew" ng-click="ctrl.delete()">删除</button>
+			<a class="btn btn-inverse" href="datasources">返回</a>
 		</div>
 
 		<br />

@@ -1,6 +1,6 @@
 <div class="gf-form-inline">
   <div class="gf-form">
-    <span class="gf-form-label width-9 query-keyword">Service</span>
+    <span class="gf-form-label width-9 query-keyword">服务</span>
     <select
       class="gf-form-input width-12"
       ng-model="ctrl.service"
@@ -9,7 +9,7 @@
     ></select>
   </div>
   <div class="gf-form">
-    <span class="gf-form-label width-9 query-keyword">Metric</span>
+    <span class="gf-form-label width-9 query-keyword">指标</span>
     <gf-form-dropdown
       model="ctrl.metricType"
       get-options="ctrl.metrics"
@@ -26,7 +26,7 @@
 </div>
 <div class="gf-form-inline">
   <div class="gf-form">
-    <span class="gf-form-label query-keyword width-9">Filter</span>
+    <span class="gf-form-label query-keyword width-9">过滤器</span>
     <div class="gf-form" ng-repeat="segment in ctrl.filterSegments.filterSegments">
       <metric-segment
         segment="segment"
@@ -39,7 +39,7 @@
 </div>
 <div class="gf-form-inline" ng-hide="ctrl.$scope.hideGroupBys">
   <div class="gf-form">
-    <span class="gf-form-label query-keyword width-9">Group By</span>
+    <span class="gf-form-label query-keyword width-9">分组</span>
     <div class="gf-form" ng-repeat="segment in ctrl.groupBySegments">
       <metric-segment
         segment="segment"

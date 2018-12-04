@@ -69,12 +69,12 @@ transformers['timeseries_aggregations'] = {
   description: 'Time series aggregations',
   getColumns: () => {
     return [
-      { text: 'Avg', value: 'avg' },
-      { text: 'Min', value: 'min' },
-      { text: 'Max', value: 'max' },
-      { text: 'Total', value: 'total' },
-      { text: 'Current', value: 'current' },
-      { text: 'Count', value: 'count' },
+      { text: '平均值', value: 'avg' },
+      { text: '最小值', value: 'min' },
+      { text: '最大值', value: 'max' },
+      { text: '总计', value: 'total' },
+      { text: '当前值', value: 'current' },
+      { text: '总数', value: 'count' },
     ];
   },
   transform: (data, panel, model) => {
@@ -104,7 +104,7 @@ transformers['timeseries_aggregations'] = {
 };
 
 transformers['annotations'] = {
-  description: 'Annotations',
+  description: '注释',
   getColumns: () => {
     return [];
   },
@@ -126,7 +126,7 @@ transformers['annotations'] = {
 };
 
 transformers['table'] = {
-  description: 'Table',
+  description: '表',
   getColumns: data => {
     if (!data || data.length === 0) {
       return [];
@@ -162,9 +162,9 @@ transformers['table'] = {
     const noTableIndex = _.findIndex(data, d => d.type !== 'table');
     if (noTableIndex > -1) {
       throw {
-        message: `Result of query #${String.fromCharCode(
+        message: ` #${String.fromCharCode(
           65 + noTableIndex
-        )} is not in table format, try using another transform.`,
+        )} 的查询结果不是表格格式，尝试使用其他变换.`,
       };
     }
 
@@ -173,7 +173,7 @@ transformers['table'] = {
 };
 
 transformers['json'] = {
-  description: 'JSON Data',
+  description: 'JSON 数据',
   getColumns: data => {
     if (!data || data.length === 0) {
       return [];

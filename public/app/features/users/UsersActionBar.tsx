@@ -49,7 +49,7 @@ export class UsersActionBar extends PureComponent<Props> {
               className="gf-form-input width-20"
               value={searchQuery}
               onChange={event => setUsersSearchQuery(event.target.value)}
-              placeholder="Filter by name or type"
+              placeholder="通过名称或者类型过滤"
             />
             <i className="gf-form-input-icon fa fa-search" />
           </label>

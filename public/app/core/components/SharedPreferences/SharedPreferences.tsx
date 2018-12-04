@@ -21,7 +21,7 @@ const themes = [{ value: '', text: 'Default' }, { value: 'dark', text: 'Dark' },
 
 const timezones = [
   { value: '', text: 'Default' },
-  { value: 'browser', text: 'Local browser time' },
+  { value: 'browser', text: '本地浏览器时间' },
   { value: 'utc', text: 'UTC' },
 ];
 
@@ -88,9 +88,9 @@ export class SharedPreferences extends PureComponent<Props, State> {
 
     return (
       <form className="section gf-form-group" onSubmit={this.onSubmitForm}>
-        <h3 className="page-heading">Preferences</h3>
+        <h3 className="page-heading">首选项</h3>
         <div className="gf-form">
-          <span className="gf-form-label width-11">UI Theme</span>
+          <span className="gf-form-label width-11">页面主题</span>
           <SimplePicker
             value={themes.find(item => item.value === theme)}
             options={themes}
@@ -103,9 +103,9 @@ export class SharedPreferences extends PureComponent<Props, State> {
         <div className="gf-form">
           <Label
             width={11}
-            tooltip="Not finding dashboard you want? Star it first, then it should appear in this select box."
+            tooltip="找不到你想要的仪表板？首先加注星标，然后它应出现在此选择框中。"
           >
-            Home Dashboard
+            主仪表盘
           </Label>
           <SimplePicker
             value={dashboards.find(dashboard => dashboard.id === homeDashboardId)}
@@ -113,7 +113,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
             getOptionLabel={i => i.title}
             onSelected={(dashboard: DashboardSearchHit) => this.onHomeDashboardChanged(dashboard.id)}
             options={dashboards}
-            placeholder="Chose default dashboard"
+            placeholder="选择默认的仪表盘"
             width={20}
           />
         </div>

@@ -3,14 +3,14 @@ import renderer from 'react-test-renderer';
 import EmptyListCTA from './EmptyListCTA';
 
 const model = {
-  title: 'Title',
+  title: '标题',
   buttonIcon: 'ga css class',
   buttonLink: 'http://url/to/destination',
-  buttonTitle: 'Click me',
+  buttonTitle: '点击这里',
   onClick: jest.fn(),
-  proTip: 'This is a tip',
+  proTip: '这是一个提示',
   proTipLink: 'http://url/to/tip/destination',
-  proTipLinkTitle: 'Learn more',
+  proTipLinkTitle: '了解更多',
   proTipTarget: '_blank',
 };
 

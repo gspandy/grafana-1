@@ -6,15 +6,15 @@ describe('when rendering table', () => {
   describe('given 13 columns', () => {
     const table = new TableModel();
     table.columns = [
-      { text: 'Time' },
-      { text: 'Value' },
-      { text: 'Colored' },
-      { text: 'Undefined' },
+      { text: '时间' },
+      { text: '值' },
+      { text: '有色' },
+      { text: '未定义' },
       { text: 'String' },
       { text: 'United', unit: 'bps' },
       { text: 'Sanitized' },
       { text: 'Link' },
-      { text: 'Array' },
+      { text: '数组' },
       { text: 'Mapping' },
       { text: 'RangeMapping' },
       { text: 'MappingColored' },

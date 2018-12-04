@@ -2,7 +2,7 @@
 	<div class="gf-form-inline">
 		<div class="gf-form max-width-25">
 			<label class="gf-form-label query-keyword width-8">
-				Metric
+				指标
 				<label class="gf-form-label" bs-tooltip="ctrl.errors.metric" style="color: rgb(229, 189, 28)" ng-show="ctrl.errors.metric">
 					<i class="fa fa-warning"></i>
 				</label>
@@ -14,7 +14,7 @@
 		</div>
 		<div class="gf-form">
 			<label class="gf-form-label query-keyword">
-				Aggregator
+        聚合
 				<a bs-tooltip="ctrl.errors.aggregator" style="color: rgb(229, 189, 28)" ng-show="ctrl.errors.aggregator">
 					<i class="fa fa-warning"></i>
 				</a>
@@ -28,9 +28,9 @@
 		</div>
 			<div class="gf-form max-width-20">
 				<label class="gf-form-label query-keyword width-6">
-					Alias:
+					别名:
 					<info-popover mode="right-normal">
-						Use patterns like $tag_tagname to replace part of the alias for a tag value
+            使用$tag_tagname之类的模式替换标记值的部分别名
 					</info-popover>
 				</label>
 				<input  type="text" class="gf-form-input"
@@ -55,12 +55,12 @@
 			       ng-change="ctrl.targetBlur()"
 			       placeholder="interval"></input>
 			<info-popover mode="right-absolute">
-				blank for auto, or for example <code>1m</code>
+				如果为空则表示自动 <code>1m</code>
 			</info-popover>
 		</div>
 
 		<div class="gf-form">
-			<label class="gf-form-label query-keyword">Aggregator</label>
+			<label class="gf-form-label query-keyword">聚合</label>
 			<div class="gf-form-select-wrapper">
 				<select ng-model="ctrl.target.downsampleAggregator" class="gf-form-input"
 								ng-options="agg for agg in ctrl.aggregators"
@@ -70,7 +70,7 @@
 		</div>
 
 		<div class="gf-form" ng-if="ctrl.tsdbVersion >= 2">
-			<label class="gf-form-label query-keyword width-6">Fill</label>
+			<label class="gf-form-label query-keyword width-6">填充</label>
 			<div class="gf-form-select-wrapper">
 				<select ng-model="ctrl.target.downsampleFillPolicy" class="gf-form-input"
 								ng-options="agg for agg in ctrl.fillPolicies"
@@ -95,9 +95,9 @@
 		<div class="gf-form">
 
 			<label class="gf-form-label query-keyword width-8">
-				Filters
+				过滤器
 				<info-popover mode="right-normal">
-					Filters does not work with tags, either of the two will work but not both.
+          过滤器不适用于标签，两者中的任何一个都可以，但不能同时使用。
 				</info-popover>
 			</label>
 
@@ -169,9 +169,9 @@
 	<div class="gf-form-inline">
 		<div class="gf-form">
 			<label class="gf-form-label query-keyword width-8">
-				Tags
+				标签
 				<info-popover mode="right-normal" ng-if="ctrl.tsdbVersion >= 2">
-					Please use filters, tags are deprecated in opentsdb 2.2
+          请使用过滤器，标签在opentsdb 2.2中已弃用
 				</info-popover>
 			</label>
 		</div>
@@ -240,7 +240,7 @@
 						 ng-blur="ctrl.targetBlur()">
 			</input>
 
-			<label class="gf-form-label query-keyword">Reset Value</label>
+			<label class="gf-form-label query-keyword">重置</label>
 			<input type="text" class="tight-form-input input-small"
 					   ng-disabled="!ctrl.target.shouldComputeRate"
 						 ng-model="ctrl.target.counterResetValue" spellcheck='false'

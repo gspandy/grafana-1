@@ -4,7 +4,7 @@
   <stackdriver-aggregation target="ctrl.target" alignment-period="ctrl.lastQueryMeta.alignmentPeriod" refresh="ctrl.refresh()"></stackdriver-aggregation>
   <div class="gf-form-inline">
     <div class="gf-form">
-      <span class="gf-form-label query-keyword width-9">Alias By</span>
+      <span class="gf-form-label query-keyword width-9">别名</span>
       <input type="text" class="gf-form-input width-30" ng-model="ctrl.target.aliasBy" ng-change="ctrl.refresh()"
         ng-model-options="{ debounce: 500 }" />
     </div>
@@ -14,19 +14,19 @@
   </div>
   <div class="gf-form-inline">
     <div class="gf-form">
-      <span class="gf-form-label width-9 query-keyword">Project</span>
+      <span class="gf-form-label width-9 query-keyword">项目</span>
       <input class="gf-form-input" disabled type="text" ng-model='ctrl.target.defaultProject' css-class="min-width-12" />
     </div>
     <div class="gf-form">
       <label class="gf-form-label query-keyword" ng-click="ctrl.showHelp = !ctrl.showHelp">
-        Show Help
+        显示帮助
         <i class="fa fa-caret-down" ng-show="ctrl.showHelp"></i>
         <i class="fa fa-caret-right" ng-hide="ctrl.showHelp"></i>
       </label>
     </div>
     <div class="gf-form" ng-show="ctrl.lastQueryMeta">
       <label class="gf-form-label query-keyword" ng-click="ctrl.showLastQuery = !ctrl.showLastQuery">
-        Raw Query
+        原始查询
         <i class="fa fa-caret-down" ng-show="ctrl.showLastQuery"></i>
         <i class="fa fa-caret-right" ng-hide="ctrl.showLastQuery"></i>
       </label>
@@ -40,32 +40,29 @@
     <pre class="gf-form-pre">{{ctrl.lastQueryMeta.rawQueryString}}</pre>
   </div>
   <div class="gf-form grafana-info-box" style="padding: 0" ng-show="ctrl.showHelp">
-    <pre class="gf-form-pre alert alert-info" style="margin-right: 0"><h5>Alias Patterns</h5>Format the legend keys any way you want by using alias patterns.
-
-    Format the legend keys any way you want by using alias patterns.<br /> <br />
-
-    Example: <code ng-non-bindable>{{metric.name}} - {{metric.label.instance_name}}</code><br />
-    Result: &nbsp;&nbsp;<code ng-non-bindable>cpu/usage_time - server1-europe-west-1</code><br /><br />
-
-    <strong>Patterns</strong><br />
+    <pre class="gf-form-pre alert alert-info" style="margin-right: 0"><h5>别名模式</h5>使用别名模式以任何方式格式化图例键。
+    使用别名模式以任何方式格式化图例键。<br /> <br/>
+    示例：<code ng-non-bindable> {{metric.name}}  -  {{metric.label.instance_name}} </code> <br/>
+    结果：&nbsp;&nbsp; <code ng-non-bindable> cpu / usage_time  -  server1-europe-west-1 </code> <br /> <br/>
+      <strong>模式</strong><br />
     <ul>
       <li>
-        <code ng-non-bindable>{{metric.type}}</code> = metric type e.g. compute.googleapis.com/instance/cpu/usage_time
+        <code ng-non-bindable>{{metric.type}}</code> = 指标类型，例如： compute.googleapis.com/instance/cpu/usage_time
       </li>
       <li>
-        <code ng-non-bindable>{{metric.name}}</code> = name part of metric e.g. instance/cpu/usage_time
+        <code ng-non-bindable>{{metric.name}}</code> = 将度量的一部分命名为，例如： instance/cpu/usage_time
       </li>
       <li>
-        <code ng-non-bindable>{{metric.service}}</code> = service part of metric e.g. compute
+        <code ng-non-bindable>{{metric.service}}</code> = 服务部分的度量，例如:  compute
       </li>
       <li>
-        <code ng-non-bindable>{{metric.label.label_name}}</code> = Metric label metadata e.g.
-        metric.label.instance_name
+        <code ng-non-bindable>{{metric.label.label_name}}</code> = 度量标签元数据，例如：metric.label.instance_name
       </li>
       <li>
-        <code ng-non-bindable>{{resource.label.label_name}}</code> = Resource label metadata e.g. resource.label.zone
+        <code ng-non-bindable>{{resource.label.label_name}}</code> = 资源标签元数据， 例如：resource.label.zone
       </li>
     </ul>
+      </pre>
   </div>
   <div class="gf-form" ng-show="ctrl.lastQueryError">
     <pre class="gf-form-pre alert alert-error">{{ctrl.lastQueryError}}</pre>

@@ -1,23 +1,23 @@
 <h3 class="dashboard-settings__header">
-  <a ng-click="ctrl.backToList()">Dashboard Links</a>
-  <span ng-show="ctrl.mode === 'new'">&gt; New</span>
-  <span ng-show="ctrl.mode === 'edit'">&gt; Edit</span>
+  <a ng-click="ctrl.backToList()">仪表板链接</a>
+  <span ng-show="ctrl.mode === 'new'">&gt; 新建</span>
+  <span ng-show="ctrl.mode === 'edit'">&gt; 编辑</span>
 </h3>
 
 <div ng-if="ctrl.mode == 'list'">
   <div ng-if="ctrl.dashboard.links.length === 0">
     <div class="empty-list-cta">
       <div class="empty-list-cta__title">
-        There are no dashboard links added yet
+        尚未添加仪表板链接
       </div>
       <a ng-click="ctrl.setupNew()" class="empty-list-cta__button btn btn-xlarge btn-success">
         <i class="gicon gicon-add-link"></i>
-        Add Dashboard Link
+        添加仪表板链接
       </a>
       <div class="grafana-info-box">
-        <h5>What are Dashboard Links?</h5>
+        <h5>什么事仪表板链接?</h5>
         <p>
-					Dashboard Links allow you to place links to other dashboards and web sites directly in below the dashboard header.
+          仪表板链接允许您直接在仪表板标题下方放置指向其他仪表板和网站的链接.
         </p>
       </div>
     </div>
@@ -27,13 +27,13 @@
     <div class="page-action-bar">
       <div class="page-action-bar__spacer"></div>
       <a type="button" class="btn btn-success" ng-click="ctrl.setupNew()">
-        <i class="fa fa-plus"></i> New</a>
+        <i class="fa fa-plus"></i> 新建</a>
     </div>
     <table class="filter-table filter-table--hover">
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Info</th>
+          <th>类型</th>
+          <th>信息</th>
           <th colspan="3"></th>
         </tr>
       </thead>

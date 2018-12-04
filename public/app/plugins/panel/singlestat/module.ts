@@ -21,17 +21,17 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   panel: any;
   events: any;
   valueNameOptions: any[] = [
-    { value: 'min', text: 'Min' },
-    { value: 'max', text: 'Max' },
-    { value: 'avg', text: 'Average' },
-    { value: 'current', text: 'Current' },
-    { value: 'total', text: 'Total' },
-    { value: 'name', text: 'Name' },
-    { value: 'first', text: 'First' },
-    { value: 'delta', text: 'Delta' },
-    { value: 'diff', text: 'Difference' },
-    { value: 'range', text: 'Range' },
-    { value: 'last_time', text: 'Time of last point' },
+    { value: 'min', text: '最小值' },
+    { value: 'max', text: '最大值' },
+    { value: 'avg', text: '平均数' },
+    { value: 'current', text: '当前' },
+    { value: 'total', text: '总计' },
+    { value: 'name', text: '名称' },
+    { value: 'first', text: '第一' },
+    { value: 'delta', text: '小数' },
+    { value: 'diff', text: '区别' },
+    { value: 'range', text: '范围' },
+    { value: 'last_time', text: '最后一点的时间' },
   ];
   tableColumnOptions: any;
 
@@ -283,7 +283,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
 
     if (this.series.length > 1) {
       const error: any = new Error();
-      error.message = 'Multiple Series Error';
+      error.message = 'Multiple Series 错误';
       error.data =
         'Metric query returns ' +
         this.series.length +

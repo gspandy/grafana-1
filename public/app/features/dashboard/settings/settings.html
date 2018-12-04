@@ -15,7 +15,7 @@
 		</button>
 		<button class="btn btn-inverse" ng-click="ctrl.openSaveAsModal()" ng-show="ctrl.canSaveAs">
 			<i class="fa fa-copy"></i>
-			Save As...
+			另存为...
 		</button>
 		<button class="btn btn-danger" ng-click="ctrl.deleteDashboard()" ng-show="ctrl.canDelete">
 			<i class="fa fa-trash"></i>
@@ -59,13 +59,13 @@
 
 	<gf-time-picker-settings dashboard="ctrl.dashboard"></gf-time-picker-settings>
 
-	<h5 class="section-heading">Panel Options</h5>
+	<h5 class="section-heading">面板选项</h5>
 	<div class="gf-form">
 		<label class="gf-form-label width-11">
-			Graph Tooltip
+      图形工具提示
 			<info-popover mode="right-normal">
-				Cycle between options using Shortcut: CTRL+O or CMD+O
-			</info-popover>
+        使用快捷方式：Ctrl+O或CMD+O之间的循环
+      </info-popover>
 		</label>
 		<div class="gf-form-select-wrapper">
 			<select ng-model="ctrl.dashboard.graphTooltip" class='gf-form-input' ng-options="f.value as f.text for f in [{value: 0, text: 'Default'}, {value: 1, text: 'Shared crosshair'},{value: 2, text: 'Shared Tooltip'}]"></select>
@@ -88,10 +88,9 @@
 </div>
 
 <div class="dashboard-settings__content" ng-if="ctrl.viewId === 'dashboard_json'" >
-	<h3 class="dashboard-settings__header">JSON Model</h3>
+	<h3 class="dashboard-settings__header">JSON 模板</h3>
   <div class="dashboard-settings__subheader">
-    The JSON Model below is data structure that defines the dashboard. Including settings, panel settings & layout,
-    queries etc.
+    下面的JSON模型是定义仪表板的数据结构。包括设置，面板设置和布局,查询等
   </div>
 
 	<div class="gf-form">
@@ -100,7 +99,7 @@
 
   <div class="gf-form-button-row">
     <button class="btn btn-success" ng-click="ctrl.saveDashboardJson()" ng-show="ctrl.canSave">
-      <i class="fa fa-save"></i> Save Changes
+      <i class="fa fa-save"></i> 保存
     </button>
   </div>
 </div>
@@ -112,23 +111,23 @@
     folder="ctrl.getFolder()"
   />
   <div ng-if="ctrl.hasUnsavedFolderChange">
-    <h5>You have changed folder, please save to view permissions.</h5>
+    <h5>您已更改文件夹，请保存以查看权限.</h5>
   </div>
 </div>
 
 <div class="dashboard-settings__content" ng-if="ctrl.viewId === '404'">
-  <h3 class="dashboard-settings__header">Settings view not found</h3>
+  <h3 class="dashboard-settings__header">找不到设置页</h3>
 
   <div>
-    <h5>The settings page could not be found or you do not have permission to access it</h5>
+    <h5>找不到设置页，或者您没有权限访问它。</h5>
   </div>
 </div>
 
 <div class="dashboard-settings__content" ng-if="ctrl.viewId === 'make_editable'">
-  <h3 class="dashboard-settings__header">Make Editable</h3>
+  <h3 class="dashboard-settings__header">可编辑</h3>
 
   <button class="btn btn-success" ng-click="ctrl.makeEditable()">
-    Make Editable
+    可编辑
   </button>
 </div>
 

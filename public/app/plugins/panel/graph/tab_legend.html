@@ -1,6 +1,6 @@
 <div class="editor-row">
 	<div class="section gf-form-group">
-		<h5 class="section-heading">Options</h5>
+		<h5 class="section-heading">选项</h5>
 		<gf-form-switch class="gf-form"
 			label="Show" label-class="width-7"
 			checked="ctrl.panel.legend.show" on-change="ctrl.refresh()">
@@ -14,13 +14,13 @@
 			checked="ctrl.panel.legend.rightSide" on-change="ctrl.render()">
 		</gf-form-switch>
 		<div ng-if="ctrl.panel.legend.rightSide" class="gf-form">
-			<label class="gf-form-label width-7">Width</label>
+			<label class="gf-form-label width-7">宽</label>
 			<input type="number" class="gf-form-input max-width-5" placeholder="250" bs-tooltip="'Set a min-width for the legend side table/block'" data-placement="right" ng-model="ctrl.panel.legend.sideWidth" ng-change="ctrl.render()" ng-model-onblur>
 		</div>
 	</div>
 
 	<div class="section gf-form-group">
-		<h5 class="section-heading">Values</h5>
+		<h5 class="section-heading">值</h5>
 
 		<div class="gf-form-inline">
 			<gf-form-switch class="gf-form"
@@ -53,14 +53,14 @@
 			</gf-form-switch>
 
 			<div class="gf-form">
-				<label class="gf-form-label width-6">Decimals</label>
+				<label class="gf-form-label width-6">小数</label>
 				<input type="number" class="gf-form-input width-5" placeholder="auto" bs-tooltip="'Override automatic decimal precision for legend and tooltips'" data-placement="right" ng-model="ctrl.panel.decimals" ng-change="ctrl.render()" ng-model-onblur>
 			</div>
 		</div>
 	</div>
 
 	<div class="section gf-form-group">
-		<h5 class="section-heading">Hide series</h5>
+		<h5 class="section-heading">隐藏 series</h5>
 		<gf-form-switch class="gf-form"
 			label="With only nulls" label-class="width-10"
 			checked="ctrl.panel.legend.hideEmpty" on-change="ctrl.render()">

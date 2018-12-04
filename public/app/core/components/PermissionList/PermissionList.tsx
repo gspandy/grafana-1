@@ -49,7 +49,7 @@ class PermissionList extends PureComponent<Props> {
           {isFetching === false && items.length < 1 ? (
             <tr>
               <td colSpan={4}>
-                <em>No permissions are set. Will only be accessible by admins.</em>
+                <em>没有设置权限。只有管​​理员才能访问。</em>
               </td>
             </tr>
           ) : null}

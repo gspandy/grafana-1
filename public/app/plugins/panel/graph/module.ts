@@ -202,15 +202,15 @@ class GraphCtrl extends MetricsPanelCtrl {
 
     if (datapointsCount === 0) {
       this.dataWarning = {
-        title: 'No data points',
-        tip: 'No datapoints returned from data query',
+        title: '没有数据点',
+        tip: '没有从数据查询返回的数据点',
       };
     } else {
       for (const series of this.seriesList) {
         if (series.isOutsideRange) {
           this.dataWarning = {
-            title: 'Data points outside time range',
-            tip: 'Can be caused by timezone mismatch or missing time filter in query',
+            title: '数据点超出时间范围',
+            tip: '可能由查询中的时区不匹配或缺少时间过滤器引起',
           };
           break;
         }

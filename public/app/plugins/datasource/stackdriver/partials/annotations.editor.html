@@ -3,11 +3,11 @@
 
 <div class="gf-form gf-form-inline">
   <div class="gf-form">
-    <span class="gf-form-label query-keyword width-9">Title</span>
+    <span class="gf-form-label query-keyword width-9">标题</span>
     <input type="text" class="gf-form-input width-20" ng-model="ctrl.annotation.target.title" />
   </div>
   <div class="gf-form">
-    <span class="gf-form-label query-keyword width-9">Text</span>
+    <span class="gf-form-label query-keyword width-9">文本</span>
     <input type="text" class="gf-form-input width-20" ng-model="ctrl.annotation.target.text" />
   </div>
   <div class="gf-form gf-form--grow">
@@ -16,22 +16,22 @@
 </div>
 
 <div class="gf-form grafana-info-box" style="padding: 0">
-  <pre class="gf-form-pre alert alert-info" style="margin-right: 0"><h5>Annotation Query Format</h5>
-An annotation is an event that is overlaid on top of graphs. Annotation rendering is expensive so it is important to limit the number of rows returned.
+  <pre class="gf-form-pre alert alert-info" style="margin-right: 0"><h5>注释查询格式</h5>
+注释是叠加在图形之上的事件。注释渲染很昂贵，因此限制返回的行数很重要。
 
-The Title and Text fields support templating and can use data returned from the query. For example, the Title field could have the following text:
+Title和Text字段支持模板，可以使用查询返回的数据。例如，“标题”字段可以包含以下文本：
 
 <code ng-non-bindable>{{metric.type}} has value: {{metric.value}}</code>
 
-Example Result: <code ng-non-bindable>monitoring.googleapis.com/uptime_check/http_status has this value: 502</code>
+结果实例: <code ng-non-bindable>monitoring.googleapis.com/uptime_check/http_status 具有以下值：502</code>
 
 <label>Patterns:</label>
-<code ng-non-bindable>{{metric.value}}</code> = value of the metric/point
-<code ng-non-bindable>{{metric.type}}</code> = metric type e.g. compute.googleapis.com/instance/cpu/usage_time
-<code ng-non-bindable>{{metric.name}}</code> = name part of metric e.g. instance/cpu/usage_time
-<code ng-non-bindable>{{metric.service}}</code> = service part of metric e.g. compute
+<code ng-non-bindable>{{metric.value}}</code> = 度量/点的值
+<code ng-non-bindable>{{metric.type}}</code> = 指标类型，例如： compute.googleapis.com/instance/cpu/usage_time
+<code ng-non-bindable>{{metric.name}}</code> = 将度量的一部分命名为，例如： instance/cpu/usage_time
+<code ng-non-bindable>{{metric.service}}</code> = 将度量的一部分命名为，例如：. compute
 
-<code ng-non-bindable>{{metric.label.label_name}}</code> = Metric label metadata e.g. metric.label.instance_name
-<code ng-non-bindable>{{resource.label.label_name}}</code> = Resource label metadata e.g. resource.label.zone
+<code ng-non-bindable>{{metric.label.label_name}}</code> = 度量标签元数据，例如：metric.label.instance_name
+<code ng-non-bindable>{{resource.label.label_name}}</code> = 资源标签元数据， 例如：resource.label.zone
 </pre>
 </div>

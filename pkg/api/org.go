@@ -77,22 +77,22 @@ func getOrgHelper(orgID int64) Response {
 // POST /api/orgs
 func CreateOrg(c *m.ReqContext, cmd m.CreateOrgCommand) Response {
 	if !c.IsSignedIn || (!setting.AllowUserOrgCreate && !c.IsGrafanaAdmin) {
-		return Error(403, "Access denied", nil)
+		return Error(403, "拒绝访问", nil)
 	}
 
 	cmd.UserId = c.UserId
 	if err := bus.Dispatch(&cmd); err != nil {
 		if err == m.ErrOrgNameTaken {
-			return Error(409, "Organization name taken", err)
+			return Error(409, "该组织名已经被使用", err)
 		}
-		return Error(500, "Failed to create organization", err)
+		return Error(500, "创建组织失败", err)
 	}
 
 	metrics.M_Api_Org_Create.Inc()
 
 	return JSON(200, &util.DynMap{
 		"orgId":   cmd.Result.Id,
-		"message": "Organization created",
+		"message": "创建组织成功",
 	})
 }
 
@@ -110,12 +110,12 @@ func updateOrgHelper(form dtos.UpdateOrgForm, orgID int64) Response {
 	cmd := m.UpdateOrgCommand{Name: form.Name, OrgId: orgID}
 	if err := bus.Dispatch(&cmd); err != nil {
 		if err == m.ErrOrgNameTaken {
-			return Error(400, "Organization name taken", err)
+			return Error(400, "该组织名已经被使用", err)
 		}
-		return Error(500, "Failed to update organization", err)
+		return Error(500, "更新组织失败", err)
 	}
 
-	return Success("Organization updated")
+	return Success("更新组织成功")
 }
 
 // PUT /api/org/address
