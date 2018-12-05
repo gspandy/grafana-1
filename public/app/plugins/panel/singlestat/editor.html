@@ -55,12 +55,12 @@
   <div class="section gf-form-group">
     <h5 class="section-heading">染色</h5>
     <div class="gf-form-inline">
-      <gf-form-switch class="gf-form" label-class="width-8" label="Background" checked="ctrl.panel.colorBackground" on-change="ctrl.render()"></gf-form-switch>
-      <gf-form-switch class="gf-form" label-class="width-6" label="Value" checked="ctrl.panel.colorValue" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-8" label="背景色" checked="ctrl.panel.colorBackground" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-6" label="值" checked="ctrl.panel.colorValue" on-change="ctrl.render()"></gf-form-switch>
     </div>
     <div class="gf-form-inline">
-      <gf-form-switch class="gf-form" label-class="width-8" label="Prefix" checked="ctrl.panel.colorPrefix" on-change="ctrl.render()" ng-disabled="!ctrl.canModifyText()"></gf-form-switch>
-      <gf-form-switch class="gf-form" label-class="width-6" label="Postfix" checked="ctrl.panel.colorPostfix" on-change="ctrl.render()" ng-disabled="!ctrl.canModifyText()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-8" label="前缀" checked="ctrl.panel.colorPrefix" on-change="ctrl.render()" ng-disabled="!ctrl.canModifyText()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-6" label="后缀" checked="ctrl.panel.colorPostfix" on-change="ctrl.render()" ng-disabled="!ctrl.canModifyText()"></gf-form-switch>
     </div>
     <div class="gf-form-inline">
       <div class="gf-form max-width-21">
@@ -85,9 +85,9 @@
 
   <div class="section gf-form-group">
     <h5 class="section-heading">火花线</h5>
-    <gf-form-switch class="gf-form" label-class="width-9" label="Show" checked="ctrl.panel.sparkline.show" on-change="ctrl.render()"></gf-form-switch>
+    <gf-form-switch class="gf-form" label-class="width-9" label="显示" checked="ctrl.panel.sparkline.show" on-change="ctrl.render()"></gf-form-switch>
     <div ng-if="ctrl.panel.sparkline.show">
-      <gf-form-switch class="gf-form" label-class="width-9" label="Full height" checked="ctrl.panel.sparkline.full" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-9" label="全高" checked="ctrl.panel.sparkline.full" on-change="ctrl.render()"></gf-form-switch>
       <div class="gf-form">
         <label class="gf-form-label width-9">线条颜色</label>
         <span class="gf-form-label">
@@ -105,7 +105,7 @@
 
   <div class="section gf-form-group">
     <h5 class="section-heading">规则</h5>
-    <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="Show" checked="ctrl.panel.gauge.show" on-change="ctrl.render()"></gf-form-switch>
+    <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="显示" checked="ctrl.panel.gauge.show" on-change="ctrl.render()"></gf-form-switch>
     <div ng-if="ctrl.panel.gauge.show">
       <div class="gf-form">
         <label class="gf-form-label width-10">最小值</label>
@@ -119,8 +119,8 @@
         <label class="gf-form-label width-10">最大值</label>
         <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
-      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="Threshold labels" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
-      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="Threshold markers" checked="ctrl.panel.gauge.thresholdMarkers" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="阈值标签" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-6" label="阈值标记" checked="ctrl.panel.gauge.thresholdMarkers" on-change="ctrl.render()"></gf-form-switch>
     </div>
   </div>
 </div>

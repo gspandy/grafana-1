@@ -426,7 +426,7 @@ export class MysqlQueryCtrl extends QueryCtrl {
         break;
       }
       case 'get-part-actions': {
-        return this.$q.when([{ text: 'Remove', value: 'remove-part' }]);
+        return this.$q.when([{ text: '移除', value: 'remove-part' }]);
       }
     }
   }
@@ -450,7 +450,7 @@ export class MysqlQueryCtrl extends QueryCtrl {
         break;
       }
       case 'get-part-actions': {
-        return this.$q.when([{ text: 'Remove', value: 'remove-part' }]);
+        return this.$q.when([{ text: '移除', value: 'remove-part' }]);
       }
     }
   }
@@ -551,7 +551,7 @@ export class MysqlQueryCtrl extends QueryCtrl {
         break;
       }
       case 'get-part-actions': {
-        return this.$q.when([{ text: 'Remove', value: 'remove-part' }]);
+        return this.$q.when([{ text: '移除', value: 'remove-part' }]);
       }
     }
   }

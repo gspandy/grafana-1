@@ -39,7 +39,7 @@
     </div>
 
     <div class="gf-form">
-      <label class="gf-form-label width-6">Format as</label>
+      <label class="gf-form-label width-6">格式化为</label>
       <div class="gf-form-select-wrapper width-8">
         <select class="gf-form-input gf-size-auto" ng-model="ctrl.target.format" ng-options="f.value as f.text for f in ctrl.formats"
           ng-change="ctrl.refresh()"></select>
@@ -47,7 +47,7 @@
       <gf-form-switch class="gf-form" label="Instant" label-class="width-5" checked="ctrl.target.instant" on-change="ctrl.refresh()">
       </gf-form-switch>
       <label class="gf-form-label">
-        <a href="{{ctrl.linkToPrometheus}}" target="_blank" bs-tooltip="'Link to Graph in Prometheus'">
+        <a href="{{ctrl.linkToPrometheus}}" target="_blank" bs-tooltip="'链接到Prometheus的图表'">
           <i class="fa fa-share-square-o"></i>
         </a>
       </label>

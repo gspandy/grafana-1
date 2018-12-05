@@ -109,7 +109,7 @@ export const getPanelMenu = (dashboard: DashboardModel, panel: PanelModel) => {
     menu.push({ type: 'divider' });
 
     menu.push({
-      text: 'Remove',
+      text: '移除',
       iconClassName: 'fa fa-fw fa-trash',
       onClick: onRemovePanel,
       shortcut: 'p r',

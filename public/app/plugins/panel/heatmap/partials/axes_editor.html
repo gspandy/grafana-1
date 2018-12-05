@@ -1,8 +1,8 @@
 <div class="editor-row">
   <div class="section gf-form-group">
-    <h5 class="section-heading">Y Axis</h5>
+    <h5 class="section-heading">Y 轴</h5>
     <div class="gf-form">
-      <label class="gf-form-label width-8">Unit</label>
+      <label class="gf-form-label width-8">单位</label>
       <div class="gf-form-dropdown-typeahead width-12"
            ng-model="ctrl.panel.yAxis.format"
            dropdown-typeahead2="editor.unitFormats"
@@ -11,24 +11,24 @@
     </div>
     <div ng-if="ctrl.panel.dataFormat == 'timeseries'">
       <div class="gf-form">
-        <label class="gf-form-label width-8">Scale</label>
+        <label class="gf-form-label width-8">规模</label>
         <div class="gf-form-select-wrapper width-12">
           <select class="gf-form-input" ng-model="ctrl.panel.yAxis.logBase" ng-options="v as k for (k, v) in editor.logScales" ng-change="ctrl.refresh()"></select>
         </div>
       </div>
       <div class="gf-form">
-        <label class="gf-form-label width-8">Y-Min</label>
-        <input type="text" class="gf-form-input width-12" placeholder="auto" empty-to-null ng-model="ctrl.panel.yAxis.min" ng-change="ctrl.render()" ng-model-onblur>
+        <label class="gf-form-label width-8">Y-最小值</label>
+        <input type="text" class="gf-form-input width-12" placeholder="自动" empty-to-null ng-model="ctrl.panel.yAxis.min" ng-change="ctrl.render()" ng-model-onblur>
       </div>
       <div class="gf-form">
-        <label class="gf-form-label width-8">Y-Max</label>
-        <input type="text" class="gf-form-input width-12" placeholder="auto" empty-to-null ng-model="ctrl.panel.yAxis.max" ng-change="ctrl.render()" ng-model-onblur>
+        <label class="gf-form-label width-8">Y-最大值</label>
+        <input type="text" class="gf-form-input width-12" placeholder="自动" empty-to-null ng-model="ctrl.panel.yAxis.max" ng-change="ctrl.render()" ng-model-onblur>
       </div>
     </div>
     <div class="gf-form">
-      <label class="gf-form-label width-8">Decimals</label>
-      <input type="number" class="gf-form-input width-12" placeholder="auto" data-placement="right"
-      bs-tooltip="'Override automatic decimal precision for axis.'"
+      <label class="gf-form-label width-8">小数</label>
+      <input type="number" class="gf-form-input width-12" placeholder="自动" data-placement="right"
+      bs-tooltip="'覆盖轴的自动小数精度。'"
       ng-model="ctrl.panel.yAxis.decimals" ng-change="ctrl.render()" ng-model-onblur>
     </div>
     <div class="gf-form" ng-if="ctrl.panel.dataFormat == 'tsbuckets'">
@@ -36,7 +36,7 @@
       <div class="gf-form-select-wrapper max-width-12">
         <select class="gf-form-input"
           ng-model="ctrl.panel.yBucketBound" ng-options="v as k for (k, v) in editor.yBucketBoundModes" ng-change="ctrl.render()"
-          data-placement="right" bs-tooltip="'Use series label as an upper or lower bucket bound.'">
+          data-placement="right" bs-tooltip="'使用系列标签作为bucket的上限或下限。'">
         </select>
       </div>
     </div>
@@ -46,55 +46,55 @@
     <h5 class="section-heading">Buckets</h5>
     <div class="gf-form-inline">
       <div class="gf-form">
-        <label class="gf-form-label width-5">Y Axis</label>
+        <label class="gf-form-label width-5">Y 轴</label>
       </div>
       <div class="gf-form" ng-show="ctrl.panel.yAxis.logBase === 1">
         <label class="gf-form-label width-5">Buckets</label>
-        <input type="number" class="gf-form-input width-5" placeholder="auto" data-placement="right"
-                                                                              bs-tooltip="'Number of buckets for Y axis.'"
+        <input type="number" class="gf-form-input width-5" placeholder="自动" data-placement="right"
+                                                                              bs-tooltip="'Y轴bucket的数量。'"
                                                                               ng-model="ctrl.panel.yBucketNumber" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
       <div class="gf-form" ng-show="ctrl.panel.yAxis.logBase === 1">
-        <label class="gf-form-label width-4">Size</label>
-        <input type="number" class="gf-form-input width-5" placeholder="auto" data-placement="right"
-                                                                              bs-tooltip="'Size of bucket. Has priority over Buckets option.'"
+        <label class="gf-form-label width-4">大小</label>
+        <input type="number" class="gf-form-input width-5" placeholder="自动" data-placement="right"
+                                                                              bs-tooltip="'bucket的大小。优先于Bucket选项。'"
                                                                               ng-model="ctrl.panel.yBucketSize" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
       <div class="gf-form" ng-show="ctrl.panel.yAxis.logBase !== 1">
-        <label class="gf-form-label width-10">Split Factor</label>
+        <label class="gf-form-label width-10">分裂因子</label>
         <input type="number"
                class="gf-form-input width-9"
                placeholder="1"
                data-placement="right"
-               bs-tooltip="'For log scales only. By default Y values is splitted by integer powers of log base (1, 2, 4, 8, 16, ... for log2). This option allows to split each default bucket into specified number of buckets.'"
+               bs-tooltip="'仅适用于日志刻度。默认情况下，Y值按日志基数的整数幂（1，2，4，8，16，...表示log2）进行拆分。此选项允许将每个默认存储桶拆分为指定数量的存储桶。'"
                ng-model="ctrl.panel.yAxis.splitFactor" ng-change="ctrl.refresh()" ng-model-onblur>
         </input>
       </div>
     </div>
     <div class="gf-form-inline">
       <div class="gf-form">
-        <label class="gf-form-label width-5">X Axis</label>
+        <label class="gf-form-label width-5">X 轴</label>
         <label class="gf-form-label width-5">Buckets</label>
-        <input type="number" class="gf-form-input width-5" placeholder="auto" data-placement="right"
-                                                                              bs-tooltip="'Number of buckets for X axis.'"
+        <input type="number" class="gf-form-input width-5" placeholder="自动" data-placement="right"
+                                                                              bs-tooltip="'X轴bucket的数量。'"
                                                                               ng-model="ctrl.panel.xBucketNumber" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
       <div class="gf-form">
-        <label class="gf-form-label width-4">Size</label>
-        <input type="text" class="gf-form-input width-5" placeholder="auto" data-placement="right"
-                                                                            bs-tooltip="'Size of bucket. Number or interval (10s, 5m, 1h, etc). Supported intervals: ms, s, m, h, d, w, M, y. Has priority over Buckets option.'"
+        <label class="gf-form-label width-4">大小</label>
+        <input type="text" class="gf-form-input width-5" placeholder="自动" data-placement="right"
+                                                                            bs-tooltip="'bucket的大小。数字或间隔（10s，5m，1h等）。支持的间隔：ms，s，m，h，d，w，M，y。优先于Buckets选项。'"
                                                                             ng-model="ctrl.panel.xBucketSize" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
     </div>
   </div>
 
   <div class="section gf-form-group">
-    <h5 class="section-heading">Data format</h5>
+    <h5 class="section-heading">日期格式</h5>
     <div class="gf-form">
-      <label class="gf-form-label width-5">Format</label>
+      <label class="gf-form-label width-5">格式</label>
       <div class="gf-form-select-wrapper max-width-15">
         <select class="gf-form-input" ng-model="ctrl.panel.dataFormat" ng-options="v as k for (k, v) in editor.dataFormats" ng-change="ctrl.render()"
-          data-placement="right" bs-tooltip="'Time series: create heatmap from regular time series. <br>Time series buckets: use histogram data returned from data source. Each series represents bucket which upper/lower bound is a series label.'">
+          data-placement="right" bs-tooltip="'时间序列：从常规时间序列创建热图。 <br>时间序列bucket：使用从数据源返回的直方图数据。每个系列代表bucket，其上/下限是系列标签。'">
         </select>
       </div>
     </div>

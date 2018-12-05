@@ -62,7 +62,7 @@ func GetContextHandler() macaron.Handler {
 		if ctx.ShouldUpdateLastSeenAt() {
 			ctx.Logger.Debug("Updating last user_seen_at", "user_id", ctx.UserId)
 			if err := bus.Dispatch(&m.UpdateUserLastSeenAtCommand{UserId: ctx.UserId}); err != nil {
-				ctx.Logger.Error("Failed to update last_seen_at", "error", err)
+				ctx.Logger.Error("更新 last_seen_at 失败", "error", err)
 			}
 		}
 	}

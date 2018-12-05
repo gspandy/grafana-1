@@ -127,7 +127,7 @@ func GetAlerts(c *m.ReqContext) Response {
 // POST /api/alerts/test
 func AlertTest(c *m.ReqContext, dto dtos.AlertTestCommand) Response {
 	if _, idErr := dto.Dashboard.Get("id").Int64(); idErr != nil {
-		return Error(400, "在测试警告警则之前，仪表板至少需要保存一次", nil)
+		return Error(400, "在测试警告警则之前，仪表盘至少需要保存一次", nil)
 	}
 
 	backendCmd := alerting.AlertTestCommand{
@@ -282,7 +282,7 @@ func PauseAlert(c *m.ReqContext, dto dtos.PauseAlertCommand) Response {
 			return Error(500, "检查告警的权限时出错", err)
 		}
 
-		return Error(403, "访问被拒绝此仪表板和告警", nil)
+		return Error(403, "访问被拒绝此仪表盘和告警", nil)
 	}
 
 	cmd := m.PauseAlertCommand{

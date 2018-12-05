@@ -103,7 +103,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
         <div className="gf-form">
           <Label
             width={11}
-            tooltip="找不到你想要的仪表板？首先加注星标，然后它应出现在此选择框中。"
+            tooltip="找不到你想要的仪表盘？首先加注星标，然后它应出现在此选择框中。"
           >
             主仪表盘
           </Label>

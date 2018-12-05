@@ -48,7 +48,7 @@
 
 	<div class="gf-form-inline">
 		<div class="gf-form max-width-25">
-			<label class="gf-form-label query-keyword width-8">Down sample</label>
+			<label class="gf-form-label query-keyword width-8">Down 示例</label>
 			<input type="text" class="gf-form-input"
 						 ng-model="ctrl.target.downsampleInterval"
 						 ng-model-onblur
@@ -80,7 +80,7 @@
 		</div>
 
 		<gf-form-switch class="gf-form"
-										label="Disable downsampling"
+										label="禁用下采样"
                     label-class="query-keyword"
 										checked="ctrl.target.disableDownsampling"
 										on-change="ctrl.targetBlur()">
@@ -126,7 +126,7 @@
 			</div>
 
 			<div class="gf-form">
-				<label class="gf-form-label query-keyword">Type</label>
+				<label class="gf-form-label query-keyword">类型</label>
 				<div class="gf-form-select-wrapper">
 					<select ng-model="ctrl.target.currentFilterType" class="gf-form-input" ng-options="filType for filType in ctrl.filterTypes">
 					</select>
@@ -152,7 +152,7 @@
 					</a>
 				</label>
 				<label class="gf-form-label">
-					<a ng-click="ctrl.addFilter()" ng-hide="ctrl.errors.filters">add filter</a>
+					<a ng-click="ctrl.addFilter()" ng-hide="ctrl.errors.filters">添加过滤器</a>
 					<a ng-click="ctrl.closeAddFilterMode()">
 						<i class="fa fa-remove"></i>
 					</a>
@@ -212,7 +212,7 @@
 				</a>
 			</label>
 			<label class="gf-form-label" >
-				<a ng-click="ctrl.addTag()" ng-hide="ctrl.errors.tags">add tag</a>
+				<a ng-click="ctrl.addTag()" ng-hide="ctrl.errors.tags">添加标签</a>
 				<a ng-click="ctrl.closeAddTagMode()"><i class="fa fa-remove"></i></a>
 			</label>
 		</div>
@@ -223,11 +223,11 @@
 	</div>
 
 	<div class="gf-form-inline">
-		<gf-form-switch class="gf-form" label="Rate" label-class="width-8 query-keyword" checked="ctrl.target.shouldComputeRate" on-change="ctrl.targetBlur()">
+		<gf-form-switch class="gf-form" label="比率" label-class="width-8 query-keyword" checked="ctrl.target.shouldComputeRate" on-change="ctrl.targetBlur()">
 		</gf-form-switch>
 
 		<gf-form-switch ng-hide="!ctrl.target.shouldComputeRate"
-										class="gf-form" label="Counter" label-class="query-keyword" checked="ctrl.target.isCounter" on-change="ctrl.targetBlur()">
+										class="gf-form" label="计数器" label-class="query-keyword" checked="ctrl.target.isCounter" on-change="ctrl.targetBlur()">
 		</gf-form-switch>
 
 
@@ -250,7 +250,7 @@
 		</div>
 
 		<div class="gf-form" ng-if="ctrl.tsdbVersion > 2">
-			<gf-form-switch class="gf-form" label="Explicit tags" label-class="width-8 query-keyword" checked="ctrl.target.explicitTags" on-change="ctrl.targetBlur()">
+			<gf-form-switch class="gf-form" label="显式标签" label-class="width-8 query-keyword" checked="ctrl.target.explicitTags" on-change="ctrl.targetBlur()">
 			</gf-form-switch>
 		</div>
 

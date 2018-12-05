@@ -77,7 +77,7 @@ class TestDataDatasource {
       events.push({
         annotation: options.annotation,
         time: timeWalker,
-        text: 'This is the text, <a href="https://grafana.com">Grafana.com</a>',
+        text: '文本： <a href="https://grafana.com">Grafana.com</a>',
         tags: ['text', 'server'],
       });
       timeWalker += step;

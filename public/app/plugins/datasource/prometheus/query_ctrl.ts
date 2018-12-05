@@ -32,9 +32,9 @@ class PrometheusQueryCtrl extends QueryCtrl {
     });
 
     this.formats = [
-      { text: 'Time series', value: 'time_series' },
-      { text: 'Table', value: 'table' },
-      { text: 'Heatmap', value: 'heatmap' },
+      { text: '时间序列', value: 'time_series' },
+      { text: '表', value: 'table' },
+      { text: '热图', value: 'heatmap' },
     ];
 
     this.instant = false;

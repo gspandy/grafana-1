@@ -25,9 +25,9 @@
 	<div class="edit-tab-content" ng-if="ctrl.subTabIndex === 0">
 		<div class="section gf-form-group">
 			<h5 class="section-heading">绘制模式</h5>
-			<gf-form-switch class="gf-form" label="Bars" label-class="width-5" checked="ctrl.panel.bars" on-change="ctrl.render()"></gf-form-switch>
-			<gf-form-switch class="gf-form" label="Lines" label-class="width-5" checked="ctrl.panel.lines" on-change="ctrl.render()"></gf-form-switch>
-			<gf-form-switch class="gf-form" label="Points" label-class="width-5" checked="ctrl.panel.points" on-change="ctrl.render()"></gf-form-switch>
+			<gf-form-switch class="gf-form" label="块" label-class="width-5" checked="ctrl.panel.bars" on-change="ctrl.render()"></gf-form-switch>
+			<gf-form-switch class="gf-form" label="线条" label-class="width-5" checked="ctrl.panel.lines" on-change="ctrl.render()"></gf-form-switch>
+			<gf-form-switch class="gf-form" label="点" label-class="width-5" checked="ctrl.panel.points" on-change="ctrl.render()"></gf-form-switch>
 		</div>
 		<div class="section gf-form-group">
 			<h5 class="section-heading">模式选项</h5>
@@ -43,7 +43,7 @@
 					<select class="gf-form-input" ng-model="ctrl.panel.linewidth" ng-options="f for f in [0,1,2,3,4,5,6,7,8,9,10]" ng-change="ctrl.render()" ng-disabled="!ctrl.panel.lines"></select>
 				</div>
 			</div>
-			<gf-form-switch ng-disabled="!ctrl.panel.lines" class="gf-form" label="Staircase" label-class="width-8" checked="ctrl.panel.steppedLine" on-change="ctrl.render()">
+			<gf-form-switch ng-disabled="!ctrl.panel.lines" class="gf-form" label="阶梯" label-class="width-8" checked="ctrl.panel.steppedLine" on-change="ctrl.render()">
 			</gf-form-switch>
 			<div class="gf-form">
 				<label class="gf-form-label width-8">点半径</label>
@@ -76,9 +76,9 @@
 
 		<div class="section gf-form-group">
 			<h5 class="section-heading">堆叠和空值</h5>
-			<gf-form-switch class="gf-form" label="Stack" label-class="width-7" checked="ctrl.panel.stack" on-change="ctrl.refresh()">
+			<gf-form-switch class="gf-form" label="堆" label-class="width-7" checked="ctrl.panel.stack" on-change="ctrl.refresh()">
 			</gf-form-switch>
-			<gf-form-switch class="gf-form" ng-show="ctrl.panel.stack" label="Percent" label-class="width-7" checked="ctrl.panel.percentage" on-change="ctrl.render()">
+			<gf-form-switch class="gf-form" ng-show="ctrl.panel.stack" label="百分比" label-class="width-7" checked="ctrl.panel.percentage" on-change="ctrl.render()">
 			</gf-form-switch>
 			<div class="gf-form">
 				<label class="gf-form-label width-7">Null 值</label>

@@ -214,9 +214,9 @@ export default class TimePicker extends PureComponent<TimePickerProps, TimePicke
     return (
       <div ref={this.dropdownRef} className="gf-timepicker-dropdown">
         <div className="gf-timepicker-absolute-section">
-          <h3 className="section-heading">Custom range</h3>
+          <h3 className="section-heading">指定范围</h3>
 
-          <label className="small">From:</label>
+          <label className="small">从:</label>
           <div className="gf-form-inline">
             <div className="gf-form max-width-28">
               <input
@@ -228,7 +228,7 @@ export default class TimePicker extends PureComponent<TimePickerProps, TimePicke
             </div>
           </div>
 
-          <label className="small">To:</label>
+          <label className="small">至:</label>
           <div className="gf-form-inline">
             <div className="gf-form max-width-28">
               <input
@@ -248,13 +248,13 @@ export default class TimePicker extends PureComponent<TimePickerProps, TimePicke
           </div> */}
           <div className="gf-form">
             <button className="btn gf-form-btn btn-secondary" onClick={this.handleClickApply}>
-              Apply
+              查询
             </button>
           </div>
         </div>
 
         <div className="gf-timepicker-relative-section">
-          <h3 className="section-heading">Quick ranges</h3>
+          <h3 className="section-heading">快捷范围</h3>
           {Object.keys(timeOptions).map(section => {
             const group = timeOptions[section];
             return (

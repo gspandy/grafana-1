@@ -19,7 +19,7 @@
       <div class="gf-form-inline">
         <div class="gf-form">
           <label class="gf-form-label width-13">Apply to columns named</label>
-          <input type="text" placeholder="Name or regex" class="gf-form-input width-13" ng-model="style.pattern" bs-tooltip="'Specify regex using /my.*regex/ syntax'"
+          <input type="text" placeholder="Name or regex" class="gf-form-input width-13" ng-model="style.pattern" bs-tooltip="'使用/my.*regex/语法指定正则表达式'"
             bs-typeahead="editor.getColumnNames" ng-blur="editor.render()" data-min-length=0 data-items=100 ng-model-onblur
             data-placement="right">
         </div>
@@ -28,7 +28,7 @@
         <label class="gf-form-label width-13">列标题</label>
         <input type="text" class="gf-form-input width-13" ng-model="style.alias" ng-change="editor.render()" ng-model-onblur placeholder="Override header label">
       </div>
-      <gf-form-switch class="gf-form" label-class="width-13" label="Render value as link" checked="style.link" change="editor.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-13" label="将值渲染为链接" checked="style.link" change="editor.render()"></gf-form-switch>
     </div>
 
     <div class="section gf-form-group">
@@ -48,11 +48,11 @@
       </div>
 
       <div ng-if="style.type === 'string'">
-        <gf-form-switch class="gf-form" label-class="width-11" ng-if="style.type === 'string'" label="Sanitize HTML" checked="style.sanitize"
+        <gf-form-switch class="gf-form" label-class="width-11" ng-if="style.type === 'string'" label="清理HTML" checked="style.sanitize"
           change="editor.render()"></gf-form-switch>
       </div>
       <div ng-if="style.type === 'string'">
-        <gf-form-switch class="gf-form" label-class="width-11" ng-if="style.type === 'string'" label="Preserve Formatting" checked="style.preserveFormat"
+        <gf-form-switch class="gf-form" label-class="width-11" ng-if="style.type === 'string'" label="保留格式" checked="style.preserveFormat"
           change="editor.render()"></gf-form-switch>
       </div>
 
@@ -186,7 +186,7 @@
         <input type="text" class="gf-form-input width-29" ng-model="style.linkTooltip" ng-blur="editor.render()" ng-model-onblur
           data-placement="right">
       </div>
-      <gf-form-switch class="gf-form" label-class="width-9" label="Open in new tab" checked="style.linkTargetBlank"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-9" label="在新的标签页中打开" checked="style.linkTargetBlank"></gf-form-switch>
     </div>
 
     <div class="clearfix"></div>

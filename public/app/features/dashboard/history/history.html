@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="revision in ctrl.revisions">
-            <td class="filter-table__switch-cell" bs-tooltip="!revision.checked && ctrl.canCompare ? 'You can only compare 2 versions at a time' : ''" data-placement="right">
+            <td class="filter-table__switch-cell" bs-tooltip="!revision.checked && ctrl.canCompare ? '每次只能比较两个版本' : ''" data-placement="right">
               <gf-form-switch switch-class="gf-form-switch--table-cell" checked="revision.checked" on-change="ctrl.revisionSelectionChanged()" ng-disabled="!revision.checked && ctrl.canCompare">
               </gf-form-switch>
             </td>

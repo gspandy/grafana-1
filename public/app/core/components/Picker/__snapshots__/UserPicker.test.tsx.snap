@@ -19,7 +19,7 @@ exports[`UserPicker renders correctly 1`] = `
         <div
           className="css-0 gf-form-select-box__placeholder"
         >
-          Select user
+          选择用户
         </div>
         <div
           className="css-0"

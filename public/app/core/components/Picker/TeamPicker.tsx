@@ -76,8 +76,8 @@ export class TeamPicker extends Component<Props, State> {
             NoOptionsMessage,
           }}
           placeholder="选择一个团队"
-          loadingMessage={() => 'Loading...'}
-          noOptionsMessage={() => 'No teams found'}
+          loadingMessage={() => '加载中...'}
+          noOptionsMessage={() => '没有发现团队'}
           getOptionValue={i => i.id}
           getOptionLabel={i => i.label}
         />

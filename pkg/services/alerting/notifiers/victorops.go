@@ -31,7 +31,7 @@ func init() {
       <div class="gf-form">
         <gf-form-switch
            class="gf-form"
-           label="Auto resolve incidents"
+           label="自动解决事故"
            label-class="width-14"
            checked="ctrl.model.settings.autoResolve"
            tooltip="Resolve incidents in VictorOps once the alert goes back to ok.">

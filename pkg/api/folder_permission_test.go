@@ -14,8 +14,8 @@ import (
 )
 
 func TestFolderPermissionApiEndpoint(t *testing.T) {
-	Convey("Folder permissions test", t, func() {
-		Convey("Given folder not exists", func() {
+	Convey("文件夹权限测试", t, func() {
+		Convey("给定文件夹不存在", func() {
 			mock := &fakeFolderService{
 				GetFolderByUIDError: m.ErrFolderNotFound,
 			}
@@ -23,7 +23,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 			origNewFolderService := dashboards.NewFolderService
 			mockFolderService(mock)
 
-			loggedInUserScenarioWithRole("When calling GET on", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_EDITOR, func(sc *scenarioContext) {
+			loggedInUserScenarioWithRole("当发生GET请求时", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_EDITOR, func(sc *scenarioContext) {
 				callGetFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 404)
 			})
@@ -34,7 +34,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				},
 			}
 
-			updateFolderPermissionScenario("When calling POST on", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
+			updateFolderPermissionScenario("当发生POST请求时", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
 				callUpdateFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 404)
 			})
@@ -44,7 +44,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 			})
 		})
 
-		Convey("Given user has no admin permissions", func() {
+		Convey("给定用户没有管理员权限", func() {
 			origNewGuardian := guardian.New
 			guardian.MockDashboardGuardian(&guardian.FakeDashboardGuardian{CanAdminValue: false})
 
@@ -52,14 +52,14 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				GetFolderByUIDResult: &m.Folder{
 					Id:    1,
 					Uid:   "uid",
-					Title: "Folder",
+					Title: "文件夹",
 				},
 			}
 
 			origNewFolderService := dashboards.NewFolderService
 			mockFolderService(mock)
 
-			loggedInUserScenarioWithRole("When calling GET on", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_EDITOR, func(sc *scenarioContext) {
+			loggedInUserScenarioWithRole("当发生GET请求时", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_EDITOR, func(sc *scenarioContext) {
 				callGetFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 403)
 			})
@@ -70,7 +70,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				},
 			}
 
-			updateFolderPermissionScenario("When calling POST on", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
+			updateFolderPermissionScenario("当发生POST请求时", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
 				callUpdateFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 403)
 			})
@@ -81,7 +81,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 			})
 		})
 
-		Convey("Given user has admin permissions and permissions to update", func() {
+		Convey("给定用户具有管理员权限和更新权限", func() {
 			origNewGuardian := guardian.New
 			guardian.MockDashboardGuardian(&guardian.FakeDashboardGuardian{
 				CanAdminValue:                    true,
@@ -99,14 +99,14 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				GetFolderByUIDResult: &m.Folder{
 					Id:    1,
 					Uid:   "uid",
-					Title: "Folder",
+					Title: "文件夹",
 				},
 			}
 
 			origNewFolderService := dashboards.NewFolderService
 			mockFolderService(mock)
 
-			loggedInUserScenarioWithRole("When calling GET on", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_ADMIN, func(sc *scenarioContext) {
+			loggedInUserScenarioWithRole("当发生GET请求时", "GET", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", m.ROLE_ADMIN, func(sc *scenarioContext) {
 				callGetFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 200)
 				respJSON, err := simplejson.NewJson(sc.resp.Body.Bytes())
@@ -122,7 +122,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				},
 			}
 
-			updateFolderPermissionScenario("When calling POST on", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
+			updateFolderPermissionScenario("当发生POST请求时", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
 				callUpdateFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 200)
 			})
@@ -133,7 +133,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 			})
 		})
 
-		Convey("When trying to update permissions with duplicate permissions", func() {
+		Convey("尝试使用重复权限更新权限时", func() {
 			origNewGuardian := guardian.New
 			guardian.MockDashboardGuardian(&guardian.FakeDashboardGuardian{
 				CanAdminValue:                    true,
@@ -145,7 +145,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				GetFolderByUIDResult: &m.Folder{
 					Id:    1,
 					Uid:   "uid",
-					Title: "Folder",
+					Title: "文件夹",
 				},
 			}
 
@@ -158,7 +158,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				},
 			}
 
-			updateFolderPermissionScenario("When calling POST on", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
+			updateFolderPermissionScenario("当发生POST请求时", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
 				callUpdateFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 400)
 			})
@@ -169,7 +169,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 			})
 		})
 
-		Convey("When trying to override inherited permissions with lower presedence", func() {
+		Convey("尝试使用较低的presedence覆盖继承的权限时", func() {
 			origNewGuardian := guardian.New
 			guardian.MockDashboardGuardian(&guardian.FakeDashboardGuardian{
 				CanAdminValue:                    true,
@@ -181,7 +181,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				GetFolderByUIDResult: &m.Folder{
 					Id:    1,
 					Uid:   "uid",
-					Title: "Folder",
+					Title: "文件夹",
 				},
 			}
 
@@ -194,7 +194,7 @@ func TestFolderPermissionApiEndpoint(t *testing.T) {
 				},
 			}
 
-			updateFolderPermissionScenario("When calling POST on", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
+			updateFolderPermissionScenario("当发生POST请求时", "/api/folders/uid/permissions", "/api/folders/:uid/permissions", cmd, func(sc *scenarioContext) {
 				callUpdateFolderPermissions(sc)
 				So(sc.resp.Code, ShouldEqual, 400)
 			})

@@ -13,7 +13,7 @@
             在面板中选择数据源时，将使用其名称。<em>默认</em>数据源已在新的面板中预选。
           </info-popover>
         </div>
-        <gf-form-switch class="gf-form" label="Default" checked="ctrl.current.isDefault" switch-class="max-width-6"></gf-form-switch>
+        <gf-form-switch class="gf-form" label="默认" checked="ctrl.current.isDefault" switch-class="max-width-6"></gf-form-switch>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
     </rebuild-on-change>
 
     <div ng-if="ctrl.hasDashboards">
-      <h3 class="section-heading">绑定的插件仪表板</h3>
+      <h3 class="section-heading">绑定的插件仪表盘</h3>
       <div class="section">
         <dashboard-import-list plugin="ctrl.datasourceMeta" datasource="ctrl.current"></dashboard-import-list>
       </div>

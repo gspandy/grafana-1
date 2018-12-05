@@ -17,8 +17,8 @@
 				</a>
 				<div class="grafana-info-box">
 					<h5>变量能做什么？</h5>
-					<p>变量可实现更多交互式动态仪表板。而不是硬编码服务器或传感器之类的东西 在您的指标查询中，您可以在其位置使用变量。
-            变量显示为下拉选择框某个东西的上放仪表板。通过这些下拉菜单，您可以轻松更改仪表板中显示的数据。
+					<p>变量可实现更多交互式动态仪表盘。而不是硬编码服务器或传感器之类的东西 在您的指标查询中，您可以在其位置使用变量。
+            变量显示为下拉选择框某个东西的上放仪表盘。通过这些下拉菜单，您可以轻松更改仪表盘中显示的数据。
 						查看
 						<a class="external-link" href="http://docs.grafana.org/reference/templating/" target="_blank">
 							模板文档
@@ -120,7 +120,7 @@
 			</div>
 
 			<div class="gf-form-inline">
-				<gf-form-switch class="gf-form" label="Auto Option" label-class="width-9" checked="current.auto" on-change="runQuery()">
+				<gf-form-switch class="gf-form" label="自动选项" label-class="width-9" checked="current.auto" on-change="runQuery()">
 				</gf-form-switch>
 
 				<div class="gf-form">
@@ -265,10 +265,10 @@
 		<div class="section gf-form-group" ng-show="variableTypes[current.type].supportsMulti">
 			<h5 class="section-heading">选择选项</h5>
 			<div class="section">
-				<gf-form-switch class="gf-form" label="Multi-value" label-class="width-10" tooltip="允许同时选择多个值"
+				<gf-form-switch class="gf-form" label="组合" label-class="width-10" tooltip="允许同时选择多个值"
 				 checked="current.multi" on-change="runQuery()">
 				</gf-form-switch>
-				<gf-form-switch class="gf-form" label="Include All option" label-class="width-10" checked="current.includeAll"
+				<gf-form-switch class="gf-form" label="全部选项" label-class="width-10" checked="current.includeAll"
 				 on-change="runQuery()">
 				</gf-form-switch>
 			</div>
@@ -280,7 +280,7 @@
 
 		<div class="gf-form-group" ng-if="current.type === 'query'">
 			<h5>值组/标签（实验性功能）</h5>
-			<gf-form-switch class="gf-form" label="Enabled" label-class="width-10" checked="current.useTags" on-change="runQuery()">
+			<gf-form-switch class="gf-form" label="启用" label-class="width-10" checked="current.useTags" on-change="runQuery()">
 			</gf-form-switch>
 			<div class="gf-form last" ng-if="current.useTags">
 				<span class="gf-form-label width-10">标签查询</span>

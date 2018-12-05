@@ -62,10 +62,10 @@ export class GraphOptions extends PureComponent<PanelOptionsProps<Options>> {
     return (
       <div>
         <div className="section gf-form-group">
-          <h5 className="page-heading">Draw Modes</h5>
-          <Switch label="Lines" labelClass="width-5" checked={showLines} onChange={this.onToggleLines} />
-          <Switch label="Bars" labelClass="width-5" checked={showBars} onChange={this.onToggleBars} />
-          <Switch label="Points" labelClass="width-5" checked={showPoints} onChange={this.onTogglePoints} />
+          <h5 className="page-heading">绘制模式</h5>
+          <Switch label="线条" labelClass="width-5" checked={showLines} onChange={this.onToggleLines} />
+          <Switch label="块" labelClass="width-5" checked={showBars} onChange={this.onToggleBars} />
+          <Switch label="点" labelClass="width-5" checked={showPoints} onChange={this.onTogglePoints} />
         </div>
       </div>
     );

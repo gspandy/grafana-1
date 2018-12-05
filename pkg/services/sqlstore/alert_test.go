@@ -29,7 +29,7 @@ func TestAlertingDataAccess(t *testing.T) {
 	Convey("测试告警数据访问", t, func() {
 		InitTestDB(t)
 
-		testDash := insertTestDashboard("带告警的仪表板", 1, 0, false, "alert")
+		testDash := insertTestDashboard("带告警的仪表盘", 1, 0, false, "alert")
 		evalData, _ := simplejson.NewJson([]byte(`{"test": "test"}`))
 		items := []*m.Alert{
 			{
@@ -141,7 +141,7 @@ func TestAlertingDataAccess(t *testing.T) {
 
 			err := SaveAlerts(&modifiedCmd)
 
-			Convey("可以使用相同的仪表板和面板ID保存告警", func() {
+			Convey("可以使用相同的仪表盘和面板ID保存告警", func() {
 				So(err, ShouldBeNil)
 			})
 
@@ -164,7 +164,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			})
 		})
 
-		Convey("每个仪表板有多个告警", func() {
+		Convey("每个仪表盘有多个告警", func() {
 			multipleItems := []*m.Alert{
 				{
 					DashboardId: testDash.Id,
@@ -192,7 +192,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			cmd.Alerts = multipleItems
 			err = SaveAlerts(&cmd)
 
-			Convey("应该保存3个仪表板", func() {
+			Convey("应该保存3个仪表盘", func() {
 				So(err, ShouldBeNil)
 
 				queryForDashboard := m.GetAlertsQuery{DashboardIDs: []int64{testDash.Id}, OrgId: 1, User: &m.SignedInUser{OrgRole: m.ROLE_ADMIN}}
@@ -202,7 +202,7 @@ func TestAlertingDataAccess(t *testing.T) {
 				So(len(queryForDashboard.Result), ShouldEqual, 3)
 			})
 
-			Convey("应该更新两个仪表板并删除一个", func() {
+			Convey("应该更新两个仪表盘并删除一个", func() {
 				missingOneAlert := multipleItems[:2]
 
 				cmd.Alerts = missingOneAlert
@@ -217,7 +217,7 @@ func TestAlertingDataAccess(t *testing.T) {
 			})
 		})
 
-		Convey("删除仪表板时", func() {
+		Convey("删除仪表盘时", func() {
 			items := []*m.Alert{
 				{
 					PanelId:     1,
@@ -262,7 +262,7 @@ func TestPausingAlerts(t *testing.T) {
 	Convey("给出告警", t, func() {
 		InitTestDB(t)
 
-		testDash := insertTestDashboard("带告警的仪表板", 1, 0, false, "alert")
+		testDash := insertTestDashboard("带告警的仪表盘", 1, 0, false, "alert")
 		alert, _ := insertTestAlert("告警标题", "告警信息", testDash.OrgId, testDash.Id, simplejson.New())
 
 		stateDateBeforePause := alert.NewStateDate

@@ -362,7 +362,7 @@
       }
     },
     {
-      "content": "Just verify that the tooltip time has millisecond resolution ",
+      "content": "只需验证工具提示时间是否具有毫秒级分辨率 ",
       "editable": true,
       "error": false,
       "gridPos": {

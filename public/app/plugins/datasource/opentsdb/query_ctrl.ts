@@ -95,7 +95,7 @@ export class OpenTsQueryCtrl extends QueryCtrl {
 
   addTag() {
     if (this.target.filters && this.target.filters.length > 0) {
-      this.errors.tags = 'Please remove filters to use tags, tags and filters are mutually exclusive.';
+      this.errors.tags = '请删除过滤器以使用标签，标签和过滤器是互斥的。';
     }
 
     if (!this.addTagMode) {
@@ -138,7 +138,7 @@ export class OpenTsQueryCtrl extends QueryCtrl {
 
   addFilter() {
     if (this.target.tags && _.size(this.target.tags) > 0) {
-      this.errors.filters = 'Please remove tags to use filters, tags and filters are mutually exclusive.';
+      this.errors.filters = '请删除标签以使用过滤器，标签和过滤器是互斥的.';
     }
 
     if (!this.addFilterMode) {
@@ -205,7 +205,7 @@ export class OpenTsQueryCtrl extends QueryCtrl {
         if (this.target.downsampleInterval) {
           kbn.describe_interval(this.target.downsampleInterval);
         } else {
-          errs.downsampleInterval = "You must supply a downsample interval (e.g. '1m' or '1h').";
+          errs.downsampleInterval = "您必须提供缩减采样间隔 (例如： '1m' or '1h').";
         }
       } catch (err) {
         errs.downsampleInterval = err.message;

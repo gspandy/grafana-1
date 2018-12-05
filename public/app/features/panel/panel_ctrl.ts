@@ -93,7 +93,7 @@ export class PanelCtrl {
 
   initEditMode() {
     this.editorTabs = [];
-    this.addEditorTab('General', 'public/app/partials/panelgeneral.html');
+    this.addEditorTab('公共', 'public/app/partials/panelgeneral.html');
 
     this.editModeInitiated = true;
     this.events.emit('init-edit-mode', null);
@@ -142,7 +142,7 @@ export class PanelCtrl {
 
     if (this.dashboard.meta.canEdit) {
       menu.push({
-        text: 'Edit',
+        text: '编辑',
         click: 'ctrl.editPanel();',
         role: 'Editor',
         icon: 'fa fa-fw fa-edit',
@@ -151,7 +151,7 @@ export class PanelCtrl {
     }
 
     menu.push({
-      text: 'Share',
+      text: '分享',
       click: 'ctrl.sharePanel();',
       icon: 'fa fa-fw fa-share',
       shortcut: 'p s',
@@ -162,7 +162,7 @@ export class PanelCtrl {
 
     const extendedMenu = this.getExtendedMenu();
     menu.push({
-      text: 'More ...',
+      text: '更多 ...',
       click: '',
       icon: 'fa fa-fw fa-cube',
       submenu: extendedMenu,
@@ -171,7 +171,7 @@ export class PanelCtrl {
     if (this.dashboard.meta.canEdit) {
       menu.push({ divider: true, role: 'Editor' });
       menu.push({
-        text: 'Remove',
+        text: '移除',
         click: 'ctrl.removePanel();',
         role: 'Editor',
         icon: 'fa fa-fw fa-trash',
@@ -186,21 +186,21 @@ export class PanelCtrl {
     const menu = [];
     if (!this.panel.fullscreen && this.dashboard.meta.canEdit) {
       menu.push({
-        text: 'Duplicate',
+        text: '复制并黏贴',
         click: 'ctrl.duplicate()',
         role: 'Editor',
         shortcut: 'p d',
       });
 
       menu.push({
-        text: 'Copy',
+        text: '复制',
         click: 'ctrl.copyPanel()',
         role: 'Editor',
       });
     }
 
     menu.push({
-      text: 'Panel JSON',
+      text: '面板 JSON',
       click: 'ctrl.editPanelJson(); dismiss();',
     });
 

@@ -861,8 +861,8 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
                 options={exploreDatasources}
                 styles={ResetStyles}
                 placeholder="选择数据源"
-                loadingMessage={() => 'Loading datasources...'}
-                noOptionsMessage={() => 'No datasources found'}
+                loadingMessage={() => '加载数据源...'}
+                noOptionsMessage={() => '没有发现数据源'}
                 value={selectedDatasource}
                 components={{
                   Option: PickerOption,
@@ -876,32 +876,32 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
           {position === 'left' && !split ? (
             <div className="navbar-buttons">
               <button className="btn navbar-button" onClick={this.onClickSplit}>
-                Split
+                切分
               </button>
             </div>
           ) : null}
           <TimePicker ref={this.timepickerRef} range={range} onChangeTime={this.onChangeTime} />
           <div className="navbar-buttons">
             <button className="btn navbar-button navbar-button--no-icon" onClick={this.onClickClear}>
-              Clear All
+              清空
             </button>
           </div>
           <div className="navbar-buttons relative">
             <button className="btn navbar-button--primary" onClick={this.onSubmit}>
-              Run Query{' '}
+              执行查询{' '}
               {loading ? <i className="fa fa-spinner fa-spin run-icon" /> : <i className="fa fa-level-down run-icon" />}
             </button>
           </div>
         </div>
 
-        {datasourceLoading ? <div className="explore-container">Loading datasource...</div> : null}
+        {datasourceLoading ? <div className="explore-container">加载数据源...</div> : null}
 
         {datasourceMissing ? (
-          <div className="explore-container">Please add a datasource that supports Explore (e.g., Prometheus).</div>
+          <div className="explore-container">请添加支持Explore的数据源（例如，Prometheus）。</div>
         ) : null}
 
         {datasourceError ? (
-          <div className="explore-container">Error connecting to datasource. [{datasourceError}]</div>
+          <div className="explore-container">连接到数据源时出错。 [{datasourceError}]</div>
         ) : null}
 
         {datasource && !datasourceError ? (
@@ -924,7 +924,7 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
                   <>
                     {supportsGraph && (
                       <Panel
-                        label="Graph"
+                        label="图形"
                         isOpen={showingGraph}
                         loading={graphLoading}
                         onToggle={this.onClickGraphButton}
@@ -941,7 +941,7 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
                     )}
                     {supportsTable && (
                       <Panel
-                        label="Table"
+                        label="表"
                         loading={tableLoading}
                         isOpen={showingTable}
                         onToggle={this.onClickTableButton}
@@ -950,7 +950,7 @@ export class Explore extends React.PureComponent<ExploreProps, ExploreState> {
                       </Panel>
                     )}
                     {supportsLogs && (
-                      <Panel label="Logs" loading={logsLoading} isOpen={showingLogs} onToggle={this.onClickLogsButton}>
+                      <Panel label="日志" loading={logsLoading} isOpen={showingLogs} onToggle={this.onClickLogsButton}>
                         <Logs
                           data={logsResult}
                           key={logsResult.id}

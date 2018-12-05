@@ -288,29 +288,29 @@ export default class Logs extends PureComponent<LogsProps, LogsState> {
 
         <div className="logs-options">
           <div className="logs-controls">
-            <Switch label="Timestamp" checked={showUtc} onChange={this.onChangeUtc} small />
-            <Switch label="Local time" checked={showLocalTime} onChange={this.onChangeLocalTime} small />
-            <Switch label="Labels" checked={showLabels} onChange={this.onChangeLabels} small />
+            <Switch label="时间戳" checked={showUtc} onChange={this.onChangeUtc} small />
+            <Switch label="本地时间" checked={showLocalTime} onChange={this.onChangeLocalTime} small />
+            <Switch label="标签" checked={showLabels} onChange={this.onChangeLabels} small />
             <Switch
-              label="Dedup: off"
+              label="Dedup: 关闭"
               checked={dedup === LogsDedupStrategy.none}
               onChange={() => this.onChangeDedup(LogsDedupStrategy.none)}
               small
             />
             <Switch
-              label="Dedup: exact"
+              label="Dedup: 精确"
               checked={dedup === LogsDedupStrategy.exact}
               onChange={() => this.onChangeDedup(LogsDedupStrategy.exact)}
               small
             />
             <Switch
-              label="Dedup: numbers"
+              label="Dedup: 数量"
               checked={dedup === LogsDedupStrategy.numbers}
               onChange={() => this.onChangeDedup(LogsDedupStrategy.numbers)}
               small
             />
             <Switch
-              label="Dedup: signature"
+              label="Dedup: 签名"
               checked={dedup === LogsDedupStrategy.signature}
               onChange={() => this.onChangeDedup(LogsDedupStrategy.signature)}
               small
@@ -355,15 +355,15 @@ export default class Logs extends PureComponent<LogsProps, LogsState> {
                 onClickLabel={onClickLabel}
               />
             ))}
-          {hasData && deferLogs && <span>Rendering {dedupedData.rows.length} rows...</span>}
+          {hasData && deferLogs && <span>渲染 {dedupedData.rows.length} 行...</span>}
         </div>
         {!loading &&
           !hasData &&
           !scanning && (
             <div className="logs-nodata">
-              No logs found.
+              找不到日志。
               <a className="link" onClick={this.onClickScan}>
-                Scan for older logs
+                扫描旧日志
               </a>
             </div>
           )}
@@ -372,7 +372,7 @@ export default class Logs extends PureComponent<LogsProps, LogsState> {
           <div className="logs-nodata">
             <span>{scanText}</span>
             <a className="link" onClick={this.onClickStopScan}>
-              Stop scan
+              停止扫描
             </a>
           </div>
         )}

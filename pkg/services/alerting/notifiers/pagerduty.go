@@ -18,10 +18,10 @@ func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "pagerduty",
 		Name:        "PagerDuty",
-		Description: "Sends notifications to PagerDuty",
+		Description: "向PagerDuty发送通知",
 		Factory:     NewPagerdutyNotifier,
 		OptionsTemplate: `
-      <h3 class="page-heading">PagerDuty settings</h3>
+      <h3 class="page-heading">PagerDuty 设置</h3>
       <div class="gf-form">
         <span class="gf-form-label width-14">Integration Key</span>
         <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.integrationKey" placeholder="Pagerduty集成密钥"></input>
@@ -29,10 +29,10 @@ func init() {
       <div class="gf-form">
         <gf-form-switch
            class="gf-form"
-           label="Auto resolve incidents"
+           label="自动解决事故"
            label-class="width-14"
            checked="ctrl.model.settings.autoResolve"
-           tooltip="Resolve incidents in pagerduty once the alert goes back to ok.">
+           tooltip="警报恢复正常后，解决pagerduty中的事件。">
         </gf-form-switch>
       </div>
     `,
@@ -47,7 +47,7 @@ func NewPagerdutyNotifier(model *m.AlertNotification) (alerting.Notifier, error)
 	autoResolve := model.Settings.Get("autoResolve").MustBool(false)
 	key := model.Settings.Get("integrationKey").MustString()
 	if key == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find integration key property in settings"}
+		return nil, alerting.ValidationError{Reason: "无法在设置中找到集成键属性"}
 	}
 
 	return &PagerdutyNotifier{
@@ -68,7 +68,7 @@ type PagerdutyNotifier struct {
 func (this *PagerdutyNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	if evalContext.Rule.State == m.AlertStateOK && !this.AutoResolve {
-		this.log.Info("Not sending a trigger to Pagerduty", "state", evalContext.Rule.State, "auto resolve", this.AutoResolve)
+		this.log.Info("不向Pagerduty发送触发器", "state", evalContext.Rule.State, "auto resolve", this.AutoResolve)
 		return nil
 	}
 
@@ -101,7 +101,7 @@ func (this *PagerdutyNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 	links := make([]interface{}, 1)
@@ -132,7 +132,7 @@ func (this *PagerdutyNotifier) Notify(evalContext *alerting.EvalContext) error {
 	}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send notification to Pagerduty", "error", err, "body", string(body))
+		this.log.Error("无法向Pagerduty发送通知", "error", err, "body", string(body))
 		return err
 	}
 

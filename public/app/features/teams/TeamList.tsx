@@ -73,7 +73,7 @@ export class TeamList extends PureComponent<Props, any> {
             buttonIcon: 'fa fa-plus',
             buttonLink: 'org/teams/new',
             buttonTitle: ' 创建团队',
-            proTip: '为团队而不是用户分配文件夹和仪表板权限以简化管理.',
+            proTip: '为团队而不是用户分配文件夹和仪表盘权限以简化管理.',
             proTipLink: '',
             proTipLinkTitle: '',
             proTipTarget: '_blank',

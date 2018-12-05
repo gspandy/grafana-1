@@ -85,7 +85,7 @@ func DeleteFolder(c *m.ReqContext) Response {
 
 	return JSON(200, util.DynMap{
 		"title":   f.Title,
-		"message": fmt.Sprintf("Folder %s deleted", f.Title),
+		"message": fmt.Sprintf("文件夹 %s 已被删除", f.Title),
 	})
 }
 
@@ -131,7 +131,7 @@ func toFolderError(err error) Response {
 	}
 
 	if err == m.ErrFolderAccessDenied {
-		return Error(403, "Access denied", err)
+		return Error(403, "拒绝访问", err)
 	}
 
 	if err == m.ErrFolderNotFound {
@@ -142,5 +142,5 @@ func toFolderError(err error) Response {
 		return JSON(412, util.DynMap{"status": "version-mismatch", "message": m.ErrFolderVersionMismatch.Error()})
 	}
 
-	return Error(500, "Folder API error", err)
+	return Error(500, "文件夹 API 错误", err)
 }

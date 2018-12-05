@@ -15,20 +15,20 @@ func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "sensu",
 		Name:        "Sensu",
-		Description: "Sends HTTP POST request to a Sensu API",
+		Description: "将HTTP POST请求发送到Sensu API",
 		Factory:     NewSensuNotifier,
 		OptionsTemplate: `
-      <h3 class="page-heading">Sensu settings</h3>
+      <h3 class="page-heading">Sensu 设置</h3>只需验证工具提示时间是否具有毫秒级分辨率
       <div class="gf-form">
         <span class="gf-form-label width-10">Url</span>
 				<input type="text" required class="gf-form-input max-width-26" ng-model="ctrl.model.settings.url" placeholder="http://sensu-api.local:4567/results"></input>
       </div>
       <div class="gf-form">
-        <span class="gf-form-label width-10">Source</span>
-        <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.source" bs-tooltip="'If empty rule id will be used'" data-placement="right"></input>
+        <span class="gf-form-label width-10">资源</span>
+        <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.source" bs-tooltip="'如果将使用空规则ID'" data-placement="right"></input>
       </div>
       <div class="gf-form">
-        <span class="gf-form-label width-10">Handler</span>
+        <span class="gf-form-label width-10">处理器</span>
         <input type="text" class="gf-form-input max-width-14" ng-model="ctrl.model.settings.handler" placeholder="默认"></input>
       </div>
       <div class="gf-form">
@@ -47,7 +47,7 @@ func init() {
 func NewSensuNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	url := model.Settings.Get("url").MustString()
 	if url == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find url property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到url属性"}
 	}
 
 	return &SensuNotifier{
@@ -72,7 +72,7 @@ type SensuNotifier struct {
 }
 
 func (this *SensuNotifier) Notify(evalContext *alerting.EvalContext) error {
-	this.log.Info("Sending sensu result")
+	this.log.Info("发送 sensu 结果")
 
 	bodyJSON := simplejson.New()
 	bodyJSON.Set("ruleId", evalContext.Rule.Id)
@@ -126,7 +126,7 @@ func (this *SensuNotifier) Notify(evalContext *alerting.EvalContext) error {
 	}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send sensu event", "error", err, "sensu", this.Name)
+		this.log.Error("无法发送sensu事件", "error", err, "sensu", this.Name)
 		return err
 	}
 

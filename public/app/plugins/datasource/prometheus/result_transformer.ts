@@ -97,7 +97,7 @@ export class ResultTransformer {
 
     // Sort metric labels, create columns for them and record their index
     const sortedLabels = _.keys(metricLabels).sort();
-    table.columns.push({ text: 'Time', type: 'time' });
+    table.columns.push({ text: '时间', type: 'time' });
     _.each(sortedLabels, (label, labelIndex) => {
       metricLabels[label] = labelIndex + 1;
       table.columns.push({ text: label, filterable: !label.startsWith('__') });

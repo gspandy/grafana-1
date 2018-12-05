@@ -15,25 +15,25 @@ func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "opsgenie",
 		Name:        "OpsGenie",
-		Description: "Sends notifications to OpsGenie",
+		Description: "向OpsGenie发送通知",
 		Factory:     NewOpsGenieNotifier,
 		OptionsTemplate: `
-      <h3 class="page-heading">OpsGenie settings</h3>
+      <h3 class="page-heading">OpsGenie 设置</h3>
       <div class="gf-form">
         <span class="gf-form-label width-14">API Key</span>
         <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.apiKey" placeholder="OpsGenie API Key"></input>
       </div>
       <div class="gf-form">
-        <span class="gf-form-label width-14">Alert API Url</span>
+        <span class="gf-form-label width-14">告警 API Url</span>
         <input type="text" required class="gf-form-input max-width-22" ng-model="ctrl.model.settings.apiUrl" placeholder="https://api.opsgenie.com/v2/alerts"></input>
       </div>
       <div class="gf-form">
         <gf-form-switch
            class="gf-form"
-           label="Auto close incidents"
+           label="自动关闭事故"
            label-class="width-14"
            checked="ctrl.model.settings.autoClose"
-           tooltip="Automatically close alerts in OpsGenie once the alert goes back to ok.">
+           tooltip="警报恢复正常后，自动关闭OpsGenie中的警报。">
         </gf-form-switch>
       </div>
     `,
@@ -49,7 +49,7 @@ func NewOpsGenieNotifier(model *m.AlertNotification) (alerting.Notifier, error) 
 	apiKey := model.Settings.Get("apiKey").MustString()
 	apiUrl := model.Settings.Get("apiUrl").MustString()
 	if apiKey == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find api key property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到api密钥属性"}
 	}
 	if apiUrl == "" {
 		apiUrl = opsgenieAlertURL
@@ -87,11 +87,11 @@ func (this *OpsGenieNotifier) Notify(evalContext *alerting.EvalContext) error {
 }
 
 func (this *OpsGenieNotifier) createAlert(evalContext *alerting.EvalContext) error {
-	this.log.Info("Creating OpsGenie alert", "ruleId", evalContext.Rule.Id, "notification", this.Name)
+	this.log.Info("创建OpsGenie警报", "ruleId", evalContext.Rule.Id, "notification", this.Name)
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 
@@ -126,7 +126,7 @@ func (this *OpsGenieNotifier) createAlert(evalContext *alerting.EvalContext) err
 	}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send notification to OpsGenie", "error", err, "body", string(body))
+		this.log.Error("无法向OpsGenie发送通知", "error", err, "body", string(body))
 	}
 
 	return nil
@@ -150,7 +150,7 @@ func (this *OpsGenieNotifier) closeAlert(evalContext *alerting.EvalContext) erro
 	}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send notification to OpsGenie", "error", err, "body", string(body))
+		this.log.Error("无法向OpsGenie发送通知", "error", err, "body", string(body))
 		return err
 	}
 

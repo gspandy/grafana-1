@@ -180,7 +180,7 @@ export class CloudWatchQueryParameterCtrl {
       return $scope.datasource
         .metricFindQuery('regions()')
         .then(results => {
-          results.unshift({ text: 'default' });
+          results.unshift({ text: '默认' });
           return results;
         })
         .then($scope.transformToSegments(true));

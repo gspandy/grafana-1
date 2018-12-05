@@ -71,8 +71,8 @@ export class UserPicker extends Component<Props, State> {
             NoOptionsMessage,
           }}
           placeholder="选择用户"
-          loadingMessage={() => 'Loading...'}
-          noOptionsMessage={() => 'No users found'}
+          loadingMessage={() => '加载中...'}
+          noOptionsMessage={() => '没有发现用户'}
           getOptionValue={i => i.id}
           getOptionLabel={i => i.label}
         />

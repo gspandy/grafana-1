@@ -50,7 +50,7 @@ describe('PostgreSQLDatasource', () => {
           refId: annotationName,
           tables: [
             {
-              columns: [{ text: 'time' }, { text: 'text' }, { text: 'tags' }],
+              columns: [{ text: '时间' }, { text: 'text' }, { text: 'tags' }],
               rows: [
                 [1432288355, 'some text', 'TagA,TagB'],
                 [1432288390, 'some text2', ' TagB , TagC'],
@@ -71,7 +71,7 @@ describe('PostgreSQLDatasource', () => {
       });
     });
 
-    it('should return annotation list', () => {
+    it('应该返回注释列表', () => {
       expect(results.length).toBe(3);
 
       expect(results[0].text).toBe('some text');
@@ -85,7 +85,7 @@ describe('PostgreSQLDatasource', () => {
     });
   });
 
-  describe('When performing metricFindQuery', () => {
+  describe('执行metricFindQuery时', () => {
     let results;
     const query = 'select * from atable';
     const response = {
@@ -114,14 +114,14 @@ describe('PostgreSQLDatasource', () => {
       });
     });
 
-    it('should return list of all column values', () => {
+    it('应该返回所有列值的列表', () => {
       expect(results.length).toBe(6);
       expect(results[0].text).toBe('aTitle');
       expect(results[5].text).toBe('some text3');
     });
   });
 
-  describe('When performing metricFindQuery with key, value columns', () => {
+  describe('使用键，值列执行metricFindQuery时', () => {
     let results;
     const query = 'select * from atable';
     const response = {
@@ -150,7 +150,7 @@ describe('PostgreSQLDatasource', () => {
       });
     });
 
-    it('should return list of as text, value', () => {
+    it('应该返回文本列表，值', () => {
       expect(results.length).toBe(3);
       expect(results[0].text).toBe('aTitle');
       expect(results[0].value).toBe('value1');
@@ -159,7 +159,7 @@ describe('PostgreSQLDatasource', () => {
     });
   });
 
-  describe('When performing metricFindQuery with key, value columns and with duplicate keys', () => {
+  describe('使用键，值列和重复键执行metricFindQuery时', () => {
     let results;
     const query = 'select * from atable';
     const response = {
@@ -189,53 +189,53 @@ describe('PostgreSQLDatasource', () => {
       //ctx.$rootScope.$apply();
     });
 
-    it('should return list of unique keys', () => {
+    it('应返回唯一键列表', () => {
       expect(results.length).toBe(1);
       expect(results[0].text).toBe('aTitle');
       expect(results[0].value).toBe('same');
     });
   });
 
-  describe('When interpolating variables', () => {
+  describe('插值变量时', () => {
     beforeEach(() => {
       ctx.variable = new CustomVariable({}, {});
     });
 
-    describe('and value is a string', () => {
-      it('should return an unquoted value', () => {
+    describe('值是一个字符串', () => {
+      it('应该返回一个不带引号的值', () => {
         expect(ctx.ds.interpolateVariable('abc', ctx.variable)).toEqual('abc');
       });
     });
 
-    describe('and value is a number', () => {
-      it('should return an unquoted value', () => {
+    describe('值是一个数字', () => {
+      it('应该返回一个不带引号的值', () => {
         expect(ctx.ds.interpolateVariable(1000, ctx.variable)).toEqual(1000);
       });
     });
 
-    describe('and value is an array of strings', () => {
-      it('should return comma separated quoted values', () => {
+    describe('值是一个字符串数组', () => {
+      it('应该返回逗号分隔的引用值', () => {
         expect(ctx.ds.interpolateVariable(['a', 'b', 'c'], ctx.variable)).toEqual("'a','b','c'");
       });
     });
 
-    describe('and variable allows multi-value and is a string', () => {
-      it('should return a quoted value', () => {
+    describe('变量允许多值，是一个字符串', () => {
+      it('应该返回一个带引号的值', () => {
         ctx.variable.multi = true;
         expect(ctx.ds.interpolateVariable('abc', ctx.variable)).toEqual("'abc'");
       });
     });
 
-    describe('and variable contains single quote', () => {
-      it('should return a quoted value', () => {
+    describe('变量包含单引号', () => {
+      it('应该返回一个带引号的值', () => {
         ctx.variable.multi = true;
         expect(ctx.ds.interpolateVariable("a'bc", ctx.variable)).toEqual("'a''bc'");
         expect(ctx.ds.interpolateVariable("a'b'c", ctx.variable)).toEqual("'a''b''c'");
       });
     });
 
-    describe('and variable allows all and is a string', () => {
-      it('should return a quoted value', () => {
+    describe('变量允许all并且是一个字符串', () => {
+      it('应该返回一个带引号的值', () => {
         ctx.variable.includeAll = true;
         expect(ctx.ds.interpolateVariable('abc', ctx.variable)).toEqual("'abc'");
       });
