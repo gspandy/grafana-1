@@ -117,7 +117,7 @@ Below is a minimal example of an editor row with one form group and two fields, 
 ```html
 <div class="editor-row">
   <div class="section gf-form-group">
-    <h5 class="section-heading">My Plugin Options</h5>
+    <h5 class="section-heading">我的插件选项</h5>
     <div class="gf-form">
       <label class="gf-form-label width-10">Label1</label>
       <div class="gf-form-select-wrapper max-width-10">
