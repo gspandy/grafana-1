@@ -20,7 +20,7 @@ const (
 func (hs *HTTPServer) LoginView(c *m.ReqContext) {
 	viewData, err := hs.setIndexViewData(c)
 	if err != nil {
-		c.Handle(500, "Failed to get settings", err)
+		c.Handle(500, "无法获得设置", err)
 		return
 	}
 
@@ -102,7 +102,7 @@ func tryLoginUsingRememberCookie(c *m.ReqContext) bool {
 	// validate remember me cookie
 	signingKey := user.Rands + user.Password
 	if len(signingKey) < 10 {
-		c.Logger.Error("Invalid user signingKey")
+		c.Logger.Error("无效的用户签名密钥")
 		return false
 	}
 
@@ -117,16 +117,16 @@ func tryLoginUsingRememberCookie(c *m.ReqContext) bool {
 
 func LoginAPIPing(c *m.ReqContext) {
 	if !tryLoginUsingRememberCookie(c) {
-		c.JsonApiErr(401, "Unauthorized", nil)
+		c.JsonApiErr(401, "请登录", nil)
 		return
 	}
 
-	c.JsonOK("Logged in")
+	c.JsonOK("登录成功")
 }
 
 func LoginPost(c *m.ReqContext, cmd dtos.LoginCommand) Response {
 	if setting.DisableLoginForm {
-		return Error(401, "Login is disabled", nil)
+		return Error(401, "登录被禁用", nil)
 	}
 
 	authQuery := &m.LoginUserQuery{
@@ -138,10 +138,10 @@ func LoginPost(c *m.ReqContext, cmd dtos.LoginCommand) Response {
 
 	if err := bus.Dispatch(authQuery); err != nil {
 		if err == login.ErrInvalidCredentials || err == login.ErrTooManyLoginAttempts {
-			return Error(401, "Invalid username or password", err)
+			return Error(401, "用户名或密码无效", err)
 		}
 
-		return Error(500, "Error while trying to authenticate user", err)
+		return Error(500, "尝试验证用户时出错", err)
 	}
 
 	user := authQuery.User
@@ -149,7 +149,7 @@ func LoginPost(c *m.ReqContext, cmd dtos.LoginCommand) Response {
 	loginUserWithUser(user, c)
 
 	result := map[string]interface{}{
-		"message": "Logged in",
+		"message": "登录成功",
 	}
 
 	if redirectTo, _ := url.QueryUnescape(c.GetCookie("redirect_to")); len(redirectTo) > 0 {
@@ -164,7 +164,7 @@ func LoginPost(c *m.ReqContext, cmd dtos.LoginCommand) Response {
 
 func loginUserWithUser(user *m.User, c *m.ReqContext) {
 	if user == nil {
-		log.Error(3, "User login with nil user")
+		log.Error(3, "用户使用nil用户登录")
 	}
 
 	c.Resp.Header().Del("Set-Cookie")

@@ -52,7 +52,7 @@ func NewHipChatNotifier(model *models.AlertNotification) (alerting.Notifier, err
 		url = url[:len(url)-1]
 	}
 	if url == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find url property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到url属性"}
 	}
 
 	apikey := model.Settings.Get("apikey").MustString()
@@ -80,7 +80,7 @@ func (this *HipChatNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 

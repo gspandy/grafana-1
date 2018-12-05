@@ -92,7 +92,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -162,7 +162,7 @@
     ]
   },
   "timezone": "",
-  "title": "New dashboard",
+  "title": "新建仪表盘",
   "uid": null,
   "version": 0
 }

@@ -239,7 +239,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 HTTP/1.1 200
 Content-Type: application/json
 
-{"message":"Datasource updated", "id": 1, "name": "test_datasource"}
+{"message":"数据源更新成功", "id": 1, "name": "test_datasource"}
 ```
 
 ## Delete an existing data source by id
@@ -261,7 +261,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 HTTP/1.1 200
 Content-Type: application/json
 
-{"message":"Data source deleted"}
+{"message":"数据源删除成功"}
 ```
 
 ## Delete an existing data source by name
@@ -283,7 +283,7 @@ Authorization: Bearer eyJrIjoiT0tTcG1pUlY2RnVKZTFVaDFsNFZXdE9ZWmNrMkZYbk
 HTTP/1.1 200
 Content-Type: application/json
 
-{"message":"Data source deleted"}
+{"message":"数据源删除成功"}
 ```
 
 ## Data source proxy calls

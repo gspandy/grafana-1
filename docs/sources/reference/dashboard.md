@@ -28,7 +28,7 @@ When a user creates a new dashboard, a new dashboard JSON object is initialized 
 {
   "id": null,
   "uid": "cLV5GDCkz",
-  "title": "New dashboard",
+  "title": "新建仪表盘",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -85,7 +85,7 @@ Panels are the building blocks of a dashboard. It consists of datasource queries
 "panels": [
   {
     "type": "text",
-    "title": "Panel Title",
+    "title": "面板标题",
     "gridPos": {
       "x": 0,
       "y": 0,

@@ -5,7 +5,7 @@ const template = `
   <div class="modal-header">
     <h2 class="modal-header-title">
       <i class="fa fa-exclamation"></i>
-      <span class="p-l-1">未保存的更改</span>
+      <span class="p-l-1">保存更改</span>
     </h2>
 
     <a class="modal-header-close" ng-click="ctrl.dismiss();">

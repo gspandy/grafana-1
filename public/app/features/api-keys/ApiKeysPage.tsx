@@ -112,12 +112,12 @@ export class ApiKeysPage extends PureComponent<Props, any> {
         {!isAdding && (
           <EmptyListCTA
             model={{
-              title: "You haven't added any API Keys yet.",
+              title: "您尚未添加任何API密钥。",
               buttonIcon: 'fa fa-plus',
               buttonLink: '#',
               onClick: this.onToggleAdding,
-              buttonTitle: ' New API Key',
-              proTip: 'Remember you can provide view-only API access to other applications.',
+              buttonTitle: ' 新建 API Key',
+              proTip: '请记住，您可以提供对其他应用程序的仅查看API访问>.',
               proTipLink: '',
               proTipLinkTitle: '',
               proTipTarget: '_blank',
@@ -138,11 +138,11 @@ export class ApiKeysPage extends PureComponent<Props, any> {
           <button className="cta-form__close btn btn-transparent" onClick={this.onToggleAdding}>
             <i className="fa fa-close" />
           </button>
-          <h5>Add API Key</h5>
+          <h5>添加 API Key</h5>
           <form className="gf-form-group" onSubmit={this.onAddApiKey}>
             <div className="gf-form-inline">
               <div className="gf-form max-width-21">
-                <span className="gf-form-label">Key name</span>
+                <span className="gf-form-label">Key 名称</span>
                 <input
                   type="text"
                   className="gf-form-input"
@@ -152,7 +152,7 @@ export class ApiKeysPage extends PureComponent<Props, any> {
                 />
               </div>
               <div className="gf-form">
-                <span className="gf-form-label">Role</span>
+                <span className="gf-form-label">角色</span>
                 <span className="gf-form-select-wrapper">
                   <select
                     className="gf-form-input gf-size-auto"
@@ -170,7 +170,7 @@ export class ApiKeysPage extends PureComponent<Props, any> {
                 </span>
               </div>
               <div className="gf-form">
-                <button className="btn gf-form-btn btn-success">Add</button>
+                <button className="btn gf-form-btn btn-success">添加</button>
               </div>
             </div>
           </form>
@@ -201,18 +201,18 @@ export class ApiKeysPage extends PureComponent<Props, any> {
 
           <div className="page-action-bar__spacer" />
           <button className="btn btn-success pull-right" onClick={this.onToggleAdding} disabled={isAdding}>
-            <i className="fa fa-plus" /> Add API Key
+            <i className="fa fa-plus" /> 添加 API Key
           </button>
         </div>
 
         {this.renderAddApiKeyForm()}
 
-        <h3 className="page-heading">Existing Keys</h3>
+        <h3 className="page-heading">现有密钥</h3>
         <table className="filter-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Role</th>
+              <th>名称</th>
+              <th>角色</th>
               <th style={{ width: '34px' }} />
             </tr>
           </thead>

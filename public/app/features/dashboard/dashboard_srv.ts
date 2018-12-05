@@ -114,7 +114,7 @@ export class DashboardSrv {
       return Promise.resolve();
     }
 
-    if (this.dash.title === 'New dashboard') {
+    if (this.dash.title === '新建仪表盘') {
       return this.showSaveAsModal();
     }
 

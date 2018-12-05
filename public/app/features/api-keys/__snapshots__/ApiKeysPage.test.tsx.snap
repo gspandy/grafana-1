@@ -26,11 +26,11 @@ exports[`Render should render CTA if there are no API keys 1`] = `
           "buttonLink": "#",
           "buttonTitle": " New API Key",
           "onClick": [Function],
-          "proTip": "Remember you can provide view-only API access to other applications.",
+          "proTip": "请记住，您可以提供对其他应用程序的仅查看API访问>.",
           "proTipLink": "",
           "proTipLinkTitle": "",
           "proTipTarget": "_blank",
-          "title": "You haven't added any API Keys yet.",
+          "title": "您尚未添加任何API密钥。",
         }
       }
     />
@@ -49,7 +49,7 @@ exports[`Render should render CTA if there are no API keys 1`] = `
           />
         </button>
         <h5>
-          Add API Key
+          添加 API Key
         </h5>
         <form
           className="gf-form-group"
@@ -64,7 +64,7 @@ exports[`Render should render CTA if there are no API keys 1`] = `
               <span
                 className="gf-form-label"
               >
-                Key name
+                Key 名称
               </span>
               <input
                 className="gf-form-input"
@@ -80,7 +80,7 @@ exports[`Render should render CTA if there are no API keys 1`] = `
               <span
                 className="gf-form-label"
               >
-                Role
+                角色
               </span>
               <span
                 className="gf-form-select-wrapper"
@@ -120,7 +120,7 @@ exports[`Render should render CTA if there are no API keys 1`] = `
               <button
                 className="btn gf-form-btn btn-success"
               >
-                Add
+                添加
               </button>
             </div>
           </div>

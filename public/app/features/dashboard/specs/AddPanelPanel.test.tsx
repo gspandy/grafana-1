@@ -35,7 +35,7 @@ describe('AddPanelPanel', () => {
       {
         id: 'hidden',
         hideFromList: true,
-        name: 'Hidden',
+        name: '隐藏',
         sort: 100,
         meta: {},
         module: '',
@@ -49,7 +49,7 @@ describe('AddPanelPanel', () => {
       {
         id: 'graph',
         hideFromList: false,
-        name: 'Graph',
+        name: '图标',
         sort: 1,
         meta: {},
         module: '',
@@ -77,7 +77,7 @@ describe('AddPanelPanel', () => {
       {
         id: 'piechart',
         hideFromList: false,
-        name: 'Piechart',
+        name: '饼图',
         sort: 100,
         meta: {},
         module: '',

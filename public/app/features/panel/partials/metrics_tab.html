@@ -50,7 +50,7 @@
 			</div>
 			<div class="gf-form gf-form--flex-end" ng-if="ctrl.queryOptions.maxDataPoints">
 				<label class="gf-form-label width-9">最大数据点</label>
-				<input type="text" class="gf-form-input width-6" placeholder="auto" ng-model-onblur ng-change="ctrl.panelCtrl.refresh()" ng-model="ctrl.panel.maxDataPoints" spellcheck="false"  />
+				<input type="text" class="gf-form-input width-6" placeholder="自动" ng-model-onblur ng-change="ctrl.panelCtrl.refresh()" ng-model="ctrl.panel.maxDataPoints" spellcheck="false"  />
 				<info-popover mode="right-absolute">
           查询应返回的最大数据点。
           对于图表这个自动设置为每个像素一个数据点。

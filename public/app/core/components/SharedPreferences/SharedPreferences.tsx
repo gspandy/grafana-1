@@ -17,10 +17,10 @@ export interface State {
   dashboards: DashboardSearchHit[];
 }
 
-const themes = [{ value: '', text: 'Default' }, { value: 'dark', text: 'Dark' }, { value: 'light', text: 'Light' }];
+const themes = [{ value: '', text: '默认' }, { value: 'dark', text: '暗色' }, { value: 'light', text: '亮色' }];
 
 const timezones = [
-  { value: '', text: 'Default' },
+  { value: '', text: '默认' },
   { value: 'browser', text: '本地浏览器时间' },
   { value: 'utc', text: 'UTC' },
 ];

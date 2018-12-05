@@ -12,14 +12,14 @@ func CreateTeam(c *m.ReqContext, cmd m.CreateTeamCommand) Response {
 	cmd.OrgId = c.OrgId
 	if err := bus.Dispatch(&cmd); err != nil {
 		if err == m.ErrTeamNameTaken {
-			return Error(409, "Team name taken", err)
+			return Error(409, "该名称已经被使用", err)
 		}
-		return Error(500, "Failed to create Team", err)
+		return Error(500, "无法创建团队", err)
 	}
 
 	return JSON(200, &util.DynMap{
 		"teamId":  cmd.Result.Id,
-		"message": "Team created",
+		"message": "创建团队成功",
 	})
 }
 
@@ -29,23 +29,23 @@ func UpdateTeam(c *m.ReqContext, cmd m.UpdateTeamCommand) Response {
 	cmd.Id = c.ParamsInt64(":teamId")
 	if err := bus.Dispatch(&cmd); err != nil {
 		if err == m.ErrTeamNameTaken {
-			return Error(400, "Team name taken", err)
+			return Error(400, "该名称已经被使用", err)
 		}
-		return Error(500, "Failed to update Team", err)
+		return Error(500, "无法创建团队", err)
 	}
 
-	return Success("Team updated")
+	return Success("团队更新成功")
 }
 
 // DELETE /api/teams/:teamId
 func DeleteTeamByID(c *m.ReqContext) Response {
 	if err := bus.Dispatch(&m.DeleteTeamCommand{OrgId: c.OrgId, Id: c.ParamsInt64(":teamId")}); err != nil {
 		if err == m.ErrTeamNotFound {
-			return Error(404, "Failed to delete Team. ID not found", nil)
+			return Error(404, "无法删除团队. 该ID找不到", nil)
 		}
-		return Error(500, "Failed to update Team", err)
+		return Error(500, "无法更新团队", err)
 	}
-	return Success("Team deleted")
+	return Success("团队删除成功")
 }
 
 // GET /api/teams/search
@@ -68,7 +68,7 @@ func SearchTeams(c *m.ReqContext) Response {
 	}
 
 	if err := bus.Dispatch(&query); err != nil {
-		return Error(500, "Failed to search Teams", err)
+		return Error(500, "无法搜索团队", err)
 	}
 
 	for _, team := range query.Result.Teams {
@@ -87,10 +87,10 @@ func GetTeamByID(c *m.ReqContext) Response {
 
 	if err := bus.Dispatch(&query); err != nil {
 		if err == m.ErrTeamNotFound {
-			return Error(404, "Team not found", err)
+			return Error(404, "没有找到团队", err)
 		}
 
-		return Error(500, "Failed to get Team", err)
+		return Error(500, "无法获取团队", err)
 	}
 
 	query.Result.AvatarUrl = dtos.GetGravatarUrlWithDefault(query.Result.Email, query.Result.Name)

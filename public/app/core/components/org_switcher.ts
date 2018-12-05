@@ -19,8 +19,8 @@ const template = `
     <table class="filter-table form-inline">
 			<thead>
 				<tr>
-					<th>Name</th>
-					<th>Role</th>
+					<th>名称</th>
+					<th>角色</th>
 					<th></th>
 				</tr>
 			</thead>

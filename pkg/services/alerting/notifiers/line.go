@@ -66,7 +66,7 @@ func (this *LineNotifier) createAlert(evalContext *alerting.EvalContext) error {
 	this.log.Info("Creating Line notify", "ruleId", evalContext.Rule.Id, "notification", this.Name)
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 

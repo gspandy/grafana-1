@@ -9,7 +9,7 @@ export class HelpCtrl {
   constructor() {
     this.tabIndex = 0;
     this.shortcuts = {
-      Global: [
+      全局: [
         { keys: ['g', 'h'], description: '转到主页仪表盘' },
         { keys: ['g', 'p'], description: '转到个人资料' },
         { keys: ['s', 'o'], description: '打开搜索' },
@@ -17,7 +17,7 @@ export class HelpCtrl {
         { keys: ['s', 't'], description: '在标签页打开搜索' },
         { keys: ['esc'], description: '退出编辑/设置视图' },
       ],
-      Dashboard: [
+      仪表盘: [
         { keys: ['mod+s'], description: '保存仪表盘' },
         { keys: ['d', 'r'], description: '刷新全部面板' },
         { keys: ['d', 's'], description: '仪表盘设置' },
@@ -28,7 +28,7 @@ export class HelpCtrl {
         { keys: ['d', 'a'], description: '切换自动配合面板（实验功能）' },
         { keys: ['mod+o'], description: '切换共享图形十字准线' },
       ],
-      'Focused Panel': [
+      '当前面板': [
         { keys: ['e'], description: '切换面板编辑视图' },
         { keys: ['v'], description: '切换面板全屏视图' },
         { keys: ['p', 's'], description: '打开面板共享模式' },
@@ -36,7 +36,7 @@ export class HelpCtrl {
         { keys: ['p', 'r'], description: '移除面板' },
         { keys: ['p', 'l'], description: '转到面板示例' },
       ],
-      'Time Range': [
+      '时间范围': [
         { keys: ['t', 'z'], description: '缩小时间范围' },
         {
           keys: ['t', '<i class="fa fa-long-arrow-left"></i>'],

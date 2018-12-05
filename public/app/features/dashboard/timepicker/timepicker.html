@@ -14,7 +14,7 @@
 		<i class="fa fa-chevron-right"></i>
 	</button>
 
-  <button class="btn navbar-button navbar-button--zoom" bs-tooltip="'Time range zoom out <br> CTRL+Z'" data-placement="bottom" ng-click='ctrl.zoom(2)'>
+  <button class="btn navbar-button navbar-button--zoom" bs-tooltip="'时间范围缩小 <br> CTRL+Z'" data-placement="bottom" ng-click='ctrl.zoom(2)'>
 		<i class="fa fa-search-minus"></i>
 	</button>
 
@@ -72,7 +72,7 @@
   </form>
 
   <div class="gf-timepicker-relative-section">
-    <h3 class="section-heading">快捷范围</h3>
+    <h3 class="section-heading">快捷选项</h3>
     <ul ng-repeat="group in ctrl.timeOptions">
       <li bindonce ng-repeat='option in group' ng-class="{active: option.active}">
         <a ng-click="ctrl.setRelativeFilter(option)" bo-text="option.display"></a>

@@ -69,7 +69,7 @@ export class LoginCtrl {
       $scope.command.oldPassword = 'admin';
 
       if ($scope.command.newPassword !== $scope.command.confirmNew) {
-        $scope.appEvent('alert-warning', ['New passwords do not match', '']);
+        $scope.appEvent('alert-warning', ['密码不一致', '']);
         return;
       }
 

@@ -26,7 +26,7 @@ const (
 )
 
 var (
-	ErrDataSourceNotFound           = errors.New("Data source not found")
+	ErrDataSourceNotFound           = errors.New("找不到数据源")
 	ErrDataSourceNameExists         = errors.New("Data source with same name already exists")
 	ErrDataSourceUpdatingOldVersion = errors.New("Trying to update old version of datasource")
 	ErrDatasourceIsReadOnly         = errors.New("Data source is readonly. Can only be updated from configuration.")

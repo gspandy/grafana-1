@@ -126,7 +126,7 @@ type PushoverNotifier struct {
 func (this *PushoverNotifier) Notify(evalContext *alerting.EvalContext) error {
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 

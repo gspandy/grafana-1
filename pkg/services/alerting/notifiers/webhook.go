@@ -43,7 +43,7 @@ func init() {
 func NewWebHookNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	url := model.Settings.Get("url").MustString()
 	if url == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find url property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到url属性"}
 	}
 
 	return &WebhookNotifier{

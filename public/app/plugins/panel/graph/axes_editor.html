@@ -23,18 +23,18 @@
 			<div class="gf-form-inline">
 				<div class="gf-form">
 					<label class="gf-form-label width-6">Y-最小值</label>
-					<input type="text" class="gf-form-input width-5" placeholder="auto" empty-to-null ng-model="yaxis.min" ng-change="ctrl.render()" ng-model-onblur>
+					<input type="text" class="gf-form-input width-5" placeholder="自动" empty-to-null ng-model="yaxis.min" ng-change="ctrl.render()" ng-model-onblur>
 				</div>
 				<div class="gf-form">
 					<label class="gf-form-label width-6">Y-最大值</label>
-					<input type="text" class="gf-form-input width-5" placeholder="auto" empty-to-null ng-model="yaxis.max" ng-change="ctrl.render()" ng-model-onblur>
+					<input type="text" class="gf-form-input width-5" placeholder="自动" empty-to-null ng-model="yaxis.max" ng-change="ctrl.render()" ng-model-onblur>
 				</div>
 			</div>
 
 		<div ng-if="yaxis.show">
 			<div class="gf-form">
 				<label class="gf-form-label width-6">小数</label>
-				<input type="number" class="gf-form-input max-width-20" placeholder="auto" empty-to-null bs-tooltip="'Override automatic decimal precision for y-axis'" data-placement="right" ng-model="yaxis.decimals" ng-change="ctrl.render()" ng-model-onblur>
+				<input type="number" class="gf-form-input max-width-20" placeholder="自动" empty-to-null bs-tooltip="'覆盖y轴的自动小数精度'" data-placement="right" ng-model="yaxis.decimals" ng-change="ctrl.render()" ng-model-onblur>
 			</div>
 
 			<div class="gf-form">
@@ -64,18 +64,18 @@
 		<!-- Histogram mode -->
 		<div class="gf-form" ng-if="ctrl.panel.xaxis.mode === 'histogram'">
 			<label class="gf-form-label width-6">Buckets</label>
-			<input type="number" class="gf-form-input max-width-8" ng-model="ctrl.panel.xaxis.buckets" placeholder="auto" ng-change="ctrl.render()" ng-model-onblur bs-tooltip="'Number of buckets'" data-placement="right">
+			<input type="number" class="gf-form-input max-width-8" ng-model="ctrl.panel.xaxis.buckets" placeholder="自动" ng-change="ctrl.render()" ng-model-onblur bs-tooltip="'buckets的数量'" data-placement="right">
 		</div>
 
 		<div>
 			<br/>
 			<h5 class="section-heading">Y-轴</h5>
-			<gf-form-switch class="gf-form" label="Align" tooltip="Align left and right Y-axes" label-class="width-6" switch-class="width-5" checked="ctrl.panel.yaxis.align" on-change="ctrl.render()"></gf-form-switch>
+			<gf-form-switch class="gf-form" label="Align" tooltip="对齐左右Y轴" label-class="width-6" switch-class="width-5" checked="ctrl.panel.yaxis.align" on-change="ctrl.render()"></gf-form-switch>
 			<div class="gf-form" ng-show="ctrl.panel.yaxis.align">
 				<label class="gf-form-label width-6">
 					级别
 				</label>
-				<input type="number" class="gf-form-input width-5" placeholder="0" ng-model="ctrl.panel.yaxis.alignLevel" ng-change="ctrl.render()" ng-model-onblur bs-tooltip="'Alignment of Y-axes are based on this value, starting from Y=0'" data-placement="right">
+				<input type="number" class="gf-form-input width-5" placeholder="0" ng-model="ctrl.panel.yaxis.alignLevel" ng-change="ctrl.render()" ng-model-onblur bs-tooltip="'Y轴的对齐基于该值，从Y = 0开始'" data-placement="right">
 			</div>
 		</div>
 

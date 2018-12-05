@@ -11,16 +11,16 @@ func SendResetPasswordEmail(c *m.ReqContext, form dtos.SendResetPasswordEmailFor
 	userQuery := m.GetUserByLoginQuery{LoginOrEmail: form.UserOrEmail}
 
 	if err := bus.Dispatch(&userQuery); err != nil {
-		c.Logger.Info("Requested password reset for user that was not found", "user", userQuery.LoginOrEmail)
-		return Error(200, "Email sent", err)
+		c.Logger.Info("请求的用户密码重置未找到", "user", userQuery.LoginOrEmail)
+		return Error(200, "邮件已发送", err)
 	}
 
 	emailCmd := m.SendResetPasswordEmailCommand{User: userQuery.Result}
 	if err := bus.Dispatch(&emailCmd); err != nil {
-		return Error(500, "Failed to send email", err)
+		return Error(500, "无法发送邮件", err)
 	}
 
-	return Success("Email sent")
+	return Success("邮件已发送")
 }
 
 func ResetPassword(c *m.ReqContext, form dtos.ResetUserPasswordForm) Response {
@@ -28,13 +28,13 @@ func ResetPassword(c *m.ReqContext, form dtos.ResetUserPasswordForm) Response {
 
 	if err := bus.Dispatch(&query); err != nil {
 		if err == m.ErrInvalidEmailCode {
-			return Error(400, "Invalid or expired reset password code", nil)
+			return Error(400, "无效或过期重置密码代码", nil)
 		}
-		return Error(500, "Unknown error validating email code", err)
+		return Error(500, "验证电子邮件代码的未知错误", err)
 	}
 
 	if form.NewPassword != form.ConfirmPassword {
-		return Error(400, "Passwords do not match", nil)
+		return Error(400, "密码不匹配", nil)
 	}
 
 	cmd := m.ChangeUserPasswordCommand{}
@@ -42,8 +42,8 @@ func ResetPassword(c *m.ReqContext, form dtos.ResetUserPasswordForm) Response {
 	cmd.NewPassword = util.EncodePassword(form.NewPassword, query.Result.Salt)
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		return Error(500, "Failed to change user password", err)
+		return Error(500, "无法更改密码", err)
 	}
 
-	return Success("User password changed")
+	return Success("密码修改成功")
 }

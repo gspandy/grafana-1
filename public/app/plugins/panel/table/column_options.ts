@@ -24,16 +24,16 @@ export class ColumnOptionsCtrl {
     this.panel = this.panelCtrl.panel;
     this.unitFormats = kbn.getUnitFormats();
     this.colorModes = [
-      { text: 'Disabled', value: null },
-      { text: 'Cell', value: 'cell' },
-      { text: 'Value', value: 'value' },
-      { text: 'Row', value: 'row' },
+      { text: '不可用', value: null },
+      { text: '单元格', value: 'cell' },
+      { text: '值', value: 'value' },
+      { text: '行', value: 'row' },
     ];
     this.columnTypes = [
-      { text: 'Number', value: 'number' },
-      { text: 'String', value: 'string' },
-      { text: 'Date', value: 'date' },
-      { text: 'Hidden', value: 'hidden' },
+      { text: '数字', value: 'number' },
+      { text: '字符串', value: 'string' },
+      { text: '日期', value: 'date' },
+      { text: '隐藏', value: 'hidden' },
     ];
     this.fontSizes = ['80%', '90%', '100%', '110%', '120%', '130%', '150%', '160%', '180%', '200%', '220%', '250%'];
     this.dateFormats = [
@@ -43,7 +43,7 @@ export class ColumnOptionsCtrl {
       { text: 'MMMM D, YYYY LT', value: 'MMMM D, YYYY LT' },
       { text: 'YYYY-MM-DD', value: 'YYYY-MM-DD' },
     ];
-    this.mappingTypes = [{ text: 'Value to text', value: 1 }, { text: 'Range to text', value: 2 }];
+    this.mappingTypes = [{ text: '值转文本', value: 1 }, { text: '范围转文本', value: 2 }];
 
     this.getColumnNames = () => {
       if (!this.panelCtrl.table) {

@@ -102,7 +102,7 @@ func init() {
 func NewSlackNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	url := model.Settings.Get("url").MustString()
 	if url == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find url property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到url属性"}
 	}
 
 	recipient := model.Settings.Get("recipient").MustString()
@@ -145,7 +145,7 @@ func (this *SlackNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 

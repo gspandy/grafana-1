@@ -98,7 +98,7 @@ export class AddPanelPanel extends React.Component<AddPanelPanelProps, AddPanelP
 
     const newPanel: any = {
       type: panelPluginInfo.id,
-      title: 'Panel Title',
+      title: '面板标题',
       gridPos: { x: gridPos.x, y: gridPos.y, w: gridPos.w, h: gridPos.h },
     };
 
@@ -213,16 +213,16 @@ export class AddPanelPanel extends React.Component<AddPanelPanelProps, AddPanelP
         <div className="add-panel">
           <div className="add-panel__header">
             <i className="gicon gicon-add-panel" />
-            <span className="add-panel__title">New Panel</span>
+            <span className="add-panel__title">新建面板</span>
             <ul className="gf-tabs">
               <li className="gf-tabs-item">
                 <div className={'gf-tabs-link pointer ' + addClass} onClick={this.openAdd.bind(this)}>
-                  Add
+                  添加
                 </div>
               </li>
               <li className="gf-tabs-item">
                 <div className={'gf-tabs-link pointer ' + copyClass} onClick={this.openCopy.bind(this)}>
-                  Paste
+                  黏贴
                 </div>
               </li>
             </ul>
@@ -237,7 +237,7 @@ export class AddPanelPanel extends React.Component<AddPanelPanelProps, AddPanelP
                   type="text"
                   autoFocus
                   className="gf-form-input gf-form--grow"
-                  placeholder="Panel Search Filter"
+                  placeholder="面板搜索过滤"
                   value={this.state.filter}
                   onChange={this.filterChange.bind(this)}
                   onKeyPress={this.filterKeyPress.bind(this)}

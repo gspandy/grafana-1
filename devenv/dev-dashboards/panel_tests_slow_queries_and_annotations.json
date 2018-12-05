@@ -7,7 +7,7 @@
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
+        "name": "注释和告警",
         "type": "dashboard"
       },
       {
@@ -78,7 +78,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -162,7 +162,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -246,7 +246,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -330,7 +330,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -414,7 +414,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -498,7 +498,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -582,7 +582,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -666,7 +666,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -750,7 +750,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -834,7 +834,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -918,7 +918,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1002,7 +1002,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1086,7 +1086,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Panel Title",
+      "title": "面板标题",
       "tooltip": {
         "shared": true,
         "sort": 0,

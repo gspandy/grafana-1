@@ -60,7 +60,7 @@ func GetContextHandler() macaron.Handler {
 
 		// update last seen every 5min
 		if ctx.ShouldUpdateLastSeenAt() {
-			ctx.Logger.Debug("Updating last user_seen_at", "user_id", ctx.UserId)
+			ctx.Logger.Debug("更新上次 user_seen_at", "user_id", ctx.UserId)
 			if err := bus.Dispatch(&m.UpdateUserLastSeenAtCommand{UserId: ctx.UserId}); err != nil {
 				ctx.Logger.Error("更新 last_seen_at 失败", "error", err)
 			}
@@ -75,7 +75,7 @@ func initContextWithAnonymousUser(ctx *m.ReqContext) bool {
 
 	orgQuery := m.GetOrgByNameQuery{Name: setting.AnonymousOrgName}
 	if err := bus.Dispatch(&orgQuery); err != nil {
-		log.Error(3, "Anonymous access organization error: '%s': %s", setting.AnonymousOrgName, err)
+		log.Error(3, "匿名访问组织错误: '%s': %s", setting.AnonymousOrgName, err)
 		return false
 	}
 
@@ -102,7 +102,7 @@ func initContextWithUserSessionCookie(ctx *m.ReqContext, orgId int64) bool {
 
 	query := m.GetSignedInUserQuery{UserId: userId, OrgId: orgId}
 	if err := bus.Dispatch(&query); err != nil {
-		ctx.Logger.Error("Failed to get user with id", "userId", userId, "error", err)
+		ctx.Logger.Error("通过id获取用户失败", "userId", userId, "error", err)
 		return false
 	}
 
@@ -120,14 +120,14 @@ func initContextWithApiKey(ctx *m.ReqContext) bool {
 	// base64 decode key
 	decoded, err := apikeygen.Decode(keyString)
 	if err != nil {
-		ctx.JsonApiErr(401, "Invalid API key", err)
+		ctx.JsonApiErr(401, "无效的 API key", err)
 		return true
 	}
 
 	// fetch key
 	keyQuery := m.GetApiKeyByNameQuery{KeyName: decoded.Name, OrgId: decoded.OrgId}
 	if err := bus.Dispatch(&keyQuery); err != nil {
-		ctx.JsonApiErr(401, "Invalid API key", err)
+		ctx.JsonApiErr(401, "无效的 API key", err)
 		return true
 	}
 
@@ -135,7 +135,7 @@ func initContextWithApiKey(ctx *m.ReqContext) bool {
 
 	// validate api key
 	if !apikeygen.IsValid(decoded, apikey.Key) {
-		ctx.JsonApiErr(401, "Invalid API key", err)
+		ctx.JsonApiErr(401, "无效的 API key", err)
 		return true
 	}
 
@@ -160,13 +160,13 @@ func initContextWithBasicAuth(ctx *m.ReqContext, orgId int64) bool {
 
 	username, password, err := util.DecodeBasicAuthHeader(header)
 	if err != nil {
-		ctx.JsonApiErr(401, "Invalid Basic Auth Header", err)
+		ctx.JsonApiErr(401, "无效的基本身份验证标头", err)
 		return true
 	}
 
 	loginQuery := m.GetUserByLoginQuery{LoginOrEmail: username}
 	if err := bus.Dispatch(&loginQuery); err != nil {
-		ctx.JsonApiErr(401, "Basic auth failed", err)
+		ctx.JsonApiErr(401, "基本认证失败", err)
 		return true
 	}
 
@@ -174,13 +174,13 @@ func initContextWithBasicAuth(ctx *m.ReqContext, orgId int64) bool {
 
 	loginUserQuery := m.LoginUserQuery{Username: username, Password: password, User: user}
 	if err := bus.Dispatch(&loginUserQuery); err != nil {
-		ctx.JsonApiErr(401, "Invalid username or password", err)
+		ctx.JsonApiErr(401, "无效的用户名或密码", err)
 		return true
 	}
 
 	query := m.GetSignedInUserQuery{UserId: user.Id, OrgId: orgId}
 	if err := bus.Dispatch(&query); err != nil {
-		ctx.JsonApiErr(401, "Authentication error", err)
+		ctx.JsonApiErr(401, "认证失败", err)
 		return true
 	}
 

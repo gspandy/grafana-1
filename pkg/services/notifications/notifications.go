@@ -177,7 +177,7 @@ func (ns *NotificationService) validateResetPasswordCode(query *m.ValidateResetP
 }
 
 func (ns *NotificationService) signUpStartedHandler(evt *events.SignUpStarted) error {
-	if !setting.VerifyEmail仪表盘 {
+	if !setting.VerifyEmailEnabled {
 		return nil
 	}
 

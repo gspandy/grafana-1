@@ -26,7 +26,7 @@ export default class InviteesTable extends PureComponent<Props> {
         <thead>
           <tr>
             <th>Email</th>
-            <th>Name</th>
+            <th>名称</th>
             <th />
             <th style={{ width: '34px' }} />
           </tr>

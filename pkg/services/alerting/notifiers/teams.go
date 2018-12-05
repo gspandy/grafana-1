@@ -12,11 +12,11 @@ import (
 func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "teams",
-		Name:        "Microsoft Teams",
-		Description: "Sends notifications using Incoming Webhook connector to Microsoft Teams",
+		Name:        "微软团队",
+		Description: "使用Incoming Webhook连接器向Microsoft Teams发送通知",
 		Factory:     NewTeamsNotifier,
 		OptionsTemplate: `
-      <h3 class="page-heading">Teams settings</h3>
+      <h3 class="page-heading">Teams 设置</h3>
       <div class="gf-form max-width-30">
         <span class="gf-form-label width-6">Url</span>
         <input type="text" required class="gf-form-input max-width-30" ng-model="ctrl.model.settings.url" placeholder="Teams incoming webhook url"></input>
@@ -29,7 +29,7 @@ func init() {
 func NewTeamsNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	url := model.Settings.Get("url").MustString()
 	if url == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find url property in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到url属性"}
 	}
 
 	return &TeamsNotifier{
@@ -46,11 +46,11 @@ type TeamsNotifier struct {
 }
 
 func (this *TeamsNotifier) Notify(evalContext *alerting.EvalContext) error {
-	this.log.Info("Executing teams notification", "ruleId", evalContext.Rule.Id, "notification", this.Name)
+	this.log.Info("执行团队通知", "ruleId", evalContext.Rule.Id, "notification", this.Name)
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
-		this.log.Error("Failed get rule link", "error", err)
+		this.log.Error("获取规则链接失败", "error", err)
 		return err
 	}
 
@@ -68,7 +68,7 @@ func (this *TeamsNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	if evalContext.Error != nil {
 		fields = append(fields, map[string]interface{}{
-			"name":  "Error message",
+			"name":  "错误信息",
 			"value": evalContext.Error.Error(),
 		})
 	}
@@ -102,7 +102,7 @@ func (this *TeamsNotifier) Notify(evalContext *alerting.EvalContext) error {
 			{
 				"@context": "http://schema.org",
 				"@type":    "OpenUri",
-				"name":     "View Rule",
+				"name":     "规则视图",
 				"targets": []map[string]interface{}{
 					{
 						"os": "default", "uri": ruleUrl,
@@ -112,7 +112,7 @@ func (this *TeamsNotifier) Notify(evalContext *alerting.EvalContext) error {
 			{
 				"@context": "http://schema.org",
 				"@type":    "OpenUri",
-				"name":     "View Graph",
+				"name":     "图标视图",
 				"targets": []map[string]interface{}{
 					{
 						"os": "default", "uri": evalContext.ImagePublicUrl,
@@ -126,7 +126,7 @@ func (this *TeamsNotifier) Notify(evalContext *alerting.EvalContext) error {
 	cmd := &m.SendWebhookSync{Url: this.Url, Body: string(data)}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send teams notification", "error", err, "webhook", this.Name)
+		this.log.Error("无法发送团队通知>", "error", err, "webhook", this.Name)
 		return err
 	}
 

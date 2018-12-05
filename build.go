@@ -149,7 +149,7 @@ func main() {
 			clean()
 
 		default:
-			log.Fatalf("Unknown command %q", cmd)
+			log.Fatalf("未知命令 %q", cmd)
 		}
 	}
 }

@@ -95,7 +95,7 @@ Grafana 2.5 introduced stricter checking for multiple-series on singlestat panel
 
 To fix your singlestat panel:
 
-- Edit your panel by clicking the Panel Title and selecting *Edit*.
+- Edit your panel by clicking the 面板标题 and selecting *Edit*.
 
 - Do you have multiple queries in the metrics tab?
     - Solution: Select a single query to visualize. You can toggle whether a query is visualized by clicking the eye icon on each line. If the error persists, continue to the next solution.

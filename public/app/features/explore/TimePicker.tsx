@@ -254,7 +254,7 @@ export default class TimePicker extends PureComponent<TimePickerProps, TimePicke
         </div>
 
         <div className="gf-timepicker-relative-section">
-          <h3 className="section-heading">快捷范围</h3>
+          <h3 className="section-heading">快捷选项</h3>
           {Object.keys(timeOptions).map(section => {
             const group = timeOptions[section];
             return (
@@ -284,7 +284,7 @@ export default class TimePicker extends PureComponent<TimePickerProps, TimePicke
             <i className="fa fa-clock-o" />
             <span className="timepicker-rangestring">{rangeString}</span>
             {isUtc ? <span className="gf-timepicker-utc">UTC</span> : null}
-            {refreshInterval ? <span className="text-warning">&nbsp; Refresh every {refreshInterval}</span> : null}
+            {refreshInterval ? <span className="text-warning">&nbsp; 刷新频率 {refreshInterval}</span> : null}
           </button>
           <button className="btn navbar-button navbar-button--tight timepicker-right" onClick={this.handleClickRight}>
             <i className="fa fa-chevron-right" />
