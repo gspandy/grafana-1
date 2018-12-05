@@ -53,9 +53,9 @@ func getOrgIdForNewUser(cmd *m.CreateUserCommand, sess *DBSession) (int64, error
 				org.Name = "Main Org."
 				org.Id = int64(setting.AutoAssignOrgId)
 			} else {
-				sqlog.Info("Could not create user: organization id %v does not exist",
+				sqlog.Info("无法创建用户: organization id %v does not exist",
 					setting.AutoAssignOrgId)
-				return 0, fmt.Errorf("Could not create user: organization id %v does not exist",
+				return 0, fmt.Errorf("无法创建用户: organization id %v does not exist",
 					setting.AutoAssignOrgId)
 			}
 		}

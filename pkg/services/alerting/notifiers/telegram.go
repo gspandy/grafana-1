@@ -62,7 +62,7 @@ type TelegramNotifier struct {
 
 func NewTelegramNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	if model.Settings == nil {
-		return nil, alerting.ValidationError{Reason: "No Settings Supplied"}
+		return nil, alerting.ValidationError{Reason: "没有提供设置"}
 	}
 
 	botToken := model.Settings.Get("bottoken").MustString()
@@ -70,11 +70,11 @@ func NewTelegramNotifier(model *m.AlertNotification) (alerting.Notifier, error) 
 	uploadImage := model.Settings.Get("uploadImage").MustBool()
 
 	if botToken == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find Bot Token in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到Bot Token"}
 	}
 
 	if chatId == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find Chat Id in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到聊天ID"}
 	}
 
 	return &TelegramNotifier{
@@ -92,7 +92,7 @@ func (this *TelegramNotifier) buildMessage(evalContext *alerting.EvalContext, se
 		if err == nil {
 			return cmd
 		}
-		this.log.Error("Could not generate Telegram message with inline image.", "err", err)
+		this.log.Error("无法使用内嵌图像生成电报消息。", "err", err)
 	}
 
 	return this.buildMessageLinkedImage(evalContext)
@@ -130,7 +130,7 @@ func (this *TelegramNotifier) buildMessageInlineImage(evalContext *alerting.Eval
 	defer func() {
 		err := imageFile.Close()
 		if err != nil {
-			log.Error2("Could not close Telegram inline image.", "err", err)
+			log.Error2("无法关闭电报内嵌图像。", "err", err)
 		}
 	}()
 
@@ -167,7 +167,7 @@ func (this *TelegramNotifier) generateTelegramCmd(message string, messageField s
 
 	w.Close()
 
-	this.log.Info("Sending telegram notification", "chat_id", this.ChatID, "bot_token", this.BotToken, "apiAction", apiAction)
+	this.log.Info("发送电报通知", "chat_id", this.ChatID, "bot_token", this.BotToken, "apiAction", apiAction)
 	url := fmt.Sprintf(telegramApiUrl, this.BotToken, apiAction)
 
 	cmd := &m.SendWebhookSync{
@@ -222,7 +222,7 @@ func appendIfPossible(message string, extra string, sizeLimit int) string {
 	if len(extra)+len(message) <= sizeLimit {
 		return message + extra
 	}
-	log.Debug("Line too long for image caption. value: %s", extra)
+	log.Debug("图像标题的行太长。 value: %s", extra)
 	return message
 }
 
@@ -235,7 +235,7 @@ func (this *TelegramNotifier) Notify(evalContext *alerting.EvalContext) error {
 	}
 
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send webhook", "error", err, "webhook", this.Name)
+		this.log.Error("发送webhook失败", "error", err, "webhook", this.Name)
 		return err
 	}
 

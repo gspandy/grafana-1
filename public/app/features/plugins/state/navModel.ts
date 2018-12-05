@@ -22,7 +22,7 @@ export function buildNavModel(ds: DataSource, plugin: PluginMeta, currentPage: s
         active: currentPage === 'datasource-settings',
         icon: 'fa fa-fw fa-sliders',
         id: 'datasource-settings',
-        text: 'Settings',
+        text: '设置',
         url: `datasources/edit/${ds.id}`,
       },
     ],

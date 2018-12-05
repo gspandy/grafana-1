@@ -21,7 +21,7 @@ export function buildNavModel(team: Team): NavModelItem {
         active: false,
         icon: 'fa fa-fw fa-sliders',
         id: `team-settings-${team.id}`,
-        text: 'Settings',
+        text: '设置',
         url: `org/teams/edit/${team.id}/settings`,
       },
     ],
