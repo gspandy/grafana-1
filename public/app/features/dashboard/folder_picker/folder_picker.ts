@@ -11,7 +11,9 @@ export class FolderPickerCtrl {
   onCreateFolder: any;
   enterFolderCreation: any;
   exitFolderCreation: any;
-  enableCreateNew: boolean;
+  enableCreateNew: boolean;时间
+
+
   enableReset: boolean;
   rootName = '公共';
   folder: any;

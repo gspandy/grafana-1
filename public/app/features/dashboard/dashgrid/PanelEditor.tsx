@@ -48,7 +48,7 @@ export class PanelEditor extends PureComponent<PanelEditorProps> {
       const OptionsComponent = pluginExports.PanelOptionsComponent;
       return <OptionsComponent options={panel.getOptions()} onChange={this.onPanelOptionsChanged} />;
     } else {
-      return <p>Visualization has no options</p>;
+      return <p>可视化没有选项</p>;
     }
   }
 
@@ -64,7 +64,7 @@ export class PanelEditor extends PureComponent<PanelEditorProps> {
           <VizTypePicker currentType={this.props.panel.type} onTypeChanged={this.props.onTypeChanged} />
         </div>
         <div className="viz-editor-col2">
-          <h5 className="page-heading">Options</h5>
+          <h5 className="page-heading">选项</h5>
           {this.renderPanelOptions()}
         </div>
       </div>
