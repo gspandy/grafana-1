@@ -173,7 +173,7 @@ export class ManageDashboardsCtrl {
     }
 
     appEvents.emit('confirm-modal', {
-      时间Delete',
+      title: '删除',
       text: text,
       text2: text2,
       icon: 'fa-trash',
