@@ -134,7 +134,7 @@ export class PanelCtrl {
   getMenu() {
     const menu = [];
     menu.push({
-      text: 'View',
+      text: '查看',
       click: 'ctrl.viewPanel();',
       icon: 'fa fa-fw fa-eye',
       shortcut: 'v',

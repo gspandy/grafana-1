@@ -13,7 +13,7 @@ export class FolderPickerCtrl {
   exitFolderCreation: any;
   enableCreateNew: boolean;
   enableReset: boolean;
-  rootName = 'General';
+  rootName = '公共';
   folder: any;
   createNewFolder: boolean;
   newFolderName: string;

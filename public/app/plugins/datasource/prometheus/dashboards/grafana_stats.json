@@ -114,11 +114,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "值转文本",
+                "name": "value to text",
                 "value": 1
               },
               {
-                "name": "范围转文本",
+                "name": "range to text",
                 "value": 2
               }
             ],
@@ -191,11 +191,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "值转文本",
+                "name": "value to text",
                 "value": 1
               },
               {
-                "name": "范围转文本",
+                "name": "range to text",
                 "value": 2
               }
             ],
@@ -268,11 +268,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "值转文本",
+                "name": "value to text",
                 "value": 1
               },
               {
-                "name": "范围转文本",
+                "name": "range to text",
                 "value": 2
               }
             ],
@@ -345,11 +345,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "值转文本",
+                "name": "value to text",
                 "value": 1
               },
               {
-                "name": "范围转文本",
+                "name": "range to text",
                 "value": 2
               }
             ],

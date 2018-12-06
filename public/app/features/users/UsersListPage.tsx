@@ -70,7 +70,7 @@ export class UsersListPage extends PureComponent<Props, State> {
   onRemoveUser = user => {
     appEvents.emit('confirm-modal', {
       title: '删除',
-      text: 'Are you sure you want to delete user ' + user.login + '?',
+      text: '您确定要删除用户 ' + user.login + '吗?',
       yesText: '删除',
       icon: 'fa-warning',
       onConfirm: () => {

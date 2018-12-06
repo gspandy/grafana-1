@@ -312,7 +312,7 @@ func (hs *HTTPServer) setIndexViewData(c *m.ReqContext) (*dtos.IndexViewData, er
 
 		if c.OrgRole == m.ROLE_ADMIN && c.IsGrafanaAdmin {
 			cfgNode.Children = append(cfgNode.Children, &dtos.NavLink{
-				Divider: true, HideFromTabs: true, Id: "admin-divider", Text: "Text",
+				Divider: true, HideFromTabs: true, Id: "admin-divider", Text: "文本",
 			})
 		}
 

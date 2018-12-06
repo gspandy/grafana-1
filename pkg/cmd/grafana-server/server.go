@@ -77,19 +77,19 @@ func (g *GrafanaServerImpl) Run() error {
 	serviceGraph := inject.Graph{}
 	err = serviceGraph.Provide(&inject.Object{Value: bus.GetBus()})
 	if err != nil {
-		return fmt.Errorf("Failed to provide object to the graph: %v", err)
+		return fmt.Errorf("无法向图表提供对象: %v", err)
 	}
 	err = serviceGraph.Provide(&inject.Object{Value: g.cfg})
 	if err != nil {
-		return fmt.Errorf("Failed to provide object to the graph: %v", err)
+		return fmt.Errorf("无法向图表提供对象: %v", err)
 	}
 	err = serviceGraph.Provide(&inject.Object{Value: routing.NewRouteRegister(middleware.RequestMetrics, middleware.RequestTracing)})
 	if err != nil {
-		return fmt.Errorf("Failed to provide object to the graph: %v", err)
+		return fmt.Errorf("无法向图表提供对象: %v", err)
 	}
 	err = serviceGraph.Provide(&inject.Object{Value: cache.New(5*time.Minute, 10*time.Minute)})
 	if err != nil {
-		return fmt.Errorf("Failed to provide object to the graph: %v", err)
+		return fmt.Errorf("无法向图表提供对象: %v", err)
 	}
 
 	// self registered services
@@ -99,18 +99,18 @@ func (g *GrafanaServerImpl) Run() error {
 	for _, service := range services {
 		err = serviceGraph.Provide(&inject.Object{Value: service.Instance})
 		if err != nil {
-			return fmt.Errorf("Failed to provide object to the graph: %v", err)
+			return fmt.Errorf("无法向图表提供对象: %v", err)
 		}
 	}
 
 	err = serviceGraph.Provide(&inject.Object{Value: g})
 	if err != nil {
-		return fmt.Errorf("Failed to provide object to the graph: %v", err)
+		return fmt.Errorf("无法向图表提供对象: %v", err)
 	}
 
 	// Inject dependencies to services
 	if err := serviceGraph.Populate(); err != nil {
-		return fmt.Errorf("Failed to populate service dependency: %v", err)
+		return fmt.Errorf("无法填充服务依赖项: %v", err)
 	}
 
 	// Init & start services
@@ -122,7 +122,7 @@ func (g *GrafanaServerImpl) Run() error {
 		g.log.Info("Initializing " + service.Name)
 
 		if err := service.Instance.Init(); err != nil {
-			return fmt.Errorf("Service init failed: %v", err)
+			return fmt.Errorf("服务初始化失败: %v", err)
 		}
 	}
 
@@ -175,7 +175,7 @@ func (g *GrafanaServerImpl) loadConfiguration() {
 	})
 
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Failed to start grafana. error: %s\n", err.Error())
+		fmt.Fprintf(os.Stderr, "启动grafana失败. error: %s\n", err.Error())
 		os.Exit(1)
 	}
 
@@ -234,7 +234,7 @@ func sendSystemdNotification(state string) error {
 	notifySocket := os.Getenv("NOTIFY_SOCKET")
 
 	if notifySocket == "" {
-		return fmt.Errorf("NOTIFY_SOCKET environment variable empty or unset.")
+		return fmt.Errorf("NOTIFY_SOCKET环境变量为空或未设置。")
 	}
 
 	socketAddr := &net.UnixAddr{

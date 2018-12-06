@@ -135,20 +135,20 @@ class GraphCtrl extends MetricsPanelCtrl {
   }
 
   onInitEditMode() {
-    this.addEditorTab('Axes', axesEditorComponent, 2);
-    this.addEditorTab('Legend', 'public/app/plugins/panel/graph/tab_legend.html', 3);
-    this.addEditorTab('Display', 'public/app/plugins/panel/graph/tab_display.html', 4);
+    this.addEditorTab('轴', axesEditorComponent, 2);
+    this.addEditorTab('图例', 'public/app/plugins/panel/graph/tab_legend.html', 3);
+    this.addEditorTab('展示', 'public/app/plugins/panel/graph/tab_display.html', 4);
 
     if (config.alertingEnabled) {
-      this.addEditorTab('Alert', alertTab, 5);
+      this.addEditorTab('告警', alertTab, 5);
     }
 
     this.subTabIndex = 0;
   }
 
   onInitPanelActions(actions) {
-    actions.push({ text: 'Export CSV', click: 'ctrl.exportCsv()' });
-    actions.push({ text: 'Toggle legend', click: 'ctrl.toggleLegend()', shortcut: 'p l' });
+    actions.push({ text: '导出 CSV', click: 'ctrl.exportCsv()' });
+    actions.push({ text: '切换图例', click: 'ctrl.toggleLegend()', shortcut: 'p l' });
   }
 
   issueQueries(datasource) {

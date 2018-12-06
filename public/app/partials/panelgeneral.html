@@ -7,16 +7,16 @@
 		</div>
 		<div class="gf-form gf-form--v-stretch">
 			<span class="gf-form-label width-7">描述</span>
-			<textarea class="gf-form-input width-25" rows="3" ng-model="ctrl.panel.description"  placeholder="Panel description, supports markdown & links"></textarea>
+			<textarea class="gf-form-input width-25" rows="3" ng-model="ctrl.panel.description"  placeholder="面板描述，支持降价和链接"></textarea>
 		</div>
-    <gf-form-switch class="gf-form" label-class="width-7" switch-class="max-width-6" label="Transparent" checked="ctrl.panel.transparent" on-change="ctrl.render()"></gf-form-switch>
+    <gf-form-switch class="gf-form" label-class="width-7" switch-class="max-width-6" label="透明" checked="ctrl.panel.transparent" on-change="ctrl.render()"></gf-form-switch>
 	</div>
 
   <div class="section gf-form-group">
     <h5 class="section-heading">重复</h5>
 		<div class="gf-form">
-			<span class="gf-form-label width-9">为</span>
-			<dash-repeat-option panel="ctrl.panel"></dash-repeat-option><span class="gf-form-label width-9">每个值</span>
+			<span class="gf-form-label width-9">重复：</span>
+			<dash-repeat-option panel="ctrl.panel"></dash-repeat-option><span class="gf-form-label width-9"></span>
 		</div>
     <div class="gf-form" ng-show="ctrl.panel.repeat">
 			<span class="gf-form-label width-9">描述</span>

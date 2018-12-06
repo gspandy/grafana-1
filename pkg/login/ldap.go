@@ -151,11 +151,11 @@ func (a *ldapAuther) SyncUser(query *m.LoginUserQuery) error {
 	// find user entry & attributes
 	ldapUser, err := a.searchForUser(query.Username)
 	if err != nil {
-		a.log.Error("Failed searching for user in ldap", "error", err)
+		a.log.Error("在ldap中搜索用户失败", "error", err)
 		return err
 	}
 
-	a.log.Debug("Ldap User found", "info", spew.Sdump(ldapUser))
+	a.log.Debug("发现Ldap 用户 ", "info", spew.Sdump(ldapUser))
 
 	grafanaUser, err := a.GetGrafanaUserFor(query.ReqContext, ldapUser)
 	if err != nil {
@@ -196,7 +196,7 @@ func (a *ldapAuther) GetGrafanaUserFor(ctx *m.ReqContext, ldapUser *LdapUserInfo
 	// otherwise a single group must match
 	if len(a.server.LdapGroups) > 0 && len(extUser.OrgRoles) < 1 {
 		a.log.Info(
-			"Ldap Auth: user does not belong in any of the specified ldap groups",
+			"Ldap Auth：用户不属于任何指定的ldap组",
 			"username", ldapUser.Username,
 			"groups", ldapUser.MemberOf)
 		return nil, ErrInvalidCredentials
@@ -220,7 +220,7 @@ func (a *ldapAuther) GetGrafanaUserFor(ctx *m.ReqContext, ldapUser *LdapUserInfo
 func (a *ldapAuther) serverBind() error {
 	// bind_dn and bind_password to bind
 	if err := a.conn.Bind(a.server.BindDN, a.server.BindPassword); err != nil {
-		a.log.Info("LDAP initial bind failed, %v", err)
+		a.log.Info("LDAP初始绑定失败, %v", err)
 
 		if ldapErr, ok := err.(*ldap.Error); ok {
 			if ldapErr.ResultCode == 49 {
@@ -235,7 +235,7 @@ func (a *ldapAuther) serverBind() error {
 
 func (a *ldapAuther) secondBind(ldapUser *LdapUserInfo, userPassword string) error {
 	if err := a.conn.Bind(ldapUser.DN, userPassword); err != nil {
-		a.log.Info("Second bind failed", "error", err)
+		a.log.Info("第二次绑定失败", "error", err)
 
 		if ldapErr, ok := err.(*ldap.Error); ok {
 			if ldapErr.ResultCode == 49 {
@@ -260,7 +260,7 @@ func (a *ldapAuther) initialBind(username, userPassword string) error {
 	}
 
 	if err := a.conn.Bind(bindPath, userPassword); err != nil {
-		a.log.Info("Initial bind failed", "error", err)
+		a.log.Info("初始绑定失败", "error", err)
 
 		if ldapErr, ok := err.(*ldap.Error); ok {
 			if ldapErr.ResultCode == 49 {
@@ -307,7 +307,7 @@ func (a *ldapAuther) searchForUser(username string) (*LdapUserInfo, error) {
 	}
 
 	if len(searchResult.Entries) > 1 {
-		return nil, errors.New("Ldap search matched more than one entry, please review your filter setting")
+		return nil, errors.New("Ldap搜索匹配多个条目，请查看您的过滤器设置")
 	}
 
 	var memberOf []string
@@ -326,7 +326,7 @@ func (a *ldapAuther) searchForUser(username string) (*LdapUserInfo, error) {
 
 			filter := strings.Replace(a.server.GroupSearchFilter, "%s", ldap.EscapeFilter(filter_replace), -1)
 
-			a.log.Info("Searching for user's groups", "filter", filter)
+			a.log.Info("搜索用户的组", "filter", filter)
 
 			// support old way of reading settings
 			groupIdAttribute := a.server.Attr.MemberOf

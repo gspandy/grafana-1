@@ -33,7 +33,7 @@ func init() {
 	var err error
 	Root, err = os.Getwd()
 	if err != nil {
-		panic("error getting work directory: " + err.Error())
+		panic("获取工作目录时出错: " + err.Error())
 	}
 }
 
@@ -201,7 +201,7 @@ func Static(directory string, staticOpt ...StaticOptions) macaron.Handler {
 // Statics registers multiple static middleware handlers all at once.
 func Statics(opt StaticOptions, dirs ...string) macaron.Handler {
 	if len(dirs) == 0 {
-		panic("no static directory is given")
+		panic("没有给出静态目录")
 	}
 	opts := make([]StaticOptions, len(dirs))
 	for i := range dirs {

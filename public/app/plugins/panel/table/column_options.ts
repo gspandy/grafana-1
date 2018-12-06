@@ -43,7 +43,7 @@ export class ColumnOptionsCtrl {
       { text: 'MMMM D, YYYY LT', value: 'MMMM D, YYYY LT' },
       { text: 'YYYY-MM-DD', value: 'YYYY-MM-DD' },
     ];
-    this.mappingTypes = [{ text: '值转文本', value: 1 }, { text: '范围转文本', value: 2 }];
+    this.mappingTypes = [{ text: 'value to text', value: 1 }, { text: 'range to text', value: 2 }];
 
     this.getColumnNames = () => {
       if (!this.panelCtrl.table) {

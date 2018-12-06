@@ -88,7 +88,7 @@ func newCounterStartingAtZero(opts prometheus.CounterOpts, labelValues ...string
 func init() {
 	M_Instance_Start = prometheus.NewCounter(prometheus.CounterOpts{
 		Name:      "instance_start_total",
-		Help:      "counter for started instances",
+		Help:      "启动实例的计数器",
 		Namespace: exporterName,
 	})
 
@@ -96,28 +96,28 @@ func init() {
 	M_Page_Status = newCounterVecStartingAtZero(
 		prometheus.CounterOpts{
 			Name:      "page_response_status_total",
-			Help:      "page http response status",
+			Help:      "页面http响应状态",
 			Namespace: exporterName,
 		}, []string{"code"}, httpStatusCodes...)
 
 	M_Api_Status = newCounterVecStartingAtZero(
 		prometheus.CounterOpts{
 			Name:      "api_response_status_total",
-			Help:      "api http response status",
+			Help:      "api http响应状态",
 			Namespace: exporterName,
 		}, []string{"code"}, httpStatusCodes...)
 
 	M_Proxy_Status = newCounterVecStartingAtZero(
 		prometheus.CounterOpts{
 			Name:      "proxy_response_status_total",
-			Help:      "proxy http response status",
+			Help:      "代理http响应状态",
 			Namespace: exporterName,
 		}, []string{"code"}, httpStatusCodes...)
 
 	M_Http_Request_Total = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "http_request_total",
-			Help: "http request counter",
+			Help: "http请求计数器",
 		},
 		[]string{"handler", "statuscode", "method"},
 	)
@@ -125,50 +125,50 @@ func init() {
 	M_Http_Request_Summary = prometheus.NewSummaryVec(
 		prometheus.SummaryOpts{
 			Name: "http_request_duration_milliseconds",
-			Help: "http request summary",
+			Help: "http请求摘要",
 		},
 		[]string{"handler", "statuscode", "method"},
 	)
 
 	M_Api_User_SignUpStarted = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_user_signup_started_total",
-		Help:      "amount of users who started the signup flow",
+		Help:      "启动注册流程的用户数量",
 		Namespace: exporterName,
 	})
 
 	M_Api_User_SignUpCompleted = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_user_signup_completed_total",
-		Help:      "amount of users who completed the signup flow",
+		Help:      "完成注册流程的用户数量",
 		Namespace: exporterName,
 	})
 
 	M_Api_User_SignUpInvite = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_user_signup_invite_total",
-		Help:      "amount of users who have been invited",
+		Help:      "被邀请的用户数量",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Save = prometheus.NewSummary(prometheus.SummaryOpts{
 		Name:      "api_dashboard_save_milliseconds",
-		Help:      "summary for dashboard save duration",
+		Help:      "仪表板保存持续时间的摘要",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Get = prometheus.NewSummary(prometheus.SummaryOpts{
 		Name:      "api_dashboard_get_milliseconds",
-		Help:      "summary for dashboard get duration",
+		Help:      "仪表板摘要持续时间",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Search = prometheus.NewSummary(prometheus.SummaryOpts{
 		Name:      "api_dashboard_search_milliseconds",
-		Help:      "summary for dashboard search duration",
+		Help:      "仪表板搜索持续时间摘要",
 		Namespace: exporterName,
 	})
 
 	M_Api_Admin_User_Create = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_admin_user_created_total",
-		Help:      "api admin user created counter",
+		Help:      "api admin用户创建了计数器",
 		Namespace: exporterName,
 	})
 
@@ -192,121 +192,121 @@ func init() {
 
 	M_Api_Dashboard_Snapshot_Create = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_dashboard_snapshot_create_total",
-		Help:      "dashboard snapshots created",
+		Help:      "创建的仪表板快照",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Snapshot_External = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_dashboard_snapshot_external_total",
-		Help:      "external dashboard snapshots created",
+		Help:      "创建外部仪表板快照",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Snapshot_Get = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_dashboard_snapshot_get_total",
-		Help:      "loaded dashboards",
+		Help:      "加载仪表板",
 		Namespace: exporterName,
 	})
 
 	M_Api_Dashboard_Insert = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "api_models_dashboard_insert_total",
-		Help:      "dashboards inserted ",
+		Help:      "仪表板已插入 ",
 		Namespace: exporterName,
 	})
 
 	M_Alerting_Result_State = prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name:      "alerting_result_total",
-		Help:      "alert execution result counter",
+		Help:      "警报执行结果计数器",
 		Namespace: exporterName,
 	}, []string{"state"})
 
 	M_Alerting_Notification_Sent = prometheus.NewCounterVec(prometheus.CounterOpts{
 		Name:      "alerting_notification_sent_total",
-		Help:      "counter for how many alert notifications been sent",
+		Help:      "计数器已发送了多少个警报通知",
 		Namespace: exporterName,
 	}, []string{"type"})
 
 	M_Aws_CloudWatch_GetMetricStatistics = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "aws_cloudwatch_get_metric_statistics_total",
-		Help:      "counter for getting metric statistics from aws",
+		Help:      "从aws获取度量统计信息的计数器",
 		Namespace: exporterName,
 	})
 
 	M_Aws_CloudWatch_ListMetrics = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "aws_cloudwatch_list_metrics_total",
-		Help:      "counter for getting list of metrics from aws",
+		Help:      "用于从aws获取指标列表的计数器",
 		Namespace: exporterName,
 	})
 
 	M_Aws_CloudWatch_GetMetricData = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "aws_cloudwatch_get_metric_data_total",
-		Help:      "counter for getting metric data time series from aws",
+		Help:      "用于从aws获取度量数据时间序列的计数器",
 		Namespace: exporterName,
 	})
 
 	M_DB_DataSource_QueryById = newCounterStartingAtZero(prometheus.CounterOpts{
 		Name:      "db_datasource_query_by_id_total",
-		Help:      "counter for getting datasource by id",
+		Help:      "通过id获取数据源的计数器",
 		Namespace: exporterName,
 	})
 
 	M_DataSource_ProxyReq_Timer = prometheus.NewSummary(prometheus.SummaryOpts{
 		Name:      "api_dataproxy_request_all_milliseconds",
-		Help:      "summary for dataproxy request duration",
+		Help:      "dataproxy请求持续时间的摘要",
 		Namespace: exporterName,
 	})
 
 	M_Alerting_Execution_Time = prometheus.NewSummary(prometheus.SummaryOpts{
 		Name:      "alerting_execution_time_milliseconds",
-		Help:      "summary of alert exeuction duration",
+		Help:      "警报执行持续时间的摘要",
 		Namespace: exporterName,
 	})
 
 	M_Alerting_Active_Alerts = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "alerting_active_alerts",
-		Help:      "amount of active alerts",
+		Help:      "活跃警报的数量",
 		Namespace: exporterName,
 	})
 
 	M_StatTotal_Dashboards = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "stat_totals_dashboard",
-		Help:      "total amount of dashboards",
+		Help:      "仪表板总量",
 		Namespace: exporterName,
 	})
 
 	M_StatTotal_Users = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "stat_total_users",
-		Help:      "total amount of users",
+		Help:      "用户总数",
 		Namespace: exporterName,
 	})
 
 	M_StatActive_Users = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "stat_active_users",
-		Help:      "number of active users",
+		Help:      "活跃用户数",
 		Namespace: exporterName,
 	})
 
 	M_StatTotal_Orgs = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "stat_total_orgs",
-		Help:      "total amount of orgs",
+		Help:      "组织总量",
 		Namespace: exporterName,
 	})
 
 	M_StatTotal_Playlists = prometheus.NewGauge(prometheus.GaugeOpts{
 		Name:      "stat_total_playlists",
-		Help:      "total amount of playlists",
+		Help:      "播放列表的总量",
 		Namespace: exporterName,
 	})
 
 	M_Grafana_Version = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 		Name:      "info",
-		Help:      "Information about the Grafana. This metric is deprecated. please use `grafana_build_info`",
+		Help:      "有关Grafana的信息。不推荐使用此指标。请使用`grafana_build_info`",
 		Namespace: exporterName,
 	}, []string{"version"})
 
 	grafanaBuildVersion = prometheus.NewGaugeVec(prometheus.GaugeOpts{
 		Name:      "build_info",
-		Help:      "A metric with a constant '1' value labeled by version, revision, branch, and goversion from which Grafana was built.",
+		Help:      "具有常量“1”值的度量标准，由Grafana构建的版本，修订版，分支和goversion标记。",
 		Namespace: exporterName,
 	}, []string{"version", "revision", "branch", "goversion"})
 }
@@ -365,7 +365,7 @@ func initMetricVars() {
 func updateTotalStats() {
 	statsQuery := models.GetSystemStatsQuery{}
 	if err := bus.Dispatch(&statsQuery); err != nil {
-		metricsLogger.Error("Failed to get system stats", "error", err)
+		metricsLogger.Error("无法获得系统统计信息", "error", err)
 		return
 	}
 
@@ -391,7 +391,7 @@ func sendUsageStats(oauthProviders map[string]bool) {
 		return
 	}
 
-	metricsLogger.Debug("Sending anonymous usage stats to stats.grafana.org")
+	metricsLogger.Debug("将匿名使用情况统计信息发送到stats.grafana.org")
 
 	version := strings.Replace(setting.BuildVersion, ".", "_", -1)
 
@@ -407,7 +407,7 @@ func sendUsageStats(oauthProviders map[string]bool) {
 
 	statsQuery := models.GetSystemStatsQuery{}
 	if err := bus.Dispatch(&statsQuery); err != nil {
-		metricsLogger.Error("Failed to get system stats", "error", err)
+		metricsLogger.Error("无法获得系统统计信息", "error", err)
 		return
 	}
 

@@ -18,28 +18,27 @@ var (
 func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "threema",
-		Name:        "Threema Gateway",
-		Description: "Sends notifications to Threema using the Threema Gateway",
+		Name:        "Threema 网关",
+		Description: "使用Threema Gateway向Threema发送通知",
 		Factory:     NewThreemaNotifier,
 		OptionsTemplate: `
-      <h3 class="page-heading">Threema Gateway settings</h3>
+      <h3 class="page-heading">Threema 网关设置</h3>
       <p>
-        Notifications can be configured for any Threema Gateway ID of type
-        "Basic". End-to-End IDs are not currently supported.
+        可以为任何类型的Threema网关ID配置通知"Basic"。目前不支持端到端ID。
       </p>
       <p>
-        The Threema Gateway ID can be set up at
+        可以在以下位置设置Threema网关ID
         <a href="https://gateway.threema.ch/" target="_blank" rel="noopener noreferrer">https://gateway.threema.ch/</a>.
       </p>
       <div class="gf-form">
-        <span class="gf-form-label width-14">Gateway ID</span>
+        <span class="gf-form-label width-14">网关 ID</span>
         <input type="text" required maxlength="8" pattern="\*[0-9A-Z]{7}"
           class="gf-form-input max-width-14"
           ng-model="ctrl.model.settings.gateway_id"
           placeholder="*3MAGWID">
         </input>
         <info-popover mode="right-normal">
-          Your 8 character Threema Gateway ID (starting with a *)
+          您的8个字符的Threema网关ID（以*开头）
         </info-popover>
       </div>
       <div class="gf-form">
@@ -50,7 +49,7 @@ func init() {
           placeholder="YOUR3MID">
         </input>
         <info-popover mode="right-normal">
-          The 8 character Threema ID that should receive the alerts
+          应该接收警报的8个字符的Threema ID
         </info-popover>
       </div>
       <div class="gf-form">
@@ -60,7 +59,7 @@ func init() {
           ng-model="ctrl.model.settings.api_secret">
         </input>
         <info-popover mode="right-normal">
-          Your Threema Gateway API secret
+          您的Threema Gateway API秘密
         </info-popover>
       </div>
     `,
@@ -78,7 +77,7 @@ type ThreemaNotifier struct {
 
 func NewThreemaNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 	if model.Settings == nil {
-		return nil, alerting.ValidationError{Reason: "No Settings Supplied"}
+		return nil, alerting.ValidationError{Reason: "没有提供设置"}
 	}
 
 	gatewayID := model.Settings.Get("gateway_id").MustString()
@@ -87,22 +86,22 @@ func NewThreemaNotifier(model *m.AlertNotification) (alerting.Notifier, error) {
 
 	// Validation
 	if gatewayID == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find Threema Gateway ID in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到Threema Gateway ID"}
 	}
 	if !strings.HasPrefix(gatewayID, "*") {
-		return nil, alerting.ValidationError{Reason: "Invalid Threema Gateway ID: Must start with a *"}
+		return nil, alerting.ValidationError{Reason: "无效的Threema网关ID：必须以*开头"}
 	}
 	if len(gatewayID) != 8 {
-		return nil, alerting.ValidationError{Reason: "Invalid Threema Gateway ID: Must be 8 characters long"}
+		return nil, alerting.ValidationError{Reason: "无效的Threema网关ID：长度必须为8个字符"}
 	}
 	if recipientID == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find Threema Recipient ID in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到Threema收件人ID"}
 	}
 	if len(recipientID) != 8 {
-		return nil, alerting.ValidationError{Reason: "Invalid Threema Recipient ID: Must be 8 characters long"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到Threema收件人ID"}
 	}
 	if apiSecret == "" {
-		return nil, alerting.ValidationError{Reason: "Could not find Threema API secret in settings"}
+		return nil, alerting.ValidationError{Reason: "在设置中找不到Threema API密码"}
 	}
 
 	return &ThreemaNotifier{

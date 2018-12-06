@@ -30,7 +30,7 @@ class PluginListCtrl extends PanelCtrl {
 
   onInitEditMode() {
     this.editorTabIndex = 1;
-    this.addEditorTab('Options', 'public/app/plugins/panel/pluginlist/editor.html');
+    this.addEditorTab('选项', 'public/app/plugins/panel/pluginlist/editor.html');
   }
 
   gotoPlugin(plugin, evt) {

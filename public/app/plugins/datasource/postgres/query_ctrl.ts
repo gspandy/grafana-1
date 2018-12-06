@@ -177,7 +177,7 @@ export class PostgresQueryCtrl extends QueryCtrl {
         title: '警告',
         text2: '切换到查询构建器可能会覆盖原始SQL。',
         icon: 'fa-exclamation',
-        yesText: 'Switch',
+        yesText: '切换',
         onConfirm: () => {
           this.target.rawQuery = !this.target.rawQuery;
         },

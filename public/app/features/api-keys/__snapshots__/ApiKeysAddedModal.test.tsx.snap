@@ -57,10 +57,10 @@ exports[`Render should render component 1`] = `
         }
       }
     >
-      You will only be able to view this key here once! It is not stored in this form. So be sure to copy it now.
+      您只能在此处查看此密钥一次！它不以此形式存储。所以一定要现在复制它。
       <br />
       <br />
-      You can authenticate request using the Authorization HTTP header, example:
+      您可以使用Authorization HTTP标头验证请求，例如：
       <br />
       <br />
       <pre

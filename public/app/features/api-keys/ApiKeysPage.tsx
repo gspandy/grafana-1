@@ -147,7 +147,7 @@ export class ApiKeysPage extends PureComponent<Props, any> {
                   type="text"
                   className="gf-form-input"
                   value={newApiKey.name}
-                  placeholder="Name"
+                  placeholder="名称"
                   onChange={evt => this.onApiKeyStateUpdate(evt, ApiKeyStateProps.Name)}
                 />
               </div>
@@ -191,7 +191,7 @@ export class ApiKeysPage extends PureComponent<Props, any> {
               <input
                 type="text"
                 className="gf-form-input"
-                placeholder="Search keys"
+                placeholder="搜索 keys"
                 value={searchQuery}
                 onChange={this.onSearchQueryChange}
               />
