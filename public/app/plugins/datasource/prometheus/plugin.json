@@ -5,17 +5,17 @@
   "includes": [
     {
       "type": "dashboard",
-      "name": "Prometheus Stats",
+      "name": "Prometheus 统计",
       "path": "dashboards/prometheus_stats.json"
     },
     {
       "type": "dashboard",
-      "name": "Prometheus 2.0 Stats",
+      "name": "Prometheus2.0统计",
       "path": "dashboards/prometheus_2_stats.json"
     },
     {
       "type": "dashboard",
-      "name": "Grafana Stats",
+      "name": "Grafana 统计",
       "path": "dashboards/grafana_stats.json"
     }
   ],
@@ -27,9 +27,9 @@
     "minInterval": true
   },
   "info": {
-    "description": "Prometheus Data Source for Grafana",
+    "description": "Grafana的Prometheus数据源",
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana项目",
       "url": "https://grafana.com"
     },
     "logos": {

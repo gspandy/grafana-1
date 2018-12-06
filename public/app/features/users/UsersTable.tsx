@@ -15,9 +15,9 @@ const UsersTable: SFC<Props> = props => {
       <thead>
         <tr>
           <th />
-          <th>Login</th>
-          <th>Email</th>
-          <th>Seen</th>
+          <th>用户</th>
+          <th>邮箱</th>
+          <th>距离上次登录时间</th>
           <th>角色</th>
           <th style={{ width: '34px' }} />
         </tr>

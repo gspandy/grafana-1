@@ -61,14 +61,14 @@ exports[`Render should render pending invites button 1`] = `
         key="users"
         onClick={[MockFunction]}
       >
-        Users
+        用户
       </button>
       <button
         className="btn toggle-btn"
         key="pending-invites"
         onClick={[MockFunction]}
       >
-        Pending Invites (
+        邀请中
         5
         )
       </button>
@@ -93,7 +93,7 @@ exports[`Render should show external user management button 1`] = `
       <input
         className="gf-form-input width-20"
         onChange={[Function]}
-        placeholder="通过名称或者类型过滤"
+        placeholder="通过名称或者类型筛选"
         type="text"
         value=""
       />
@@ -131,7 +131,7 @@ exports[`Render should show invite button 1`] = `
       <input
         className="gf-form-input width-20"
         onChange={[Function]}
-        placeholder="通过名称或者类型过滤"
+        placeholder="通过名称或者类型筛选"
         type="text"
         value=""
       />
@@ -147,7 +147,7 @@ exports[`Render should show invite button 1`] = `
       href="org/users/invite"
     >
       <span>
-        Invite
+        邀请
       </span>
     </a>
   </div>

@@ -13,24 +13,24 @@ import (
 
 // Typed errors
 var (
-	ErrDashboardNotFound                       = errors.New("Dashboard not found")
-	ErrDashboardFolderNotFound                 = errors.New("Folder not found")
-	ErrDashboardSnapshotNotFound               = errors.New("Dashboard snapshot not found")
-	ErrDashboardWithSameUIDExists              = errors.New("A dashboard with the same uid already exists")
-	ErrDashboardWithSameNameInFolderExists     = errors.New("A dashboard with the same name in the folder already exists")
-	ErrDashboardVersionMismatch                = errors.New("The dashboard has been changed by someone else")
-	ErrDashboardTitleEmpty                     = errors.New("Dashboard title cannot be empty")
-	ErrDashboardFolderCannotHaveParent         = errors.New("A Dashboard Folder cannot be added to another folder")
-	ErrDashboardsWithSameSlugExists            = errors.New("Multiple dashboards with the same slug exists")
-	ErrDashboardFailedGenerateUniqueUid        = errors.New("Failed to generate unique dashboard id")
-	ErrDashboardTypeMismatch                   = errors.New("Dashboard cannot be changed to a folder")
-	ErrDashboardFolderWithSameNameAsDashboard  = errors.New("Folder name cannot be the same as one of its dashboards")
-	ErrDashboardWithSameNameAsFolder           = errors.New("Dashboard name cannot be the same as folder")
-	ErrDashboardFolderNameExists               = errors.New("A folder with that name already exists")
-	ErrDashboardUpdateAccessDenied             = errors.New("Access denied to save dashboard")
-	ErrDashboardInvalidUid                     = errors.New("uid contains illegal characters")
-	ErrDashboardUidToLong                      = errors.New("uid to long. max 40 characters")
-	ErrDashboardCannotSaveProvisionedDashboard = errors.New("Cannot save provisioned dashboard")
+	ErrDashboardNotFound                       = errors.New("未找到仪表板")
+	ErrDashboardFolderNotFound                 = errors.New("未找到文件夹")
+	ErrDashboardSnapshotNotFound               = errors.New("未找到仪表板快照")
+	ErrDashboardWithSameUIDExists              = errors.New("已存在具有相同uid的仪表板")
+	ErrDashboardWithSameNameInFolderExists     = errors.New("已存在文件夹中具有相同名称的仪表板")
+	ErrDashboardVersionMismatch                = errors.New("仪表板已被其他人更改")
+	ErrDashboardTitleEmpty                     = errors.New("仪表板标题不能为空")
+	ErrDashboardFolderCannotHaveParent         = errors.New("无法将仪表板文件夹添加到其他文件夹")
+	ErrDashboardsWithSameSlugExists            = errors.New("存在具有相同slug的多个仪表板")
+	ErrDashboardFailedGenerateUniqueUid        = errors.New("无法生成唯一的仪表板ID")
+	ErrDashboardTypeMismatch                   = errors.New("仪表板无法更改为文件夹")
+	ErrDashboardFolderWithSameNameAsDashboard  = errors.New("文件夹名称不能与其中一个仪表板相同")
+	ErrDashboardWithSameNameAsFolder           = errors.New("仪表板名称不能与文件夹相同")
+	ErrDashboardFolderNameExists               = errors.New("已存在具有该名称的文件夹")
+	ErrDashboardUpdateAccessDenied             = errors.New("访问被拒绝以保存仪表板")
+	ErrDashboardInvalidUid                     = errors.New("uid包含非法字符")
+	ErrDashboardUidToLong                      = errors.New("uid 过长. 最大限制40个字符")
+	ErrDashboardCannotSaveProvisionedDashboard = errors.New("无法保存配置的仪表板")
 	RootFolderName                             = "General"
 )
 
@@ -39,7 +39,7 @@ type UpdatePluginDashboardError struct {
 }
 
 func (d UpdatePluginDashboardError) Error() string {
-	return "Dashboard belong to plugin"
+	return "仪表板属于插件"
 }
 
 var (

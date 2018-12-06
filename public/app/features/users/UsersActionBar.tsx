@@ -49,17 +49,17 @@ export class UsersActionBar extends PureComponent<Props> {
               className="gf-form-input width-20"
               value={searchQuery}
               onChange={event => setUsersSearchQuery(event.target.value)}
-              placeholder="通过名称或者类型过滤"
+              placeholder="通过姓名或者类型过滤"
             />
             <i className="gf-form-input-icon fa fa-search" />
           </label>
           {pendingInvitesCount > 0 && (
             <div style={{ marginLeft: '1rem' }}>
               <button className={usersButtonStyle} key="users" onClick={onShowInvites}>
-                Users
+                用户
               </button>
               <button className={pendingInvitesButtonStyle} onClick={onShowInvites} key="pending-invites">
-                Pending Invites ({pendingInvitesCount})
+                邀请中 ({pendingInvitesCount})
               </button>
             </div>
           )}

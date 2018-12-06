@@ -33,21 +33,21 @@ func GenStateString() string {
 
 func OAuthLogin(ctx *m.ReqContext) {
 	if setting.OAuthService == nil {
-		ctx.Handle(404, "OAuth not enabled", nil)
+		ctx.Handle(404, "OAuth未启用", nil)
 		return
 	}
 
 	name := ctx.Params(":name")
 	connect, ok := social.SocialMap[name]
 	if !ok {
-		ctx.Handle(404, fmt.Sprintf("No OAuth with name %s configured", name), nil)
+		ctx.Handle(404, fmt.Sprintf("没有配置名称为%s的OAuth", name), nil)
 		return
 	}
 
 	errorParam := ctx.Query("error")
 	if errorParam != "" {
 		errorDesc := ctx.Query("error_description")
-		oauthLogger.Error("failed to login ", "error", errorParam, "errorDesc", errorDesc)
+		oauthLogger.Error("登录失败 ", "error", errorParam, "errorDesc", errorDesc)
 		redirectWithError(ctx, login.ErrProviderDeniedRequest, "error", errorParam, "errorDesc", errorDesc)
 		return
 	}
@@ -66,13 +66,13 @@ func OAuthLogin(ctx *m.ReqContext) {
 
 	savedState, ok := ctx.Session.Get(session.SESS_KEY_OAUTH_STATE).(string)
 	if !ok {
-		ctx.Handle(500, "login.OAuthLogin(missing saved state)", nil)
+		ctx.Handle(500, "login.OAuthLogin（缺少保存的状态）", nil)
 		return
 	}
 
 	queryState := ctx.Query("state")
 	if savedState != queryState {
-		ctx.Handle(500, "login.OAuthLogin(state mismatch)", nil)
+		ctx.Handle(500, "login.OAuthLogin（状态不匹配）", nil)
 		return
 	}
 
@@ -90,8 +90,8 @@ func OAuthLogin(ctx *m.ReqContext) {
 	if setting.OAuthService.OAuthInfos[name].TlsClientCert != "" || setting.OAuthService.OAuthInfos[name].TlsClientKey != "" {
 		cert, err := tls.LoadX509KeyPair(setting.OAuthService.OAuthInfos[name].TlsClientCert, setting.OAuthService.OAuthInfos[name].TlsClientKey)
 		if err != nil {
-			ctx.Logger.Error("Failed to setup TlsClientCert", "oauth", name, "error", err)
-			ctx.Handle(500, "login.OAuthLogin(Failed to setup TlsClientCert)", nil)
+			ctx.Logger.Error("无法设置TlsClientCert", "oauth", name, "error", err)
+			ctx.Handle(500, "login.OAuthLogin（无法设置TlsClientCert）", nil)
 			return
 		}
 
@@ -101,8 +101,8 @@ func OAuthLogin(ctx *m.ReqContext) {
 	if setting.OAuthService.OAuthInfos[name].TlsClientCa != "" {
 		caCert, err := ioutil.ReadFile(setting.OAuthService.OAuthInfos[name].TlsClientCa)
 		if err != nil {
-			ctx.Logger.Error("Failed to setup TlsClientCa", "oauth", name, "error", err)
-			ctx.Handle(500, "login.OAuthLogin(Failed to setup TlsClientCa)", nil)
+			ctx.Logger.Error("无法设置TlsClientCa", "oauth", name, "error", err)
+			ctx.Handle(500, "login.OAuthLogin（无法设置TlsClientCa）", nil)
 			return
 		}
 		caCertPool := x509.NewCertPool()
@@ -116,13 +116,13 @@ func OAuthLogin(ctx *m.ReqContext) {
 	// get token from provider
 	token, err := connect.Exchange(oauthCtx, code)
 	if err != nil {
-		ctx.Handle(500, "login.OAuthLogin(NewTransportWithCode)", err)
+		ctx.Handle(500, "login.OAuthLogin（NewTransportWithCode）", err)
 		return
 	}
 	// token.TokenType was defaulting to "bearer", which is out of spec, so we explicitly set to "Bearer"
 	token.TokenType = "Bearer"
 
-	oauthLogger.Debug("OAuthLogin Got token", "token", token)
+	oauthLogger.Debug("OAuthLogin获得令牌", "token", token)
 
 	// set up oauth2 client
 	client := connect.Client(oauthCtx, token)
@@ -133,12 +133,12 @@ func OAuthLogin(ctx *m.ReqContext) {
 		if sErr, ok := err.(*social.Error); ok {
 			redirectWithError(ctx, sErr)
 		} else {
-			ctx.Handle(500, fmt.Sprintf("login.OAuthLogin(get info from %s)", name), err)
+			ctx.Handle(500, fmt.Sprintf("login.OAuthLogin（从%s获取信息）", name), err)
 		}
 		return
 	}
 
-	oauthLogger.Debug("OAuthLogin got user info", "userInfo", userInfo)
+	oauthLogger.Debug("OAuthLogin获得了用户信息", "userInfo", userInfo)
 
 	// validate that we got at least an email address
 	if userInfo.Email == "" {

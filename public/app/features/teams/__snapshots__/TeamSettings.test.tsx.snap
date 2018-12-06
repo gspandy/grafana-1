@@ -5,7 +5,7 @@ exports[`Render should render component 1`] = `
   <h3
     className="page-sub-heading"
   >
-    Team Settings
+    团队设置
   </h3>
   <form
     className="gf-form-group"
@@ -16,7 +16,7 @@ exports[`Render should render component 1`] = `
       className="gf-form max-width-30"
     >
       <Component>
-        Name
+        姓名
       </Component>
       <input
         className="gf-form-input max-width-22"
@@ -32,7 +32,7 @@ exports[`Render should render component 1`] = `
       <Component
         tooltip="This is optional and is primarily used to set the team profile avatar (via gravatar service)"
       >
-        Email
+        邮箱
       </Component>
       <input
         className="gf-form-input max-width-22"
@@ -49,7 +49,7 @@ exports[`Render should render component 1`] = `
         className="btn btn-success"
         type="submit"
       >
-        Update
+        更新
       </button>
     </div>
   </form>

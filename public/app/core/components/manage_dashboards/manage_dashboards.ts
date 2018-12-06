@@ -29,7 +29,7 @@ export class ManageDashboardsCtrl {
   hasFilters = false;
   tagFilterOptions: any[];
   selectedTagFilter: any;
-  starredFilterOptions = [{ text: 'Filter by Starred', disabled: true }, { text: 'Yes' }, { text: 'No' }];
+  starredFilterOptions = [{ text: '按星标筛选', disabled: true }, { text: '是' }, { text: '否' }];
   selectedStarredFilter: any;
 
   // used when managing dashboards for a specific folder
@@ -160,24 +160,24 @@ export class ManageDashboardsCtrl {
     const data = this.getFoldersAndDashboardsToDelete();
     const folderCount = data.folders.length;
     const dashCount = data.dashboards.length;
-    let text = 'Do you want to delete the ';
+    let text = '您是否想要删除 ';
     let text2;
 
     if (folderCount > 0 && dashCount > 0) {
-      text += `selected folder${folderCount === 1 ? '' : 's'} and dashboard${dashCount === 1 ? '' : 's'}?`;
-      text2 = `All dashboards of the selected folder${folderCount === 1 ? '' : 's'} will also be deleted`;
+      text += `选择的文件夹${folderCount === 1 ? '' : 's'} 和仪表盘${dashCount === 1 ? '' : 's'}?`;
+      text2 = `所选文件夹内所有仪表板${folderCount === 1 ? '' : 's'} 也会被删除`;
     } else if (folderCount > 0) {
-      text += `selected folder${folderCount === 1 ? '' : 's'} and all its dashboards?`;
+      text += `所选文件夹${folderCount === 1 ? '' : 's'} 及其所有仪表板？`;
     } else {
-      text += `selected dashboard${dashCount === 1 ? '' : 's'}?`;
+      text += `所选仪表盘${dashCount === 1 ? '' : 's'}?`;
     }
 
     appEvents.emit('confirm-modal', {
-      title: 'Delete',
+      时间Delete',
       text: text,
       text2: text2,
       icon: 'fa-trash',
-      yesText: 'Delete',
+      yesText: '删除',
       onConfirm: () => {
         this.deleteFoldersAndDashboards(data.folders, data.dashboards);
       },
@@ -220,7 +220,7 @@ export class ManageDashboardsCtrl {
 
   initTagFilter() {
     return this.searchSrv.getDashboardTags().then(results => {
-      this.tagFilterOptions = [{ term: 'Filter By Tag', disabled: true }].concat(results);
+      this.tagFilterOptions = [{ term: '按星标筛选', disabled: true }].concat(results);
       this.selectedTagFilter = this.tagFilterOptions[0];
     });
   }
@@ -258,7 +258,7 @@ export class ManageDashboardsCtrl {
   }
 
   onStarredFilterChange() {
-    this.query.starred = this.selectedStarredFilter.text === 'Yes';
+    this.query.starred = this.selectedStarredFilter.text === '是';
     this.selectedStarredFilter = this.starredFilterOptions[0];
     return this.refreshList();
   }

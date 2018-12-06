@@ -278,7 +278,7 @@ describe('when transforming time series table', () => {
             time: 1000,
             text: 'hej',
             tags: ['tags', 'asd'],
-            title: 'title',
+            title: '标题',
           },
         ],
       };

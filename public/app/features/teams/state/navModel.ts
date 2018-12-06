@@ -14,7 +14,7 @@ export function buildNavModel(team: Team): NavModelItem {
         active: false,
         icon: 'gicon gicon-team',
         id: `team-members-${team.id}`,
-        text: 'Members',
+        text: '成员',
         url: `org/teams/edit/${team.id}/members`,
       },
       {
@@ -32,7 +32,7 @@ export function buildNavModel(team: Team): NavModelItem {
       active: false,
       icon: 'fa fa-fw fa-refresh',
       id: `team-groupsync-${team.id}`,
-      text: 'External group sync',
+      text: '外部组同步',
       url: `org/teams/edit/${team.id}/groupsync`,
     });
   }

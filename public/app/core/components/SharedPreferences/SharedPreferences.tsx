@@ -54,7 +54,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
       homeDashboardId: prefs.homeDashboardId,
       theme: prefs.theme,
       timezone: prefs.timezone,
-      dashboards: [{ id: 0, title: 'Default', tags: [], type: '', uid: '', uri: '', url: '' }, ...dashboards],
+      dashboards: [{ id: 0, title: '默认', tags: [], type: '', uid: '', uri: '', url: '' }, ...dashboards],
     });
   }
 
@@ -118,7 +118,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
           />
         </div>
         <div className="gf-form">
-          <label className="gf-form-label width-11">Timezone</label>
+          <label className="gf-form-label width-11">时区</label>
           <SimplePicker
             value={timezones.find(item => item.value === timezone)}
             getOptionValue={i => i.value}
@@ -130,7 +130,7 @@ export class SharedPreferences extends PureComponent<Props, State> {
         </div>
         <div className="gf-form-button-row">
           <button type="submit" className="btn btn-success">
-            Save
+            保存
           </button>
         </div>
       </form>

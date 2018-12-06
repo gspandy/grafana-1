@@ -23,7 +23,7 @@ func resetPasswordCommand(c CommandLine) error {
 	userQuery := models.GetUserByIdQuery{Id: AdminUserId}
 
 	if err := bus.Dispatch(&userQuery); err != nil {
-		return fmt.Errorf("Could not read user from database. Error: %v", err)
+		return fmt.Errorf("无法从数据库中读取用户. Error: %v", err)
 	}
 
 	passwordHashed := util.EncodePassword(newPassword, userQuery.Result.Salt)
@@ -34,7 +34,7 @@ func resetPasswordCommand(c CommandLine) error {
 	}
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		return fmt.Errorf("Failed to update user password")
+		return fmt.Errorf("无法更新用户密码")
 	}
 
 	logger.Infof("\n")

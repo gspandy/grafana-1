@@ -12,13 +12,13 @@ export const getMockNavModel = (pageName: string) => {
         subTitle: '管理成员 & 设置',
         url: '',
         text: 'test1',
-        breadcrumbs: [{ title: 'Teams', url: 'org/teams' }],
+        breadcrumbs: [{ title: '团队', url: 'org/teams' }],
         children: [
           {
             active: false,
             icon: 'gicon gicon-team',
             id: 'team-members-2',
-            text: 'Members',
+            text: '成员',
             url: 'org/teams/edit/2/members',
           },
           {
@@ -37,13 +37,13 @@ export const getMockNavModel = (pageName: string) => {
       subTitle: '管理成员和设置',
       url: '',
       text: 'test1',
-      breadcrumbs: [{ title: 'Teams', url: 'org/teams' }],
+      breadcrumbs: [{ title: '团队', url: 'org/teams' }],
       children: [
         {
           active: true,
           icon: 'gicon gicon-team',
           id: 'team-members-2',
-          text: 'Members',
+          text: '成员',
           url: 'org/teams/edit/2/members',
         },
         {

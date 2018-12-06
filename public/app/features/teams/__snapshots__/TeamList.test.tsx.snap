@@ -47,7 +47,7 @@ exports[`Render should render teams table 1`] = `
         className="btn btn-success"
         href="org/teams/new"
       >
-        New team
+        创建团队
       </a>
     </div>
     <div
@@ -60,13 +60,13 @@ exports[`Render should render teams table 1`] = `
           <tr>
             <th />
             <th>
-              Name
+              姓名
             </th>
             <th>
-              Email
+              邮件
             </th>
             <th>
-              Members
+              成员
             </th>
             <th
               style={

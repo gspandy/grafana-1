@@ -38,7 +38,7 @@ exports[`Render should render component 1`] = `
         className="btn btn-success"
         type="submit"
       >
-        Save
+        保存
       </button>
     </div>
   </form>

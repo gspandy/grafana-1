@@ -19,18 +19,18 @@ func AdminCreateUser(c *m.ReqContext, form dtos.AdminCreateUserForm) {
 	if len(cmd.Login) == 0 {
 		cmd.Login = cmd.Email
 		if len(cmd.Login) == 0 {
-			c.JsonApiErr(400, "Validation error, need specify either username or email", nil)
+			c.JsonApiErr(400, "验证错误，需要指定用户名或电子邮件", nil)
 			return
 		}
 	}
 
 	if len(cmd.Password) < 4 {
-		c.JsonApiErr(400, "Password is missing or too short", nil)
+		c.JsonApiErr(400, "密码丢失或太短", nil)
 		return
 	}
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		c.JsonApiErr(500, "failed to create user", err)
+		c.JsonApiErr(500, "无法创建用户", err)
 		return
 	}
 
@@ -39,7 +39,7 @@ func AdminCreateUser(c *m.ReqContext, form dtos.AdminCreateUserForm) {
 	user := cmd.Result
 
 	result := m.UserIdDTO{
-		Message: "User created",
+		Message: "创建用户成功",
 		Id:      user.Id,
 	}
 
@@ -50,14 +50,14 @@ func AdminUpdateUserPassword(c *m.ReqContext, form dtos.AdminUpdateUserPasswordF
 	userID := c.ParamsInt64(":id")
 
 	if len(form.Password) < 4 {
-		c.JsonApiErr(400, "New password too short", nil)
+		c.JsonApiErr(400, "新密码太短", nil)
 		return
 	}
 
 	userQuery := m.GetUserByIdQuery{Id: userID}
 
 	if err := bus.Dispatch(&userQuery); err != nil {
-		c.JsonApiErr(500, "Could not read user from database", err)
+		c.JsonApiErr(500, "无法从数据库中读取用户", err)
 		return
 	}
 
@@ -69,11 +69,11 @@ func AdminUpdateUserPassword(c *m.ReqContext, form dtos.AdminUpdateUserPasswordF
 	}
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		c.JsonApiErr(500, "Failed to update user password", err)
+		c.JsonApiErr(500, "无法更新用户密码", err)
 		return
 	}
 
-	c.JsonOK("User password updated")
+	c.JsonOK("用户密码已更新")
 }
 
 func AdminUpdateUserPermissions(c *m.ReqContext, form dtos.AdminUpdateUserPermissionsForm) {
@@ -85,11 +85,11 @@ func AdminUpdateUserPermissions(c *m.ReqContext, form dtos.AdminUpdateUserPermis
 	}
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		c.JsonApiErr(500, "Failed to update user permissions", err)
+		c.JsonApiErr(500, "无法更新用户权限", err)
 		return
 	}
 
-	c.JsonOK("User permissions updated")
+	c.JsonOK("用户权限已更新")
 }
 
 func AdminDeleteUser(c *m.ReqContext) {
@@ -98,9 +98,9 @@ func AdminDeleteUser(c *m.ReqContext) {
 	cmd := m.DeleteUserCommand{UserId: userID}
 
 	if err := bus.Dispatch(&cmd); err != nil {
-		c.JsonApiErr(500, "Failed to delete user", err)
+		c.JsonApiErr(500, "删除用户失败", err)
 		return
 	}
 
-	c.JsonOK("User deleted")
+	c.JsonOK("用户已删除")
 }

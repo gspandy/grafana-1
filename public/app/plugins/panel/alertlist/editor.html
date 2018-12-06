@@ -20,7 +20,7 @@
     <gf-form-switch class="gf-form" label="此仪表盘中的告警" label-class="width-18" checked="ctrl.panel.onlyAlertsOnDashboard" on-change="ctrl.updateStateFilter()"></gf-form-switch>
   </div>
   <div class="section gf-form-group" ng-show="ctrl.panel.show === 'current'">
-    <h5 class="section-heading">过滤器</h5>
+    <h5 class="section-heading">筛选</h5>
     <div class="gf-form">
       <span class="gf-form-label width-8">告警名称</span>
       <input type="text" class="gf-form-input max-width-15" ng-model="ctrl.panel.nameFilter" placeholder="Alert name query" ng-change="ctrl.onRefresh()" />
@@ -44,7 +44,7 @@
     </div>
   </div>
   <div class="section gf-form-group" ng-show="ctrl.panel.show === 'current'">
-    <h5 class="section-heading">状态过滤器</h5>
+    <h5 class="section-heading">状态筛选</h5>
     <gf-form-switch class="gf-form" label="Ok" label-class="width-10" checked="ctrl.stateFilter['ok']" on-change="ctrl.updateStateFilter()"></gf-form-switch>
     <gf-form-switch class="gf-form" label="暂停" label-class="width-10" checked="ctrl.stateFilter['paused']" on-change="ctrl.updateStateFilter()"></gf-form-switch>
     <gf-form-switch class="gf-form" label="无数据" label-class="width-10" checked="ctrl.stateFilter['no_data']" on-change="ctrl.updateStateFilter()"></gf-form-switch>

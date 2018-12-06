@@ -33,7 +33,7 @@ const OrgProfile: SFC<Props> = ({ onSubmit, onOrgNameChange, orgName }) => {
         </div>
         <div className="gf-form-button-row">
           <button type="submit" className="btn btn-success">
-            Save
+            保存
           </button>
         </div>
       </form>

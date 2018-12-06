@@ -19,7 +19,7 @@
       {
         "type": "panel",
         "id": "graph",
-        "name": "Graph",
+        "name": "图标",
         "version": ""
       },
       {
@@ -37,24 +37,24 @@
       {
         "type": "panel",
         "id": "table",
-        "name": "Table",
+        "name": "表",
         "version": ""
       },
       {
         "type": "panel",
         "id": "text",
-        "name": "Text",
+        "name": "文本",
         "version": ""
       }
     ],
     "revision": "1.0",
     "version": 2,
-    "title": "Grafana metrics",
+    "title": "Grafana 指标",
     "tags": [
         "grafana",
         "prometheus"
     ],
-    "description": "Metrics about Grafana",
+    "description": "关于Grafana的指标",
     "editable": true,
     "gnetId": null,
     "graphTooltip": 0,
@@ -65,21 +65,21 @@
         "icon": "external link",
         "tags": [],
         "targetBlank": true,
-        "title": "Available metrics",
+        "title": "可用指标",
         "type": "link",
         "url": "/metrics"
       },
       {
         "icon": "external link",
         "tags": [],
-        "title": "Grafana docs",
+        "title": "Grafana 文档",
         "type": "link",
         "url": "http://docs.grafana.org/"
       },
       {
         "icon": "external link",
         "tags": [],
-        "title": "Prometheus docs",
+        "title": "Prometheus 文档",
         "type": "link",
         "url": "http://prometheus.io/docs/introduction/overview/"
       }
@@ -114,11 +114,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "value to text",
+                "name": "值转文本",
                 "value": 1
               },
               {
-                "name": "range to text",
+                "name": "范围转文本",
                 "value": 2
               }
             ],
@@ -155,7 +155,7 @@
               }
             ],
             "thresholds": "1, 10000",
-            "title": "Active instances",
+            "title": "活跃实例",
             "type": "singlestat",
             "valueFontSize": "120%",
             "valueMaps": [
@@ -191,11 +191,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "value to text",
+                "name": "值转文本",
                 "value": 1
               },
               {
-                "name": "range to text",
+                "name": "范围转文本",
                 "value": 2
               }
             ],
@@ -232,7 +232,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Dashboard count",
+            "title": "Dashboard 计数",
             "type": "singlestat",
             "valueFontSize": "120%",
             "valueMaps": [
@@ -268,11 +268,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "value to text",
+                "name": "值转文本",
                 "value": 1
               },
               {
-                "name": "range to text",
+                "name": "范围转文本",
                 "value": 2
               }
             ],
@@ -309,7 +309,7 @@
               }
             ],
             "thresholds": "",
-            "title": "User count",
+            "title": "用户计数",
             "type": "singlestat",
             "valueFontSize": "120%",
             "valueMaps": [
@@ -345,11 +345,11 @@
             "mappingType": 1,
             "mappingTypes": [
               {
-                "name": "value to text",
+                "name": "值转文本",
                 "value": 1
               },
               {
-                "name": "range to text",
+                "name": "范围转文本",
                 "value": 2
               }
             ],
@@ -386,7 +386,7 @@
               }
             ],
             "thresholds": "",
-            "title": "Playlist count",
+            "title": "Playlist 计数",
             "type": "singlestat",
             "valueFontSize": "120%",
             "valueMaps": [
@@ -446,7 +446,7 @@
                 "step": 20
               }
             ],
-            "title": "Grafana version",
+            "title": "Grafana 版本",
             "transform": "timeseries_to_rows",
             "type": "table"
           },
@@ -496,7 +496,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "null as zero",
+            "nullPointMode": "null 视为 0",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -522,7 +522,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "http status codes",
+            "title": "http状态代码",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -579,7 +579,7 @@
             "lines": true,
             "linewidth": 2,
             "links": [],
-            "nullPointMode": "null as zero",
+            "nullPointMode": "null 视为 0",
             "percentage": false,
             "pointradius": 5,
             "points": false,
@@ -620,7 +620,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Requests by routing group",
+            "title": "路由组的请求",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -702,7 +702,7 @@
                 "step": 100
               }
             ],
-            "title": "Most used handlers",
+            "title": "最常用的处理程序",
             "transform": "timeseries_to_rows",
             "type": "table"
           }
@@ -711,7 +711,7 @@
         "repeatIteration": null,
         "repeatRowId": null,
         "showTitle": false,
-        "title": "Dashboard Row",
+        "title": "仪表盘行",
         "titleSize": "h6"
       },
       {
@@ -764,7 +764,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Grafana active alerts",
+            "title": "Grafana 主动告警",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -850,7 +850,7 @@
             "thresholds": [],
             "timeFrom": null,
             "timeShift": null,
-            "title": "Prometheus alerts",
+            "title": "Prometheus 告警",
             "tooltip": {
               "shared": true,
               "sort": 0,
@@ -888,7 +888,7 @@
         "repeatIteration": null,
         "repeatRowId": null,
         "showTitle": false,
-        "title": "Dashboard Row",
+        "title": "仪表盘行",
         "titleSize": "h6"
       },
       {
@@ -901,7 +901,7 @@
             "dashLength": 10,
             "dashes": false,
             "datasource": "${DS_PROMETHEUS}",
-            "description": "Aggregated over all Grafana nodes.",
+            "description": "聚合在所有Grafana节点上。",
             "fill": 1,
             "id": 7,
             "legend": {
@@ -923,7 +923,7 @@
             "renderer": "flot",
             "seriesOverrides": [
               {
-                "alias": "avg gc duration",
+                "alias": "gc平均持续时间",
                 "yaxis": 2
               },
               {
@@ -931,15 +931,15 @@
                 "yaxis": 1
               },
               {
-                "alias": "allocated memory",
+                "alias": "已分配内存",
                 "yaxis": 2
               },
               {
-                "alias": "used memory",
+                "alias": "已用内存",
                 "yaxis": 2
               },
               {
-                "alias": "memory usage",
+                "alias": "内存使用情况",
                 "yaxis": 2
               }
             ],
@@ -956,14 +956,14 @@
                 "legendFormat": "go routines",
                 "refId": "A",
                 "step": 8,
-                "target": "select metric",
+                "target": "选择指标",
                 "type": "timeserie"
               },
               {
                 "expr": "sum(process_resident_memory_bytes{job=\"grafana\"})",
                 "format": "time_series",
                 "intervalFactor": 4,
-                "legendFormat": "memory usage",
+                "legendFormat": "内存使用情况",
                 "refId": "B",
                 "step": 8
               }
@@ -1009,7 +1009,7 @@
         "repeatIteration": null,
         "repeatRowId": null,
         "showTitle": false,
-        "title": "Dashboard Row",
+        "title": "仪表盘行",
         "titleSize": "h6"
       }
     ],

@@ -340,7 +340,7 @@ export class AlertTabCtrl {
       text: 'Are you sure you want to delete this alert rule?',
       text2: 'You need to save dashboard for the delete to take effect',
       icon: 'fa-trash',
-      yesText: 'Delete',
+      yesText: '删除',
       onConfirm: () => {
         delete this.panel.alert;
         this.alert = null;

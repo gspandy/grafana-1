@@ -34,7 +34,7 @@ exports[`Render should render component 1`] = `
       <i
         className="fa fa-plus"
       />
-       Add a member
+       添加成员
     </button>
   </div>
   <Component
@@ -52,7 +52,7 @@ exports[`Render should render component 1`] = `
         />
       </button>
       <h5>
-        Add Team Member
+        添加团队成员
       </h5>
       <div
         className="gf-form-inline"
@@ -74,10 +74,10 @@ exports[`Render should render component 1`] = `
         <tr>
           <th />
           <th>
-            Name
+            姓名
           </th>
           <th>
-            Email
+            邮箱
           </th>
           <th
             style={
@@ -146,7 +146,7 @@ exports[`Render should render team members 1`] = `
         />
       </button>
       <h5>
-        Add Team Member
+        添加团队成员
       </h5>
       <div
         className="gf-form-inline"
@@ -168,10 +168,10 @@ exports[`Render should render team members 1`] = `
         <tr>
           <th />
           <th>
-            Name
+            姓名
           </th>
           <th>
-            Email
+            邮箱
           </th>
           <th
             style={
@@ -348,7 +348,7 @@ exports[`Render should render team members when sync enabled 1`] = `
       <i
         className="fa fa-plus"
       />
-       Add a member
+       添加成员
     </button>
   </div>
   <Component
@@ -366,7 +366,7 @@ exports[`Render should render team members when sync enabled 1`] = `
         />
       </button>
       <h5>
-        Add Team Member
+        添加团队成员
       </h5>
       <div
         className="gf-form-inline"
@@ -388,10 +388,10 @@ exports[`Render should render team members when sync enabled 1`] = `
         <tr>
           <th />
           <th>
-            Name
+            姓名
           </th>
           <th>
-            Email
+            邮箱
           </th>
           <th />
           <th

@@ -4,7 +4,7 @@ export function buildNavModel(folder: FolderDTO): NavModelItem {
   return {
     icon: 'fa fa-folder-open',
     id: 'manage-folder',
-    subTitle: 'Manage folder dashboards & permissions',
+    subTitle: '管理文件夹仪表板和权限',
     url: '',
     text: folder.title,
     breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],
@@ -13,14 +13,14 @@ export function buildNavModel(folder: FolderDTO): NavModelItem {
         active: false,
         icon: 'fa fa-fw fa-th-large',
         id: `folder-dashboards-${folder.uid}`,
-        text: 'Dashboards',
+        text: '仪表盘',
         url: folder.url,
       },
       {
         active: false,
         icon: 'fa fa-fw fa-lock',
         id: `folder-permissions-${folder.uid}`,
-        text: 'Permissions',
+        text: '权限',
         url: `${folder.url}/permissions`,
       },
       {
@@ -38,7 +38,7 @@ export function getLoadingNav(tabIndex: number): NavModel {
   const main = buildNavModel({
     id: 1,
     uid: 'loading',
-    title: 'Loading',
+    title: '加载中',
     url: 'url',
     canSave: false,
     version: 0,

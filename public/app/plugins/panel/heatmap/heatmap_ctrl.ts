@@ -280,15 +280,15 @@ export class HeatmapCtrl extends MetricsPanelCtrl {
 
     if (datapointsCount === 0) {
       this.dataWarning = {
-        title: 'No data points',
-        tip: 'No datapoints returned from data query',
+        title: '没有数据点',
+        tip: '查询没有返回数据点',
       };
     } else {
       for (const series of this.series) {
         if (series.isOutsideRange) {
           this.dataWarning = {
-            title: 'Data points outside time range',
-            tip: 'Can be caused by timezone mismatch or missing time filter in query',
+            title: '数据点输出时间范围',
+            tip: '可由查询中的时区失配或丢失时间过滤器引起\n',
           };
           break;
         }
@@ -310,7 +310,7 @@ export class HeatmapCtrl extends MetricsPanelCtrl {
 
   seriesHandler(seriesData) {
     if (seriesData.datapoints === undefined) {
-      throw new Error('Heatmap error: data should be a time series');
+      throw new Error('热图错误：数据应该是时间序列');
     }
 
     const series = new TimeSeries({

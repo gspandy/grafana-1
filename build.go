@@ -62,11 +62,11 @@ func main() {
 	flag.BoolVar(&cgo, "cgo-enabled", cgo, "Enable cgo")
 	flag.StringVar(&pkgArch, "pkg-arch", "", "PKG ARCH")
 	flag.StringVar(&phjsToRelease, "phjs", "", "PhantomJS binary")
-	flag.BoolVar(&race, "race", race, "Use race detector")
-	flag.BoolVar(&includeBuildId, "includeBuildId", includeBuildId, "IncludeBuildId in package name")
-	flag.BoolVar(&enterprise, "enterprise", enterprise, "Build enterprise version of Grafana")
-	flag.StringVar(&buildIdRaw, "buildId", "0", "Build ID from CI system")
-	flag.BoolVar(&isDev, "dev", isDev, "optimal for development, skips certain steps")
+	flag.BoolVar(&race, "race", race, "使用竞赛检测器")
+	flag.BoolVar(&includeBuildId, "includeBuildId", includeBuildId, "包名称中的IncludeBuildId")
+	flag.BoolVar(&enterprise, "enterprise", enterprise, "构建Grafana的企业版")
+	flag.StringVar(&buildIdRaw, "buildId", "0", "从CI系统构建ID")
+	flag.BoolVar(&isDev, "dev", isDev, "最适合开发，跳过某些步骤")
 	flag.Parse()
 
 	buildId = shortenBuildId(buildIdRaw)
@@ -80,7 +80,7 @@ func main() {
 	log.Printf("Version: %s, Linux Version: %s, Package Iteration: %s\n", version, linuxPackageVersion, linuxPackageIteration)
 
 	if flag.NArg() == 0 {
-		log.Println("Usage: go run build.go build")
+		log.Println("用法: go run build.go build")
 		return
 	}
 
@@ -157,7 +157,7 @@ func main() {
 func makeLatestDistCopies() {
 	files, err := ioutil.ReadDir("dist")
 	if err != nil {
-		log.Fatalf("failed to create latest copies. Cannot read from /dist")
+		log.Fatalf("无法创建最新副本。无法从/dist读取")
 	}
 
 	latestMapping := map[string]string{
@@ -178,7 +178,7 @@ func makeLatestDistCopies() {
 func readVersionFromPackageJson() {
 	reader, err := os.Open("package.json")
 	if err != nil {
-		log.Fatal("Failed to open package.json")
+		log.Fatal("无法打开 package.json")
 		return
 	}
 	defer reader.Close()
@@ -187,7 +187,7 @@ func readVersionFromPackageJson() {
 	jsonParser := json.NewDecoder(reader)
 
 	if err := jsonParser.Decode(&jsonObj); err != nil {
-		log.Fatal("Failed to decode package.json")
+		log.Fatal("无法解码 package.json")
 	}
 
 	version = jsonObj["version"].(string)
@@ -606,7 +606,7 @@ func shaFilesInDist() {
 		if !strings.Contains(path, ".sha256") {
 			err := shaFile(path)
 			if err != nil {
-				log.Printf("Failed to create sha file. error: %v\n", err)
+				log.Printf("创建 sha 文件失败. error: %v\n", err)
 			}
 		}
 		return nil

@@ -83,13 +83,13 @@ export class FolderPermissions extends PureComponent<Props, State> {
         <PageHeader model={navModel} />
         <div className="page-container page-body">
           <div className="page-action-bar">
-            <h3 className="page-sub-heading">Folder Permissions</h3>
+            <h3 className="page-sub-heading">文件夹权限</h3>
             <Tooltip className="page-sub-heading-icon" placement="auto" content={PermissionsInfo}>
               <i className="gicon gicon-question gicon--has-hover" />
             </Tooltip>
             <div className="page-action-bar__spacer" />
             <button className="btn btn-success pull-right" onClick={this.onOpenAddPermissions} disabled={isAdding}>
-              <i className="fa fa-plus" /> Add Permission
+              <i className="fa fa-plus" /> 添加权限
             </button>
           </div>
           <SlideDown in={isAdding}>

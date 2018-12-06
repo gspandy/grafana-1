@@ -122,31 +122,31 @@ export class MysqlQueryCtrl extends QueryCtrl {
   buildSelectMenu() {
     this.selectMenu = [];
     const aggregates = {
-      text: 'Aggregate Functions',
+      text: '聚合函数',
       value: 'aggregate',
       submenu: [
-        { text: 'Average', value: 'avg' },
-        { text: 'Count', value: 'count' },
-        { text: 'Maximum', value: 'max' },
-        { text: 'Minimum', value: 'min' },
-        { text: 'Sum', value: 'sum' },
-        { text: 'Standard deviation', value: 'stddev' },
-        { text: 'Variance', value: 'variance' },
+        { text: '平均值', value: 'avg' },
+        { text: '总数', value: 'count' },
+        { text: '最大值', value: 'max' },
+        { text: '最小值', value: 'min' },
+        { text: '总和', value: 'sum' },
+        { text: '标准偏差', value: 'stddev' },
+        { text: '方差\n', value: 'variance' },
       ],
     };
 
     this.selectMenu.push(aggregates);
-    this.selectMenu.push({ text: 'Alias', value: 'alias' });
-    this.selectMenu.push({ text: 'Column', value: 'column' });
+    this.selectMenu.push({ text: '别名', value: 'alias' });
+    this.selectMenu.push({ text: '列', value: 'column' });
   }
 
   toggleEditorMode() {
     if (this.target.rawQuery) {
       appEvents.emit('confirm-modal', {
-        title: 'Warning',
-        text2: 'Switching to query builder may overwrite your raw SQL.',
+        title: '警告',
+        text2: '切换到查询生成器可能会覆盖原始SQL。',
         icon: 'fa-exclamation',
-        yesText: 'Switch',
+        yesText: '切换',
         onConfirm: () => {
           this.target.rawQuery = !this.target.rawQuery;
         },

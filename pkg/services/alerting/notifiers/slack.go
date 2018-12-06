@@ -20,13 +20,13 @@ func init() {
 	alerting.RegisterNotifier(&alerting.NotifierPlugin{
 		Type:        "slack",
 		Name:        "Slack",
-		Description: "Sends notifications to Slack via Slack Webhooks",
+		Description: "通过Slack Webhooks向Slack发送通知",
 		Factory:     NewSlackNotifier,
 		OptionsTemplate: `
       <h3 class="page-heading">Slack settings</h3>
       <div class="gf-form max-width-30">
         <span class="gf-form-label width-6">Url</span>
-        <input type="text" required class="gf-form-input max-width-30" ng-model="ctrl.model.settings.url" placeholder="Slack incoming webhook url"></input>
+        <input type="text" required class="gf-form-input max-width-30" ng-model="ctrl.model.settings.url" placeholder="Slack 传入的 webhook url"></input>
       </div>
       <div class="gf-form max-width-30">
         <span class="gf-form-label width-6">Recipient</span>
@@ -36,18 +36,18 @@ func init() {
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Override default channel or user, use #channel-name or @username
+          覆盖默认频道或用户，使用#channel-name或@username
         </info-popover>
       </div>
       <div class="gf-form max-width-30">
-        <span class="gf-form-label width-6">Username</span>
+        <span class="gf-form-label width-6">用户名</span>
         <input type="text"
           class="gf-form-input max-width-30"
           ng-model="ctrl.model.settings.username"
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Set the username for the bot's message
+          设置机器人消息的用户名
         </info-popover>
       </div>
       <div class="gf-form max-width-30">
@@ -58,7 +58,7 @@ func init() {
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Provide an emoji to use as the icon for the bot's message. Overrides the icon URL
+          提供表情符号以用作机器人消息的图标。覆盖图标URL
         </info-popover>
       </div>
       <div class="gf-form max-width-30">
@@ -69,7 +69,7 @@ func init() {
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Provide a URL to an image to use as the icon for the bot's message
+          提供图像的URL以用作机器人消息的图标
         </info-popover>
       </div>
       <div class="gf-form max-width-30">
@@ -80,7 +80,7 @@ func init() {
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Mention a user or a group using @ when notifying in a channel
+          在通道中通知时，使用@提及用户或组
         </info-popover>
       </div>
       <div class="gf-form max-width-30">
@@ -91,7 +91,7 @@ func init() {
           data-placement="right">
         </input>
         <info-popover mode="right-absolute">
-          Provide a bot token to use the Slack file.upload API (starts with "xoxb"). Specify #channel-name or @username in Recipient for this to work 
+          提供机器人令牌以使用Slack file.upload API（以“xoxb”开头）。在收件人中指定#channel-name或@username以使其生效 
         </info-popover>
       </div>
     `,
@@ -141,7 +141,7 @@ type SlackNotifier struct {
 }
 
 func (this *SlackNotifier) Notify(evalContext *alerting.EvalContext) error {
-	this.log.Info("Executing slack notification", "ruleId", evalContext.Rule.Id, "notification", this.Name)
+	this.log.Info("执行 slack 通知", "ruleId", evalContext.Rule.Id, "notification", this.Name)
 
 	ruleUrl, err := evalContext.GetRuleUrl()
 	if err != nil {
@@ -164,7 +164,7 @@ func (this *SlackNotifier) Notify(evalContext *alerting.EvalContext) error {
 
 	if evalContext.Error != nil {
 		fields = append(fields, map[string]interface{}{
-			"title": "Error message",
+			"title": "错误信息",
 			"value": evalContext.Error.Error(),
 			"short": false,
 		})
@@ -214,7 +214,7 @@ func (this *SlackNotifier) Notify(evalContext *alerting.EvalContext) error {
 	data, _ := json.Marshal(&body)
 	cmd := &m.SendWebhookSync{Url: this.Url, Body: string(data)}
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		this.log.Error("Failed to send slack notification", "error", err, "webhook", this.Name)
+		this.log.Error("无法发送 slack 通知", "error", err, "webhook", this.Name)
 		return err
 	}
 	if this.Token != "" && this.UploadImage {
@@ -230,14 +230,14 @@ func SlackFileUpload(evalContext *alerting.EvalContext, log log.Logger, url stri
 	if evalContext.ImageOnDiskPath == "" {
 		evalContext.ImageOnDiskPath = filepath.Join(setting.HomePath, "public/img/mixed_styles.png")
 	}
-	log.Info("Uploading to slack via file.upload API")
+	log.Info("通过file.upload API上传到slack")
 	headers, uploadBody, err := GenerateSlackBody(evalContext.ImageOnDiskPath, token, recipient)
 	if err != nil {
 		return err
 	}
 	cmd := &m.SendWebhookSync{Url: url, Body: uploadBody.String(), HttpHeader: headers, HttpMethod: "POST"}
 	if err := bus.DispatchCtx(evalContext.Ctx, cmd); err != nil {
-		log.Error("Failed to upload slack image", "error", err, "webhook", "file.upload")
+		log.Error("无法上传slack的图像", "error", err, "webhook", "file.upload")
 		return err
 	}
 	if err != nil {

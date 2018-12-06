@@ -72,7 +72,7 @@ transformers['timeseries_aggregations'] = {
       { text: '平均值', value: 'avg' },
       { text: '最小值', value: 'min' },
       { text: '最大值', value: 'max' },
-      { text: '总计', value: 'total' },
+      { text: '总和', value: 'total' },
       { text: '当前值', value: 'current' },
       { text: '总数', value: 'count' },
     ];

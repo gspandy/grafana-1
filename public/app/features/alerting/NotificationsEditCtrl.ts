@@ -43,8 +43,8 @@ export class AlertNotificationEditCtrl {
         }
 
         if (!this.$routeParams.id) {
-          this.navModel.breadcrumbs.push({ text: 'New channel' });
-          this.navModel.node = { text: 'New channel' };
+          this.navModel.breadcrumbs.push({ text: '新建渠道' });
+          this.navModel.node = { text: '新建渠道' };
           return _.defaults(this.model, this.defaults);
         }
 
@@ -71,7 +71,7 @@ export class AlertNotificationEditCtrl {
         .put(`/api/alert-notifications/${this.model.id}`, this.model)
         .then(res => {
           this.model = res;
-          appEvents.emit('alert-success', ['Notification updated', '']);
+          appEvents.emit('alert-success', ['通知已更新', '']);
         })
         .catch(err => {
           if (err.data && err.data.error) {
@@ -82,7 +82,7 @@ export class AlertNotificationEditCtrl {
       this.backendSrv
         .post(`/api/alert-notifications`, this.model)
         .then(res => {
-          appEvents.emit('alert-success', ['Notification created', '']);
+          appEvents.emit('alert-success', ['通知已创建', '']);
           this.$location.path('alerting/notifications');
         })
         .catch(err => {
@@ -115,7 +115,7 @@ export class AlertNotificationEditCtrl {
     };
 
     this.backendSrv.post(`/api/alert-notifications/test`, payload).then(res => {
-      appEvents.emit('alert-success', ['Test notification sent', '']);
+      appEvents.emit('alert-success', ['发送测试通知', '']);
     });
   }
 }

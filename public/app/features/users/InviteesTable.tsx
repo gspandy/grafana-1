@@ -25,8 +25,8 @@ export default class InviteesTable extends PureComponent<Props> {
       <table className="filter-table form-inline">
         <thead>
           <tr>
-            <th>Email</th>
-            <th>名称</th>
+            <th>邮箱</th>
+            <th>姓名</th>
             <th />
             <th style={{ width: '34px' }} />
           </tr>
@@ -45,7 +45,7 @@ export default class InviteesTable extends PureComponent<Props> {
                       style={{ position: 'absolute', right: -1000 }}
                       ref={this.copyUrlRef}
                     />
-                    <i className="fa fa-clipboard" /> Copy Invite
+                    <i className="fa fa-clipboard" /> 复制邀请
                   </button>
                   &nbsp;
                 </td>

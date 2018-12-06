@@ -103,7 +103,7 @@ export class VariableEditorCtrl {
         if (err.data && err.data.message) {
           err.message = err.data.message;
         }
-        appEvents.emit('alert-error', ['Templating', '无法初始化模板变量： ' + err.message]);
+        appEvents.emit('alert-error', ['模板：', '无法初始化模板变量： ' + err.message]);
       });
     };
 

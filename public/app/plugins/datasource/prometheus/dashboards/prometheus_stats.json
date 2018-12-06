@@ -8,7 +8,7 @@
   ],
 
   "revision": "1.0",
-  "title": "Prometheus Stats",
+  "title": "Prometheus 统计",
   "tags": ["prometheus"],
   "style": "dark",
   "timezone": "browser",
@@ -60,7 +60,7 @@
             }
           ],
           "thresholds": "",
-          "title": "Uptime",
+          "title": "正常运行时间",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
@@ -110,7 +110,7 @@
             }
           ],
           "thresholds": "0,1,5",
-          "title": "Local Storage Memory Series",
+          "title": "本地存储内存系列",
           "type": "singlestat",
           "valueFontSize": "70%",
           "valueMaps": [],
@@ -154,7 +154,7 @@
             }
           ],
           "thresholds": "0,500,4000",
-          "title": "Internal Storage Queue Length",
+          "title": "内部存储队列长度",
           "type": "singlestat",
           "valueFontSize": "70%",
           "valueMaps": [
@@ -180,7 +180,7 @@
           "type": "text"
         }
       ],
-      "title": "New row"
+      "title": "新建行"
     },
     {
       "collapse": false,
@@ -270,7 +270,7 @@
           "type": "text"
         }
       ],
-      "title": "New row"
+      "title": "新建行"
     },
     {
       "collapse": false,
@@ -487,7 +487,7 @@
           ],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Rule Eval Duration",
+          "title": "规则评估持续时间",
           "tooltip": {
             "shared": true,
             "value_type": "cumulative"
@@ -514,7 +514,7 @@
           "type": "text"
         }
       ],
-      "title": "New row"
+      "title": "新建行"
     }
   ],
   "time": {
@@ -581,7 +581,7 @@
       "icon": "info",
       "tags": [],
       "targetBlank": true,
-      "title": "Grafana Docs",
+      "title": "Grafana 文档",
       "tooltip": "",
       "type": "link",
       "url": "http://docs.grafana.org/"
@@ -590,7 +590,7 @@
       "icon": "info",
       "tags": [],
       "targetBlank": true,
-      "title": "Prometheus Docs",
+      "title": "Prometheus 文档",
       "type": "link",
       "url": "http://prometheus.io/docs/introduction/overview/"
     }

@@ -203,7 +203,7 @@ func getPanelSort(id string) int {
 func (hs *HTTPServer) GetFrontendSettings(c *m.ReqContext) {
 	settings, err := hs.getFrontendSettingsMap(c)
 	if err != nil {
-		c.JsonApiErr(400, "Failed to get frontend settings", err)
+		c.JsonApiErr(400, "无法获得前端设置", err)
 		return
 	}
 

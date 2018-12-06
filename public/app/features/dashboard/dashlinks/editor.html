@@ -77,12 +77,12 @@
       <div class="gf-form">
         <span class="gf-form-label width-8">类型</span>
         <div class="gf-form-select-wrapper width-10">
-          <select class="gf-form-input" ng-model="ctrl.link.type" ng-options="f for f in ['dashboards','link']"></select>
+          <select class="gf-form-input" ng-model="ctrl.link.type" ng-options="f for f in ['仪表盘','连接']"></select>
         </div>
       </div>
 
       <div class="gf-form" ng-show="ctrl.link.type === 'dashboards'">
-        <span class="gf-form-label width-8">带标签</span>
+        <span class="gf-form-label width-8">标签</span>
         <bootstrap-tagsinput ng-model="ctrl.link.tags" tagclass="label label-tag" placeholder="添加标签" style="margin-right: .25rem"></bootstrap-tagsinput>
       </div>
 

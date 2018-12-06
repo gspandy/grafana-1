@@ -7,16 +7,16 @@ import { LS_PANEL_COPY_KEY } from 'app/core/constants';
 export const removePanel = (dashboard: DashboardModel, panel: PanelModel, ask: boolean) => {
   // confirm deletion
   if (ask !== false) {
-    const text2 = panel.alert ? 'Panel includes an alert rule, removing panel will also remove alert rule' : null;
+    const text2 = panel.alert ? '面板包含警报规则，删除面板也将删除警报规则' : null;
     const confirmText = panel.alert ? 'YES' : null;
 
     appEvents.emit('confirm-modal', {
-      title: 'Remove Panel',
-      text: 'Are you sure you want to remove this panel?',
+      title: '删除面板',
+      text: '您确定要删除此面板吗？',
       text2: text2,
       icon: 'fa-trash',
       confirmText: confirmText,
-      yesText: 'Remove',
+      yesText: '删除',
       onConfirm: () => removePanel(dashboard, panel, false),
     });
     return;
@@ -30,7 +30,7 @@ export const duplicatePanel = (dashboard: DashboardModel, panel: PanelModel) => 
 
 export const copyPanel = (panel: PanelModel) => {
   store.set(LS_PANEL_COPY_KEY, JSON.stringify(panel.getSaveModel()));
-  appEvents.emit('alert-success', ['Panel copied. Open Add Panel to paste']);
+  appEvents.emit('alert-success', ['面板已复制。打开添加面板进行粘贴']);
 };
 
 const replacePanel = (dashboard: DashboardModel, newPanel: PanelModel, oldPanel: PanelModel) => {
@@ -79,7 +79,7 @@ export const refreshPanel = (panel: PanelModel) => {
 };
 
 export const toggleLegend = (panel: PanelModel) => {
-  console.log('Toggle legend is not implemented yet');
+  console.log('T切换图例尚未实现');
   // We need to set panel.legend defaults first
   // panel.legend.show = !panel.legend.show;
   refreshPanel(panel);

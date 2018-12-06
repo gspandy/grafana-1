@@ -24,9 +24,9 @@ export class SnapshotListCtrl {
 
   removeSnapshot(snapshot) {
     this.$rootScope.appEvent('confirm-modal', {
-      title: 'Delete',
-      text: 'Are you sure you want to delete snapshot ' + snapshot.name + '?',
-      yesText: 'Delete',
+      title: '删除',
+      text: '是否确定删除快照 ' + snapshot.name + '?',
+      yesText: '删除',
       icon: 'fa-trash',
       onConfirm: () => {
         this.removeSnapshotConfirmed(snapshot);

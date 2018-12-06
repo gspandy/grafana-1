@@ -234,7 +234,7 @@ Content-Type: application/json
 HTTP/1.1 200
 Content-Type: application/json
 
-{"id":5,"message":"User created"}
+{"id":5,"message":"创建用户成功"}
 ```
 
 ## Password for User
@@ -260,7 +260,7 @@ Content-Type: application/json
 HTTP/1.1 200
 Content-Type: application/json
 
-{"message": "User password updated"}
+{"message": "用户密码已更新"}
 ```
 
 ## Permissions
@@ -285,7 +285,7 @@ Content-Type: application/json
 HTTP/1.1 200
 Content-Type: application/json
 
-{message: "User permissions updated"}
+{message: "用户权限已更新"}
 ```
 
 ## Delete global User
@@ -308,7 +308,7 @@ Content-Type: application/json
 HTTP/1.1 200
 Content-Type: application/json
 
-{message: "User deleted"}
+{message: "用户已删除"}
 ```
 
 ## Pause all alerts

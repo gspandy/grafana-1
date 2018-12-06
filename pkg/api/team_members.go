@@ -13,7 +13,7 @@ func GetTeamMembers(c *m.ReqContext) Response {
 	query := m.GetTeamMembersQuery{OrgId: c.OrgId, TeamId: c.ParamsInt64(":teamId")}
 
 	if err := bus.Dispatch(&query); err != nil {
-		return Error(500, "Failed to get Team Members", err)
+		return Error(500, "未能获得团队成员", err)
 	}
 
 	for _, member := range query.Result {
@@ -35,18 +35,18 @@ func AddTeamMember(c *m.ReqContext, cmd m.AddTeamMemberCommand) Response {
 
 	if err := bus.Dispatch(&cmd); err != nil {
 		if err == m.ErrTeamNotFound {
-			return Error(404, "Team not found", nil)
+			return Error(404, "团队未找到", nil)
 		}
 
 		if err == m.ErrTeamMemberAlreadyAdded {
-			return Error(400, "User is already added to this team", nil)
+			return Error(400, "用户已添加到此团队中", nil)
 		}
 
-		return Error(500, "Failed to add Member to Team", err)
+		return Error(500, "无法将用户添加到团队", err)
 	}
 
 	return JSON(200, &util.DynMap{
-		"message": "Member added to Team",
+		"message": "用户加入团队成功",
 	})
 }
 
@@ -54,14 +54,14 @@ func AddTeamMember(c *m.ReqContext, cmd m.AddTeamMemberCommand) Response {
 func RemoveTeamMember(c *m.ReqContext) Response {
 	if err := bus.Dispatch(&m.RemoveTeamMemberCommand{OrgId: c.OrgId, TeamId: c.ParamsInt64(":teamId"), UserId: c.ParamsInt64(":userId")}); err != nil {
 		if err == m.ErrTeamNotFound {
-			return Error(404, "Team not found", nil)
+			return Error(404, "团队未找到", nil)
 		}
 
 		if err == m.ErrTeamMemberNotFound {
-			return Error(404, "Team member not found", nil)
+			return Error(404, "未找到团队成员", nil)
 		}
 
-		return Error(500, "Failed to remove Member from Team", err)
+		return Error(500, "无法从团队中删除成员", err)
 	}
-	return Success("Team Member removed")
+	return Success("成员已删除")
 }

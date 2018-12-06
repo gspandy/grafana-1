@@ -126,7 +126,7 @@ func removeOrgUserHelper(cmd *m.RemoveOrgUserCommand) Response {
 	}
 
 	if cmd.UserWasDeleted {
-		return Success("User deleted")
+		return Success("用户已删除")
 	}
 
 	return Success("User removed from organization")

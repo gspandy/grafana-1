@@ -25,7 +25,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     { value: 'max', text: '最大值' },
     { value: 'avg', text: '平均数' },
     { value: 'current', text: '当前' },
-    { value: 'total', text: '总计' },
+    { value: 'total', text: '总数' },
     { value: 'name', text: '名称' },
     { value: 'first', text: '第一' },
     { value: 'delta', text: '小数' },

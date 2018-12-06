@@ -62,7 +62,7 @@ export class DashboardCtrl {
     this.variableSrv
       .init(dashboard)
       // template values failes are non fatal
-      .catch(this.onInitFailed.bind(this, 'Templating init failed', false))
+      .catch(this.onInitFailed.bind(this, '模板初始化失败', false))
       // continue
       .finally(() => {
         this.dashboard = dashboard;

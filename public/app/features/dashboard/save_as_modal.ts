@@ -16,7 +16,7 @@ const template = `
 	<form name="ctrl.saveForm" class="modal-content" novalidate>
 		<div class="p-t-2">
 			<div class="gf-form">
-				<label class="gf-form-label width-7">新名称</label>
+				<label class="gf-form-label width-7">名称</label>
 				<input type="text" class="gf-form-input" ng-model="ctrl.clone.title" give-focus="true" required>
 			</div>
       <div class="gf-form">

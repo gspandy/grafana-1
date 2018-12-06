@@ -481,7 +481,7 @@ class GraphElement {
       mode: 'time',
       min: min,
       max: max,
-      label: 'Datetime',
+      label: '时间',
       ticks: ticks,
       timeformat: this.time_format(ticks, min, max),
     };
@@ -498,7 +498,7 @@ class GraphElement {
       mode: null,
       min: 0,
       max: ticks.length + 1,
-      label: 'Datetime',
+      label: '时间',
       ticks: ticks,
     };
   }
@@ -548,7 +548,7 @@ class GraphElement {
       mode: null,
       min: min,
       max: max,
-      label: 'Histogram',
+      label: '直方图',
       ticks: ticks,
     };
 
@@ -571,7 +571,7 @@ class GraphElement {
       mode: null,
       min: 0,
       max: ticks.length + 1,
-      label: 'Datetime',
+      label: '时间',
       ticks: ticks,
     };
   }
@@ -727,7 +727,7 @@ class GraphElement {
   configureAxisMode(axis, format) {
     axis.tickFormatter = (val, axis) => {
       if (!kbn.valueFormats[format]) {
-        throw new Error(`Unit '${format}' is not supported`);
+        throw new Error(`单位 '${format}' 不支持`);
       }
       return kbn.valueFormats[format](val, axis.tickDecimals, axis.scaledDecimals);
     };

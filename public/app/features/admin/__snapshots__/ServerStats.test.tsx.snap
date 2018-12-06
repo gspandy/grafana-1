@@ -97,7 +97,7 @@ exports[`ServerStats Should render table with stats 1`] = `
       <tbody>
         <tr>
           <td>
-            Total dashboards
+            仪表盘数量
           </td>
           <td>
             10
@@ -105,7 +105,7 @@ exports[`ServerStats Should render table with stats 1`] = `
         </tr>
         <tr>
           <td>
-            Total Users
+            用户数量
           </td>
           <td>
             1

@@ -103,7 +103,7 @@ export class AddPanelPanel extends React.Component<AddPanelPanelProps, AddPanelP
     };
 
     if (panelPluginInfo.id === 'row') {
-      newPanel.title = 'Row title';
+      newPanel.title = '行标题';
       newPanel.gridPos = { x: 0, y: 0 };
     }
 
@@ -140,7 +140,7 @@ export class AddPanelPanel extends React.Component<AddPanelPanelProps, AddPanelP
   }
 
   noCopiedPanelPlugins() {
-    return <div className="add-panel__no-panels">No copied panels yet.</div>;
+    return <div className="add-panel__no-panels">还没有复制的面板。</div>;
   }
 
   filterChange(evt) {

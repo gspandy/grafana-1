@@ -36,8 +36,8 @@ a user as member of a team and it will not be removed when the user signs in. Th
 
 1. Navigate to Configuration / Teams.
 2. Select a team.
-3. Select the External group sync tab and click on the `Add group` button.
+3. Select the 外部组同步 tab and click on the `添加组` button.
 4. Insert LDAP distinguished name (DN) of LDAP group you want to synchronize with the team.
-5. Click on `Add group` button to save.
+5. Click on `添加组` button to save.
 
 <div class="clearfix"></div>

@@ -6,23 +6,23 @@ export class FolderPageLoader {
       main: {
         icon: 'fa fa-folder-open',
         id: 'manage-folder',
-        subTitle: 'Manage folder dashboards & permissions',
+        subTitle: '管理文件夹仪表板和权限',
         url: '',
         text: '',
-        breadcrumbs: [{ title: 'Dashboards', url: 'dashboards' }],
+        breadcrumbs: [{ title: '仪表盘', url: 'dashboards' }],
         children: [
           {
             active: activeChildId === 'manage-folder-dashboards',
             icon: 'fa fa-fw fa-th-large',
             id: 'manage-folder-dashboards',
-            text: 'Dashboards',
+            text: '仪表盘',
             url: 'dashboards',
           },
           {
             active: activeChildId === 'manage-folder-permissions',
             icon: 'fa fa-fw fa-lock',
             id: 'manage-folder-permissions',
-            text: 'Permissions',
+            text: '权限',
             url: 'dashboards/permissions',
           },
           {
