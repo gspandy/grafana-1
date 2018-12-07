@@ -202,7 +202,7 @@ class GraphCtrl extends MetricsPanelCtrl {
 
     if (datapointsCount === 0) {
       this.dataWarning = {
-        title: '没有数据点',
+        title: '没有数据',
         tip: '没有从数据查询返回的数据点',
       };
     } else {

@@ -61,7 +61,7 @@ export class FolderSettingsPage extends PureComponent<Props> {
           <div className="section gf-form-group">
             <form name="folderSettingsForm" onSubmit={this.onSave}>
               <div className="gf-form">
-                <label className="gf-form-label width-7">Name</label>
+                <label className="gf-form-label width-7">名称</label>
                 <input
                   type="text"
                   className="gf-form-input width-30"

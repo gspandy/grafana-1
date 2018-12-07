@@ -27,22 +27,22 @@
       <div class="gf-form-group">
         <h5 class="section-heading">告警配置</h5>
         <div class="gf-form">
-          <span class="gf-form-label width-6">名字</span>
+          <span class="gf-form-label width-6">名称</span>
           <input type="text" class="gf-form-input width-20" ng-model="ctrl.alert.name">
         </div>
         <div class="gf-form-inline">
           <div class="gf-form">
-            <span class="gf-form-label width-9">评估每一个</span>
+            <span class="gf-form-label width-9">更新频率</span>
             <input class="gf-form-input max-width-6" type="text" ng-model="ctrl.alert.frequency">
           </div>
-          <div class="gf-form max-width-11">
+{{/*          <div class="gf-form max-width-11">
             <label class="gf-form-label width-5">For</label>
             <input type="text" class="gf-form-input max-width-6" ng-model="ctrl.alert.for" spellcheck='false' placeholder="5m">
             <info-popover mode="right-absolute">
-              如果告警规则已配置为For且查询违反配置的阈值，则它将首先从OK转为Pending。
-              从OK到Pending Grafana不会发送任何通知。一旦告警规则触发超过持续时间，它将发生变化to Alerting and send alert notifications.
+              如果警报规则已配置为For且查询违反配置的阈值，则它将首先从OK转为Pending。
+              从OK到Pending Grafana不会发送任何通知。一旦警报规则触发超过持续时间，它将更改为警报并发送警报通知。
             </info-popover>
-          </div>
+          </div>*/}}
         </div>
       </div>
 
@@ -147,7 +147,7 @@
     <div class="gf-form-group" style="max-width: 720px;" ng-if="ctrl.subTabIndex === 2">
       <button class="btn btn-mini btn-danger pull-right" ng-click="ctrl.clearHistory()"><i class="fa fa-trash"></i>&nbsp;清空历史记录</button>
           <h5 class="section-heading" style="whitespace: nowrap">
-        历史状态 <span class="muted small">(最近50次状态改变)</span>
+        历史状态 <span class="muted small">(最近50次状态变更)</span>
       </h5>
 
       <div ng-show="ctrl.alertHistory.length === 0">

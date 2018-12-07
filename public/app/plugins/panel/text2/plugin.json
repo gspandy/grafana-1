@@ -1,13 +1,13 @@
 {
   "type": "panel",
-  "name": "Text v2",
+  "name": "表格 v2",
   "id": "text2",
 
   "state": "alpha",
 
   "info": {
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana 项目",
       "url": "https://grafana.com"
     },
     "logos": {

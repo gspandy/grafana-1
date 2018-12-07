@@ -1,11 +1,11 @@
 {
   "type": "panel",
-  "name": "Text",
+  "name": "文本",
   "id": "text",
 
   "info": {
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana 项目",
       "url": "https://grafana.com"
 },
     "logos": {

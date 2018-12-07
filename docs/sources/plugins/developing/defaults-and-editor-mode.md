@@ -75,7 +75,7 @@ Then you need to create a handler function that is bound to the event. In the ex
 
 ```javascript
 onInitEditMode() {
-  this.addEditorTab('Options', 'public/plugins/grafana-clock-panel/editor.html', 2);
+  this.addEditorTab('选项', 'public/plugins/grafana-clock-panel/editor.html', 2);
 }
 ```
 

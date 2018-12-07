@@ -28,10 +28,10 @@ export class DashboardSrv {
       err.isHandled = true;
 
       this.$rootScope.appEvent('confirm-modal', {
-        title: 'Conflict',
-        text: 'Someone else has updated this dashboard.',
-        text2: 'Would you still like to save this dashboard?',
-        yesText: 'Save & Overwrite',
+        title: '冲突',
+        text: '其他人已更新此仪表板。',
+        text2: '你还想保存这个仪表板吗？',
+        yesText: '保存并覆盖',
         icon: 'fa-warning',
         onConfirm: () => {
           this.save(clone, options);
@@ -43,10 +43,10 @@ export class DashboardSrv {
       err.isHandled = true;
 
       this.$rootScope.appEvent('confirm-modal', {
-        title: 'Conflict',
-        text: 'A dashboard with the same name in selected folder already exists.',
-        text2: 'Would you still like to save this dashboard?',
-        yesText: 'Save & Overwrite',
+        title: '冲突',
+        text: '已存在所选文件夹中具有相同名称的仪表板.',
+        text2: '你还想保存这个仪表板吗？',
+        yesText: '保存并覆盖',
         icon: 'fa-warning',
         onConfirm: () => {
           this.save(clone, options);

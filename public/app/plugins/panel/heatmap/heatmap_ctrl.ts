@@ -280,7 +280,7 @@ export class HeatmapCtrl extends MetricsPanelCtrl {
 
     if (datapointsCount === 0) {
       this.dataWarning = {
-        title: '没有数据点',
+        title: '没有数据',
         tip: '查询没有返回数据点',
       };
     } else {

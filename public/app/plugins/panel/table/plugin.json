@@ -1,12 +1,12 @@
 {
   "type": "panel",
-  "name": "Table",
+  "name": "表格",
   "id": "table",
 
   "info": {
-    "description": "Table Panel for Grafana",
+    "description": "Grafana的表格面板\n",
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana 项目",
       "url": "https://grafana.com"
 },
     "logos": {

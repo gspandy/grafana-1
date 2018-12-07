@@ -25,7 +25,7 @@ const template = `
     <div class="gf-form">
       <label class="gf-form-label">
         <img src="public/app/plugins/panel/graph/img/icn-graph-panel.svg" style="width: 16px; height: 16px" />
-        Graph
+        图表
         <i class="fa fa-caret-down" />
       </label>
 		</div>

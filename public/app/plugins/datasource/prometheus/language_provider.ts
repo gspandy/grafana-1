@@ -136,7 +136,7 @@ export default class PromQlLanguageProvider extends LanguageProvider {
       suggestions.push({
         prefixMatch: true,
         skipSort: true,
-        label: 'History',
+        label: '历史',
         items: historyItems,
       });
     }
@@ -153,13 +153,13 @@ export default class PromQlLanguageProvider extends LanguageProvider {
 
     suggestions.push({
       prefixMatch: true,
-      label: 'Functions',
+      label: '功能',
       items: FUNCTIONS.map(setFunctionKind),
     });
 
     if (metrics && metrics.length > 0) {
       suggestions.push({
-        label: 'Metrics',
+        label: '指标',
         items: metrics.map(wrapLabel),
       });
     }
@@ -171,7 +171,7 @@ export default class PromQlLanguageProvider extends LanguageProvider {
       context: 'context-range',
       suggestions: [
         {
-          label: 'Range vector',
+          label: '范围矢量',
           items: [...RATE_RANGES],
         },
       ],
@@ -260,7 +260,7 @@ export default class PromQlLanguageProvider extends LanguageProvider {
         const labelValues = this.labelValues[selector][labelKey];
         context = 'context-label-values';
         suggestions.push({
-          label: `Label values for "${labelKey}"`,
+          label:  `"${labelKey}"标签值`,
           items: labelValues.map(wrapLabel),
         });
       }
@@ -271,7 +271,7 @@ export default class PromQlLanguageProvider extends LanguageProvider {
         const possibleKeys = _.difference(labelKeys, existingKeys);
         if (possibleKeys.length > 0) {
           context = 'context-labels';
-          suggestions.push({ label: `Labels`, items: possibleKeys.map(wrapLabel) });
+          suggestions.push({ label: `标签`, items: possibleKeys.map(wrapLabel) });
         }
       }
     }

@@ -23,11 +23,11 @@
     <h5 class="section-heading">筛选</h5>
     <div class="gf-form">
       <span class="gf-form-label width-8">告警名称</span>
-      <input type="text" class="gf-form-input max-width-15" ng-model="ctrl.panel.nameFilter" placeholder="Alert name query" ng-change="ctrl.onRefresh()" />
+      <input type="text" class="gf-form-input max-width-15" ng-model="ctrl.panel.nameFilter" placeholder="查询告警名" ng-change="ctrl.onRefresh()" />
     </div>
     <div class="gf-form">
       <span class="gf-form-label width-8">仪表盘标题</span>
-      <input type="text" class="gf-form-input" placeholder="Dashboard title query" ng-model="ctrl.panel.dashboardFilter" ng-change="ctrl.onRefresh()" ng-model-onblur>
+      <input type="text" class="gf-form-input" placeholder="查询仪表盘标题" ng-model="ctrl.panel.dashboardFilter" ng-change="ctrl.onRefresh()" ng-model-onblur>
     </div>
     <div class="gf-form">
       <folder-picker  initial-folder-id="ctrl.panel.folderId"
@@ -39,7 +39,7 @@
     </div>
     <div class="gf-form">
         <span class="gf-form-label width-8">仪表盘标签</span>
-        <bootstrap-tagsinput ng-model="ctrl.panel.dashboardTags" tagclass="label label-tag" placeholder="add tags" on-tags-updated="ctrl.refresh()">
+        <bootstrap-tagsinput ng-model="ctrl.panel.dashboardTags" tagclass="label label-tag" placeholder="添加标签" on-tags-updated="ctrl.refresh()">
         </bootstrap-tagsinput>
     </div>
   </div>

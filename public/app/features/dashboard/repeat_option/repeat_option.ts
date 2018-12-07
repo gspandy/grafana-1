@@ -29,7 +29,7 @@ function dashRepeatOptionDirective(variableSrv) {
         });
       }
 
-      scope.variables.unshift({ text: 'Disabled', value: null });
+      scope.variables.unshift({ text: '不可用', value: null });
 
       // if repeat is set and no direction set to horizontal
       if (scope.panel.repeat && !scope.panel.repeatDirection) {

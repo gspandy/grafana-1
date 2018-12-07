@@ -56,7 +56,7 @@ func Search(c *m.ReqContext) {
 
 	err := bus.Dispatch(&searchQuery)
 	if err != nil {
-		c.JsonApiErr(500, "Search failed", err)
+		c.JsonApiErr(500, "搜索失败", err)
 		return
 	}
 

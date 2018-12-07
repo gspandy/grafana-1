@@ -11,14 +11,14 @@
     "cacheTimeout": true
   },
   "info": {
-    "description": "Google Stackdriver Datasource for Grafana",
+    "description": "Grafana的Google Stackdriver数据源",
     "version": "1.0.0",
     "logos": {
       "small": "img/stackdriver_logo.png",
       "large": "img/stackdriver_logo.png"
     },
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana 项目",
       "url": "https://grafana.com"
     }
   },

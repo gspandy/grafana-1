@@ -1,10 +1,10 @@
 +++
-title = "Text"
+title = "文本"
 keywords = ["grafana", "text", "documentation", "panel"]
 type = "docs"
 aliases = ["/reference/alertlist/"]
 [menu.docs]
-name = "Text"
+name = "文本"
 parent = "panels"
 weight = 4
 +++

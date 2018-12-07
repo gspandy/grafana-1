@@ -20,7 +20,7 @@ export class AnnotationsEditorCtrl {
     hide: false,
   };
 
-  showOptions: any = [{ text: 'All Panels', value: 0 }, { text: 'Specific Panels', value: 1 }];
+  showOptions: any = [{ text: '全部面板', value: 0 }, { text: '特定面板', value: 1 }];
 
   /** @ngInject */
   constructor($scope, private datasourceSrv) {

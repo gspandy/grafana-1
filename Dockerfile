@@ -75,6 +75,17 @@ COPY --from=1 /usr/src/app/public ./public
 COPY --from=1 /usr/src/app/tools ./tools
 COPY tools/phantomjs/render.js ./tools/phantomjs/render.js
 
+RUN grafana-cli plugins install grafana-simple-json-datasource
+RUN grafana-cli plugins install alexanderzobnin-zabbix-app
+RUN grafana-cli plugins install grafana-piechart-panel
+RUN grafana-cli plugins install grafana-clock-panel
+RUN grafana-cli plugins install ryantxu-ajax-panel
+RUN grafana-cli plugins install praj-ams-datasource
+RUN grafana-cli plugins install savantly-heatmap-panel
+RUN grafana-cli plugins install mtanda-histogram-panel
+RUN grafana-cli plugins install vonage-status-panel
+
+
 EXPOSE 3000
 
 COPY ./packaging/docker/run.sh /run.sh

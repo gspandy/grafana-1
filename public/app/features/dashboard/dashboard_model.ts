@@ -63,7 +63,7 @@ export class DashboardModel {
     this.id = data.id || null;
     this.uid = data.uid || null;
     this.revision = data.revision;
-    this.title = data.title || 'No Title';
+    this.title = data.title || '缺少标题';
     this.autoUpdate = data.autoUpdate;
     this.description = data.description;
     this.tags = data.tags || [];

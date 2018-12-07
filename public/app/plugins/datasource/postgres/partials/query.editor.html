@@ -15,12 +15,12 @@
         <label class="gf-form-label query-keyword width-6">FROM</label>
         <metric-segment segment="ctrl.tableSegment" get-options="ctrl.getTableSegments()" on-change="ctrl.tableChanged()"></metric-segment>
 
-        <label class="gf-form-label query-keyword width-7">Time column</label>
+        <label class="gf-form-label query-keyword width-7">时间栏</label>
         <metric-segment segment="ctrl.timeColumnSegment" get-options="ctrl.getTimeColumnSegments()" on-change="ctrl.timeColumnChanged()"></metric-segment>
 
         <label class="gf-form-label query-keyword width-9">
-          Metric column
-          <info-popover mode="right-normal">Column to be used as metric name for the value column.</info-popover>
+          指标栏
+          <info-popover mode="right-normal">要用作值列的度量标准名称的列。</info-popover>
         </label>
         <metric-segment segment="ctrl.metricColumnSegment" get-options="ctrl.getMetricColumnSegments()" on-change="ctrl.metricColumnChanged()"></metric-segment>
       </div>
@@ -100,7 +100,7 @@
 
   <div class="gf-form-inline">
     <div class="gf-form">
-      <label class="gf-form-label query-keyword">Format as</label>
+      <label class="gf-form-label query-keyword">格式化为</label>
       <div class="gf-form-select-wrapper">
         <select class="gf-form-input gf-size-auto" ng-model="ctrl.target.format" ng-options="f.value as f.text for f in ctrl.formats" ng-change="ctrl.refresh()"></select>
       </div>

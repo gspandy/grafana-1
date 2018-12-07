@@ -1,13 +1,13 @@
 {
   "type": "panel",
-  "name": "Getting Started",
+  "name": "入门",
   "id": "gettingstarted",
 
   "hideFromList": true,
 
   "info": {
     "author": {
-      "name": "Grafana Project",
+      "name": "Grafana 项目",
       "url": "https://grafana.com"
     },
     "logos": {

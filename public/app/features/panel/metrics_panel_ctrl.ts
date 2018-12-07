@@ -101,12 +101,12 @@ class MetricsPanelCtrl extends PanelCtrl {
       .catch(err => {
         // if cancelled  keep loading set to true
         if (err.cancelled) {
-          console.log('Panel request cancelled', err);
+          console.log('面板请求已取消', err);
           return;
         }
 
         this.loading = false;
-        this.error = err.message || 'Request Error';
+        this.error = err.message || '请求错误';
         this.inspector = { error: err };
 
         if (err.data) {

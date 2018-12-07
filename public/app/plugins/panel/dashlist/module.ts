@@ -62,7 +62,7 @@ class DashListCtrl extends PanelCtrl {
   onInitEditMode() {
     this.editorTabIndex = 1;
     this.modes = ['starred', 'search', 'recently viewed'];
-    this.addEditorTab('Options', 'public/app/plugins/panel/dashlist/editor.html');
+    this.addEditorTab('选项', 'public/app/plugins/panel/dashlist/editor.html');
   }
 
   onRefresh() {

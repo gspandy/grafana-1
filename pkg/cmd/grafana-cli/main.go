@@ -20,7 +20,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "Grafana cli"
 	app.Usage = ""
-	app.Author = "Grafana Project"
+	app.Author = "Grafana 项目"
 	app.Email = "https://github.com/grafana/grafana"
 	app.Version = version
 	app.Flags = []cli.Flag{
