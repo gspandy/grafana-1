@@ -8,8 +8,8 @@ Array [
     onClick={[Function]}
   >
     <img
-      alt="Grafana"
-      src="public/img/grafana_icon.svg"
+      alt="Eagle"
+      src="public/img/grafana_icon.png"
     />
   </div>,
   <div
